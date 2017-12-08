@@ -1,0 +1,137 @@
+//
+//  Network.swift
+//  AC-iOS-MidProgramAssessment
+//
+//  Created by Masai Young on 12/8/17.
+//  Copyright © 2017 C4Q . All rights reserved.
+//
+
+import Foundation
+
+class NetworkHelper {
+    private init() {}
+    static let manager = NetworkHelper()
+    let urlSession = URLSession(configuration: URLSessionConfiguration.default)
+    func performDataTask(with url: URL, completionHandler: @escaping ((Data) -> Void), errorHandler: @escaping ((Error) -> Void)) {
+        self.urlSession.dataTask(with: url){(data: Data?, response: URLResponse?, error: Error?) in
+            DispatchQueue.main.async {
+                guard let data = data else {
+                    return
+                }
+                if let error = error {
+                    errorHandler(error)
+                }
+                completionHandler(data)
+            }
+            }.resume()
+    }
+    
+    func performDataTask(with url: URLRequest, completionHandler: @escaping ((Data) -> Void), errorHandler: @escaping ((Error) -> Void)) {
+        self.urlSession.dataTask(with: url){(data: Data?, response: URLResponse?, error: Error?) in
+            DispatchQueue.main.async {
+                guard let data = data else {
+                    return
+                }
+                if let error = error {
+                    errorHandler(error)
+                }
+                completionHandler(data)
+            }
+            }.resume()
+    }
+}
+
+struct ElementAPIClient {
+    private init() {}
+    static let manager = ElementAPIClient()
+    func getElements(from urlStr: String, completionHandler: @escaping ([Element]) -> Void, errorHandler: (Error) -> Void) {
+        guard let url = URL(string: urlStr) else {return}
+        let completion: (Data) -> Void = {(data: Data) in
+            do {
+                let elements = try JSONDecoder().decode([Element].self, from: data)
+                completionHandler(elements)
+            }
+            catch {
+                print(error)
+            }
+        }
+        NetworkHelper.manager.performDataTask(with: url,
+                                              completionHandler: completion,
+                                              errorHandler: {print($0)})
+    }
+}
+
+struct PostElementAPIClient {
+    private init() {}
+    static let manager = PostElementAPIClient()
+    
+    enum HTTPVerb: String {
+        case GET
+        case POST
+    }
+    
+    private func authStr(userName: String, password: String) -> String {
+        let namePassStr = "\(userName):\(password)"
+        let nameAndPassData = namePassStr.data(using: .utf8)!
+        let base64AuthEncoding = nameAndPassData.base64EncodedString()
+        let authStr = "Basic \(base64AuthEncoding)"
+        return authStr
+    }
+    
+    func getElements(from urlStr: String, HTTPVerb: HTTPVerb = .GET, element: PostElement? = nil, completionHandler: @escaping (PostElement) -> Void, errorHandler: (Error) -> Void) {
+        guard let url = URL(string: urlStr) else { return }
+        var request = URLRequest(url: url)
+        
+        let userName = "key-1"
+        let password = "ptJP0XOFIQ_xysF7nwoB"
+        request.addValue(authStr(userName: userName, password: password), forHTTPHeaderField: "Authorization")
+        
+        if HTTPVerb == .POST {
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            do {
+                let encodedOrder = try JSONEncoder().encode(element)
+                request.httpBody = encodedOrder
+            }
+            catch {
+                print(error)
+            }
+        }
+        
+        let completion: (Data) -> Void = {(data: Data) in
+            do {
+                let result = try JSONDecoder().decode(PostElement.self, from: data)
+                completionHandler(result)
+            }
+            catch {
+                print(error)
+            }
+        }
+        NetworkHelper.manager.performDataTask(with: request,
+                                              completionHandler: completion,
+                                              errorHandler: {print($0)})
+        
+    }
+}
+
+struct ImageDownloader {
+    private init() {}
+    static let manager = ImageDownloader()
+    func getImage(from urlStr: String, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping () -> Void) {
+        // MARK: - Downloads images async
+        if let albumURL = URL(string: urlStr) {
+            // doing work on a background thread
+            DispatchQueue.global().async {
+                if let data = try? Data.init(contentsOf: albumURL) {
+                    // go back to main thread to update UI
+                    DispatchQueue.main.async {
+                        completionHandler(data)
+                    }
+                } else {
+                    errorHandler()
+                }
+            }
+        }
+    }
+}
