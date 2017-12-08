@@ -32,8 +32,14 @@ class ElementDetailedViewController: UIViewController {
 		elementSymbolLabel?.text = element.symbol
 		elementNameLabel?.text = element.name
 		elementWeightLabel?.text = "\(element.weight)"
-		elementMeltingPointLabel?.text = "\(String(describing: element.meltingPoint))" ?? ""
-		elementBoilingPointLabel?.text = "\(String(describing: element.boilingPoint))" ?? ""
+		if let melting = element.meltingPoint {
+			elementMeltingPointLabel?.text = "\(String(melting))"
+		} else {elementMeltingPointLabel?.text = "Melting: N/A "}
+		if let boiling = element.boilingPoint {
+			elementBoilingPointLabel?.text = "\(String(boiling))"
+		} else {elementBoilingPointLabel?.text = "Boiling: N/A "}
+
+
 		if element.number < 90 {
 			loadImage()
 		}
