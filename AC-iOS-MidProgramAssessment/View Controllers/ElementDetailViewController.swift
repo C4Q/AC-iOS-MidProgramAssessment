@@ -18,7 +18,7 @@ class ElementDetailViewController: UIViewController {
     @IBOutlet weak var weightLabel:UILabel!
     @IBOutlet weak var meltingLabel:UILabel!
     @IBOutlet weak var boilingLabel:UILabel!
-   // @IBOutlet weak var discoveryLabel:UILabel!
+    // @IBOutlet weak var discoveryLabel:UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,28 +37,25 @@ class ElementDetailViewController: UIViewController {
         
     }
     
+    @IBAction func favoriteButton(_ sender: Any) {
+        let myName = "Lisa"
+        let chosenElement = element.name
+        let faveElement = FaveElement(name: myName, favorite_element: chosenElement)
+        ElementAPIClient.manager.post(element: faveElement, errorHandler: {print($0)})
+        
+    }
     func loadImg() {
         let elementName = element.name.lowercased()
         //let elementId = element.id
         let imageUrl = "http://images-of-elements.com/\(elementName).jpg"
-        guard let url = URL(string: imageUrl) else {return}
-        //seems to be slightly faster than using the image api client
-        let myGlobalQueue = DispatchQueue.global(qos: .utility)
-        myGlobalQueue.async {
-            guard let rawImageData = try? Data(contentsOf: url) else {return}
-            DispatchQueue.main.async {
-                guard let onlineImage = UIImage(data: rawImageData) else {return}
-                self.imgView?.image = onlineImage
-                //print(elementName)
-                //print(imageUrl)
-                //        let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
-                //  }
-                //        if elementId < 90 {
-                //
-                //        }
-                //        ImageAPIClient.manager.getImage(from: imageUrl, completionHandler: completion, errorHandler: {print($0)})
-            }
+        
+        let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
+            self.imgView.image = onlineImage
         }
+        
+        ImageAPIClient.manager.getImage(from: imageUrl, completionHandler: completion, errorHandler: {print($0)})
+        //            }
+        //        }
     }
-            
+    
 }

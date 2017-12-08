@@ -19,7 +19,7 @@ class ImageAPIClient {
             guard let onlineImage = UIImage(data: data) else {return}
             completionHandler(onlineImage)
         }
-        NetworkHelper.manager.performDataTask(with: url,
+        NetworkHelper2.manager.performDataTask(with: url,
                                               completionHandler: completion,
                                               errorHandler: errorHandler)
     }

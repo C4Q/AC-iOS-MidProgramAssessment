@@ -29,11 +29,12 @@ class ViewController: UIViewController {
     }
     
     func loadData() {
-        let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/elements"
+//        let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/elements"
         let completion: ([Element]) -> Void = {(onlineElement: [Element]) in
             self.elements = onlineElement
+            self.tableView.reloadData()
         }
-    ElementAPIClient.manager.getElements(from: urlStr, completionHandler: completion, errorHandler: {print($0)})
+    ElementAPIClient.manager.getElements(completionHandler: completion, errorHandler: {print($0)})
     }
 }
 
@@ -45,6 +46,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let element = elements[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Element cell", for: indexPath)
         if let cell = cell as? ElementCellTableViewController {
+            cell.imgView.image = nil
             cell.nameLabel.text = element.name
             cell.symbolInfoLabel.text = "\(element.symbol)((\(element.number)) \(element.weight)"
             let urlId = element.id
@@ -59,7 +61,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             }
             let imageUrl = "http://www.theodoregray.com/periodictable/Tiles/\(finalUrlId)/s7.JPG"
             let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
-                cell.imgView.image = nil
                 cell.imgView.image = onlineImage
                 cell.setNeedsLayout()
             }

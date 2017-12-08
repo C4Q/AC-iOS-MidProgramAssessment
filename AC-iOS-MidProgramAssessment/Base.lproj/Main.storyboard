@@ -96,7 +96,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screen Shot 2017-12-02 at 4.00.20 PM" translatesAutoresizingMaskIntoConstraints="NO" id="pCs-iP-CQu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pCs-iP-CQu">
                                 <rect key="frame" x="0.0" y="64" width="375" height="301.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="symbolLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Qw-b6-2WU">
@@ -133,6 +133,13 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHM-RH-FEd">
+                                <rect key="frame" x="135" y="496.5" width="104" height="30"/>
+                                <state key="normal" title="Favorite Button"/>
+                                <connections>
+                                    <action selector="favoriteButton:" destination="akU-61-cD3" eventType="touchUpInside" id="wFS-2m-Auf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -154,7 +161,9 @@
                             <constraint firstItem="Dxc-ht-oHJ" firstAttribute="leading" secondItem="xWj-S9-ODg" secondAttribute="leading" id="p5r-sK-qBy"/>
                             <constraint firstItem="65c-UE-z8a" firstAttribute="centerY" secondItem="pCs-iP-CQu" secondAttribute="centerY" multiplier="1.4" id="pOH-6v-dH0"/>
                             <constraint firstItem="xWj-S9-ODg" firstAttribute="trailing" secondItem="uWn-Py-JM5" secondAttribute="trailing" id="tcm-PA-LFd"/>
+                            <constraint firstItem="fHM-RH-FEd" firstAttribute="centerX" secondItem="xWj-S9-ODg" secondAttribute="centerX" id="x3Z-8L-GpB"/>
                             <constraint firstItem="4sI-Hh-J5y" firstAttribute="centerY" secondItem="pCs-iP-CQu" secondAttribute="centerY" multiplier="1.2" id="yql-3z-Ow5"/>
+                            <constraint firstItem="fHM-RH-FEd" firstAttribute="centerY" secondItem="xWj-S9-ODg" secondAttribute="centerY" multiplier="1.4" id="yvy-M3-oK3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xWj-S9-ODg"/>
                     </view>
@@ -191,7 +200,4 @@
             <point key="canvasLocation" x="-366" y="115"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Screen Shot 2017-12-02 at 4.00.20 PM" width="295" height="510"/>
-    </resources>
 </document>
