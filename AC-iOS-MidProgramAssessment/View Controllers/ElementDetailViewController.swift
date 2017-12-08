@@ -31,10 +31,10 @@ class ElementDetailViewController: UIViewController {
         elementWeight.text = element.weight.description
         
         if element.melting_c != nil {
-            elementMeltingPoint.text = element.melting_c?.description
+            elementMeltingPoint.text = "Melting Point: " + (element.melting_c?.description)! + "C"
         } else { elementMeltingPoint.text = "N/A"}
         if element.boiling_c != nil{
-        elementBoilingPoint.text = element.boiling_c?.description
+            elementBoilingPoint.text = "Boiling Point: " + (element.boiling_c?.description)! + "C"
         }else{
             elementBoilingPoint.text = "N/A"}
         
@@ -53,6 +53,7 @@ class ElementDetailViewController: UIViewController {
         ImageAPIClient.manager.getImage(from: urlStr, completionHandler: completion, errorHandler: {print($0)})
 
         } else{
+            activityIndicator.stopAnimating()
             self.elementPicture.image = #imageLiteral(resourceName: "image_not_available")
         }
     }
