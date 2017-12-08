@@ -73,13 +73,18 @@
                                                         <constraint firstItem="MX6-Ax-bCg" firstAttribute="height" secondItem="2Iz-YV-U2r" secondAttribute="height" id="Mia-dC-QAH"/>
                                                     </constraints>
                                                 </stackView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rwN-YW-adK">
+                                                    <rect key="frame" x="67" y="121" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Sn4-Fy-LwH" secondAttribute="trailing" constant="8" id="EiF-BJ-uLk"/>
                                                 <constraint firstItem="wG6-he-TYp" firstAttribute="top" secondItem="2HD-3H-Rci" secondAttribute="top" constant="8" id="GzF-Nz-XkR"/>
                                                 <constraint firstItem="Sn4-Fy-LwH" firstAttribute="centerY" secondItem="wG6-he-TYp" secondAttribute="centerY" id="HSm-rG-uHD"/>
                                                 <constraint firstItem="wG6-he-TYp" firstAttribute="width" secondItem="2HD-3H-Rci" secondAttribute="width" multiplier="1:3" id="Q6C-yV-tlq"/>
+                                                <constraint firstItem="rwN-YW-adK" firstAttribute="centerY" secondItem="wG6-he-TYp" secondAttribute="centerY" id="Yhq-Zv-daW"/>
                                                 <constraint firstAttribute="bottom" secondItem="wG6-he-TYp" secondAttribute="bottom" constant="8" id="bdM-27-tCY"/>
+                                                <constraint firstItem="rwN-YW-adK" firstAttribute="centerX" secondItem="wG6-he-TYp" secondAttribute="centerX" id="dvG-1H-GLU"/>
                                                 <constraint firstItem="Sn4-Fy-LwH" firstAttribute="height" secondItem="wG6-he-TYp" secondAttribute="height" id="jY9-n1-TOG"/>
                                                 <constraint firstItem="wG6-he-TYp" firstAttribute="leading" secondItem="2HD-3H-Rci" secondAttribute="leading" constant="8" id="lxI-7E-yp4"/>
                                                 <constraint firstItem="Sn4-Fy-LwH" firstAttribute="leading" secondItem="wG6-he-TYp" secondAttribute="trailing" constant="8" id="nn8-qu-l7n"/>
@@ -89,6 +94,7 @@
                                             <outlet property="elementAtomicNumberAndWeightLabel" destination="MX6-Ax-bCg" id="Vd6-ZK-npR"/>
                                             <outlet property="elementImageView" destination="wG6-he-TYp" id="tye-Pw-1rE"/>
                                             <outlet property="elementNameLabel" destination="2Iz-YV-U2r" id="Yd2-ho-KKj"/>
+                                            <outlet property="spinner" destination="rwN-YW-adK" id="mea-Kr-ptd"/>
                                             <segue destination="5Hh-eF-ciV" kind="show" id="Una-uL-aEr"/>
                                         </connections>
                                     </tableViewCell>
@@ -202,12 +208,17 @@
                                     <constraint firstAttribute="width" secondItem="esJ-0g-STu" secondAttribute="height" multiplier="1:1" priority="999" id="4Tn-xe-iHw"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NFW-8i-QF8">
+                                <rect key="frame" x="197" y="265" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="NFW-8i-QF8" firstAttribute="centerX" secondItem="esJ-0g-STu" secondAttribute="centerX" id="5qK-qO-vl0"/>
                             <constraint firstItem="esJ-0g-STu" firstAttribute="top" secondItem="mN5-CL-mPD" secondAttribute="bottom" constant="8" id="JwU-GR-hwq"/>
                             <constraint firstItem="W1B-Rh-TCG" firstAttribute="top" secondItem="esJ-0g-STu" secondAttribute="bottom" constant="8" id="QkH-SG-wES"/>
                             <constraint firstItem="esJ-0g-STu" firstAttribute="width" secondItem="Tw1-w8-9rN" secondAttribute="width" multiplier="3:5" id="SPa-bB-F1X"/>
+                            <constraint firstItem="NFW-8i-QF8" firstAttribute="centerY" secondItem="esJ-0g-STu" secondAttribute="centerY" id="Vc6-tZ-weo"/>
                             <constraint firstItem="cDR-Wc-04x" firstAttribute="trailing" secondItem="W1B-Rh-TCG" secondAttribute="trailing" id="Vhn-Em-dps"/>
                             <constraint firstItem="4Fb-71-zy9" firstAttribute="leading" secondItem="cDR-Wc-04x" secondAttribute="leading" constant="8" id="ZxL-2A-jGd"/>
                             <constraint firstItem="cDR-Wc-04x" firstAttribute="centerY" secondItem="esJ-0g-STu" secondAttribute="bottom" id="eHW-kS-gm2"/>
@@ -228,6 +239,7 @@
                         <outlet property="elementTitleLabel" destination="mN5-CL-mPD" id="O1V-pN-bE6"/>
                         <outlet property="elementWeightLabel" destination="4o7-R6-xe3" id="j8E-G3-y3A"/>
                         <outlet property="elementYearDiscoveredLabel" destination="O9N-A6-gPn" id="jjq-Lr-oER"/>
+                        <outlet property="spinner" destination="NFW-8i-QF8" id="0Ta-LS-heY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u0u-dj-blY" userLabel="First Responder" sceneMemberID="firstResponder"/>

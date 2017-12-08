@@ -18,6 +18,7 @@ class ElementDetailViewController: UIViewController {
     @IBOutlet weak var elementMeltingPointLabel: UILabel!
     @IBOutlet weak var elementBoilingPointLabel: UILabel!
     @IBOutlet weak var elementYearDiscoveredLabel: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var element: Element?
     
@@ -25,6 +26,8 @@ class ElementDetailViewController: UIViewController {
         super.viewDidLoad()
         
         guard let element = element else { return }
+        spinner.isHidden = false
+        spinner.startAnimating()
         elementTitleLabel.text = element.name
         elementSymbolLabel.text = element.symbol
         elementAtomicNumberLabel.text = "\(element.number)"
@@ -50,8 +53,16 @@ class ElementDetailViewController: UIViewController {
         elementYearDiscoveredLabel.text = "Year Discovered: \(discoveryYear)"
         if element.number < 90 {
         let imgURL = "http://images-of-elements.com/\(element.name.lowercased()).jpg"
-        ImageAPIClient.manager.getImage(from: imgURL, completionHandler: { self.elementImageView.image = $0 }, errorHandler: { print($0) })
+            ImageAPIClient.manager.getImage(from: imgURL,
+                completionHandler: { self.elementImageView.image = $0
+                DispatchQueue.main.async {
+                self.spinner.isHidden = true
+                self.spinner.stopAnimating()
+                } },
+                errorHandler: { print($0) })
         } else {
+            spinner.isHidden = true
+            spinner.stopAnimating()
             elementImageView.image = #imageLiteral(resourceName: "no-image")
         }
 

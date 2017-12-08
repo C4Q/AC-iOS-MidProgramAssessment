@@ -63,15 +63,25 @@ extension ElementTableViewController: UITableViewDelegate, UITableViewDataSource
         let element = elements[indexPath.row]
         if let cell = cell as? CustomElementTableViewCell {
             cell.elementImageView.image = nil
-            
+            cell.spinner.isHidden = false
+            cell.spinner.startAnimating()
             cell.elementNameLabel.text = element.name
             cell.elementAtomicNumberAndWeightLabel.text = "\(element.symbol)(\(element.number)) \(element.weight)"
             let imgURL = "http://www.theodoregray.com/periodictable/Tiles/\(String(element.number).threeDigitIntString)/s7.JPG"
             let completion: (UIImage?) -> Void = { (onlineImage: UIImage?) in
-                cell.elementImageView.image = onlineImage
+                if let img = onlineImage {
+                    cell.elementImageView.image = img
+                } else {
+                    cell.elementImageView.image = #imageLiteral(resourceName: "no-image")
+                }
                 cell.setNeedsLayout()
+                DispatchQueue.main.async {
+                    cell.spinner.isHidden = true
+                    cell.spinner.stopAnimating()
+                }
             }
-            ImageAPIClient.manager.getImage(from: imgURL, completionHandler: completion, errorHandler: { print($0) })
+                ImageAPIClient.manager.getImage(from: imgURL, completionHandler: completion, errorHandler: { print($0) })
+
         }
         return cell
     }
