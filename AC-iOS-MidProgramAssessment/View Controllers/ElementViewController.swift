@@ -88,6 +88,31 @@ extension ElementViewController: UITableViewDataSource {
             cell.elementNameLabel.text = anElement.name
             cell.elementSymbolAngWeighLabel.text = "\(anElement.symbol) \(anElement.weight)"
             
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         
+            var elementID = "001"
+            if String(anElement.id).count == 1 {
+                elementID = "00\(anElement.id)"
+            } else if String(anElement.id).count == 2 {
+                elementID = "0\(anElement.id)"
+            } else if String(anElement.id).count == 3 {
+                elementID = anElement.id.description
+            }
+            //Image
+            cell.elementImage.image = #imageLiteral(resourceName: "images")
+            let imageUrlStr = "http://www.theodoregray.com/periodictable/Tiles/\(elementID)/s7.JPG"
+            
+            let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
+                cell.elementImage.image = onlineImage
+                cell.setNeedsLayout()
+
+            }
+            
+            ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: completion, errorHandler: {print($0)})
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            
+            
+            
             return cell
         }
         return cell
