@@ -10,6 +10,8 @@ import UIKit
 
 class SelectedElementViewController: UIViewController {
     
+    var selectedElement: ElementInfo!
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var elementImage: UIImageView!
     @IBOutlet weak var symbolLabel: UILabel!
@@ -17,31 +19,43 @@ class SelectedElementViewController: UIViewController {
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var meltingPointLabel: UILabel!
     @IBOutlet weak var boilingPointLabel: UILabel!
-    @IBOutlet weak var discoveryYearLabel: UILabel!
     @IBAction func favoriteButton(_ sender: UIButton) {
+        let favoritedElement = ElementPost(name: "Kash", favorite_element: selectedElement.symbol)
+//            ElementAPIClient.manager.post(favElement: favoritedElement, completionHandler: {print($0)}, errorHandler: {print($0)})
+        ElementAPIClient.manager.postFavorite(favElement: favoritedElement, errorHandler: {_ in print(Error.self)})
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        nameLabel.text = selectedElement.name
+        symbolLabel.text = "Symbol: \(selectedElement.symbol)"
+        numberLabel.text = "Number: \(selectedElement.number)"
+        weightLabel.text = "Weight: \(selectedElement.weight)"
+        
+        if selectedElement.melting_c != nil {
+            meltingPointLabel.text = "Melting Point: \(selectedElement.melting_c!) C"
+        } else {
+            meltingPointLabel.text = "Melting Point: No melting point available."
+        }
+        if selectedElement.boiling_c != nil {
+            boilingPointLabel.text = "Boiling Point: \(selectedElement.boiling_c!) C"
+        } else {
+            boilingPointLabel.text = "Boiling Point: No boiling point available."
+        }
+        
+        if selectedElement.number < 90 {
+            let lowercasedName = selectedElement.name.lowercased()
+            let imageUrlStr = "http://images-of-elements.com/\(lowercasedName).jpg"
+            let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
+                self.elementImage.image = onlineImage
+            }
+            ImageAPIClient.manager.getImage(from: imageUrlStr,
+                                            completionHandler: completion,
+                                            errorHandler: {print($0)})
+        } else {
+            self.elementImage.image = #imageLiteral(resourceName: "NoImageFound")
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

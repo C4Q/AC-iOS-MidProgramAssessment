@@ -19,4 +19,6 @@ enum AppError: Error {
     case noDataReceived
     case notAnImage
     case other(rawError: Error)
+    case codingError(rawError: Error)
+    case badData
 }

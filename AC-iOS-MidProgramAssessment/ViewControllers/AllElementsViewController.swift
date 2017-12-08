@@ -8,18 +8,24 @@
 
 import UIKit
 
-class AllElementsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class AllElementsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource/*, UISearchBarDelegate*/ {
 
-    var elements = [ElementInfo]()
     
-    var searchTerm = "" {
+    //MARK: - Variables
+    var elements = [ElementInfo]() {
         didSet {
-            loadData()
-            
+            tableView.reloadData()
         }
     }
     
-    @IBOutlet weak var searchBar: UISearchBar!
+//    var searchTerm = "" {
+//        didSet {
+//            loadData()
+//            tableView.reloadData()
+//        }
+//    }
+    
+    
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -27,23 +33,21 @@ class AllElementsViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        searchBar.delegate = self
+        //searchBar.delegate = self
         loadData()
-        
     }
     
     func loadData() {
-        let urlString = "http://api.tvmaze.com/search/shows?q=\(searchTerm)"
+        let urlString = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/elements/"
         let completion: ([ElementInfo]) -> Void = {(onlineElements: [ElementInfo]) in
-            dispatchMain {
-                self.elements = onlineElements
+            self.elements = onlineElements
             }
+        let printErrors = {(error: Error) in
+            print(error)
         }
-        
         ElementAPIClient.manager.getElement(from: urlString,
                                         completionHandler: completion,
-                                        errorHandler: { [weak self] error in
-                                            self?.showAlert(error: error)})
+                                        errorHandler: printErrors)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,16 +55,23 @@ class AllElementsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "elementCell", for: indexPath)
+         guard let cell = tableView.dequeueReusableCell(withIdentifier: "elementCell", for: indexPath) as? CustomElementCellTableViewCell else { return UITableViewCell()}
         let element = elements[indexPath.row]
-        cell.textLabel?.text = element.element.name ?? "No Name Available"
-        cell.detailTextLabel?.text = "\(element.element.symbol)(\(element.element.number) \(element.element.weight)"
-        cell.imageView?.image = nil
-        guard let imageUrlStr = eleme.show.image?.medium else {
-            return cell
+        cell.elementNameLabel?.text = element.name
+        cell.symbolNumberWeightLabel?.text = "\(element.symbol)(\(element.number)) \(element.weight)"
+        cell.elementImage?.image = #imageLiteral(resourceName: "NoImageFound")
+        var threeDigitNumber = ""
+        switch element.number.description.count{
+        case 1:
+            threeDigitNumber = "00" + (element.number.description)
+        case 2:
+            threeDigitNumber = "0" + (element.number.description)
+            default:
+                threeDigitNumber = ""
         }
+        let imageUrlStr = "http://www.theodoregray.com/periodictable/Tiles/\(threeDigitNumber)/s7.JPG"
         let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
-            cell.imageView?.image = onlineImage
+            cell.elementImage.image = onlineImage
             cell.setNeedsLayout()
         }
         ImageAPIClient.manager.getImage(from: imageUrlStr,
@@ -69,30 +80,23 @@ class AllElementsViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        <#code#>
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? SelectedElementViewController{
+            let selectedElement = elements[(tableView.indexPathForSelectedRow?.row)!]
+            destination.selectedElement = selectedElement
+            }
     }
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        <#code#>
-    }
+    
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        searchTerm = searchBar.text ?? "elements"
+//        searchBar.resignFirstResponder()
+//    }
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        searchTerm = searchText
+//    }
 
-    func showAlert(error: AppError) {
-        let alert = UIAlertController(title: "Network Error", message: error.localizedDescription, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(okAction)
-        
-        dispatchMain { [weak self] in
-            self?.present(alert, animated: true, completion: nil)
-        }
-    }
 }
 
-func dispatchMain(_ task: @escaping () -> Void) {
-    if Thread.isMainThread {
-        task()
-    } else {
-        DispatchQueue.main.async {
-            task()
-        }
-    }
-}
+
