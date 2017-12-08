@@ -30,6 +30,13 @@ class ElementDetailViewController: UIViewController {
     
     @IBOutlet weak var boilingLabel: UILabel!
     
+    
+    @IBAction func favoriteButtonPressed(_ sender: UIButton) {
+       let myPost = FieldBook(name: "Iram", favorite_element: anElement.symbol)
+        FieldBookAPIClient.manager.post(fieldbookpost: myPost, completionHandler: {print($0)}, errorHandler: {print($0)})
+    }
+    
+    
     var anElement: Element!
     
     func setUp() {
@@ -52,14 +59,7 @@ class ElementDetailViewController: UIViewController {
        
     }
 
-//    let bigImageUrl = "http://images-of-elements.com/\(anElement.name.lowercased()).jpg"
-//
-//    let getBigImage: (UIImage) -> Void = {(onlineImage: UIImage) in
-//        self.elementBigImage.image = onlineImage
-//
-//    }
-//    ImageAPIClient.manager.getImage(from: bigImageUrl, completionHandler: getBigImage, errorHandler: {print($0)})
-//
+
 
 
 }

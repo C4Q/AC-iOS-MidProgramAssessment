@@ -26,5 +26,9 @@ struct Element: Codable {
             return "\(number)"
         }
     }
+  
+    var bigImageURL: String {
+        return "http://images-of-elements.com/\(name.lowercased()).jpg"
+    }
 }
 

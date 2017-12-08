@@ -71,7 +71,7 @@ class ElementViewController: UIViewController, UITableViewDelegate, UITableViewD
             let selectedRow = elementTableView.indexPathForSelectedRow?.row
             let selectedElement = elements[selectedRow!]
             destinationDVC.anElement = selectedElement
-            let bigImageUrl = "http://images-of-elements.com/\(destinationDVC.anElement.name.lowercased()).jpg"
+            let bigImageUrl = destinationDVC.anElement.bigImageURL
             
             let getBigImage: (UIImage) -> Void = {(onlineImage: UIImage) in
                 destinationDVC.elementBigImage.image = onlineImage

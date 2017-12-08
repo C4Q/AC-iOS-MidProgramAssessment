@@ -18,6 +18,8 @@
 		812E5E961FDAEF9F00EE230B /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812E5E951FDAEF9F00EE230B /* Element.swift */; };
 		812E5E981FDAF1D900EE230B /* ElementAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812E5E971FDAF1D900EE230B /* ElementAPIClient.swift */; };
 		812E5E9A1FDAF6D800EE230B /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812E5E991FDAF6D800EE230B /* ImageAPIClient.swift */; };
+		8146410D1FDB19E00015C7B5 /* FieldBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8146410C1FDB19E00015C7B5 /* FieldBook.swift */; };
+		8146410F1FDB1ADF0015C7B5 /* FieldBookAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8146410E1FDB1ADF0015C7B5 /* FieldBookAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		812E5E951FDAEF9F00EE230B /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		812E5E971FDAF1D900EE230B /* ElementAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementAPIClient.swift; sourceTree = "<group>"; };
 		812E5E991FDAF6D800EE230B /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
+		8146410C1FDB19E00015C7B5 /* FieldBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldBook.swift; sourceTree = "<group>"; };
+		8146410E1FDB1ADF0015C7B5 /* FieldBookAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldBookAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 		8146410B1FDB16E50015C7B5 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				8146410C1FDB19E00015C7B5 /* FieldBook.swift */,
+				8146410E1FDB1ADF0015C7B5 /* FieldBookAPIClient.swift */,
 				812E5E951FDAEF9F00EE230B /* Element.swift */,
 				812E5E971FDAF1D900EE230B /* ElementAPIClient.swift */,
 				812E5E991FDAF6D800EE230B /* ImageAPIClient.swift */,
@@ -179,8 +185,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				812E5E981FDAF1D900EE230B /* ElementAPIClient.swift in Sources */,
+				8146410F1FDB1ADF0015C7B5 /* FieldBookAPIClient.swift in Sources */,
 				54B2A8C01FDA411D0056D007 /* ElementViewController.swift in Sources */,
 				812E5E901FDAEDF400EE230B /* ElementDetailViewController.swift in Sources */,
+				8146410D1FDB19E00015C7B5 /* FieldBook.swift in Sources */,
 				812E5E9A1FDAF6D800EE230B /* ImageAPIClient.swift in Sources */,
 				812E5E961FDAEF9F00EE230B /* Element.swift in Sources */,
 				812E5E941FDAEF5900EE230B /* NetworkHelper.swift in Sources */,
