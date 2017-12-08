@@ -82,8 +82,16 @@ extension PeriodicTableViewController: UITableViewDelegate, UITableViewDataSourc
         
         if let elementCell = cell as? ElementTableViewCell {
             
+            let color: (red: CGFloat, green: CGFloat, blue: CGFloat) = BackgroundColor.forElement(group: currentElement.group, symbol: currentElement.symbol) ?? (1,1,1)
+            let inverseColor: (red: CGFloat, green: CGFloat, blue: CGFloat) = BackgroundColor.inverseForElement(group: currentElement.group, symbol: currentElement.symbol) ?? (0,0,0)
+            
+            elementCell.backgroundColor = UIColor(red: color.red, green: color.green, blue: color.blue, alpha: 1)
+
             elementCell.elementNameLabel.text = currentElement.name
+            elementCell.elementNameLabel.textColor = UIColor(red: inverseColor.red, green: inverseColor.green, blue: inverseColor.blue, alpha: 1)
+            
             elementCell.elementInfoLabel.text = "\(currentElement.symbol)(\(currentElement.number)) \(currentElement.weight)"
+            elementCell.elementInfoLabel.textColor = UIColor(red: inverseColor.red, green: inverseColor.green, blue: inverseColor.blue, alpha: 1)
             
             //setting image
             let elementNumber: String
