@@ -15,7 +15,7 @@ struct Element: Codable {
     let symbol: String
     let melting: Int?
     let boiling: Int?
-    //let discovery_year: Int?
+    //let discoveryYear: Int?
     
     enum CodingKeys: String, CodingKey {
         case number
@@ -24,7 +24,7 @@ struct Element: Codable {
         case symbol
         case melting = "melting_c" //Label is the original name in the JSON
         case boiling = "boiling_c"
-        //case discovery_year
+        //case discoveryYear = "discovery_year"
     }
 }
 

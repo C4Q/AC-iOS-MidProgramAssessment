@@ -22,6 +22,7 @@ class ElementDetailViewController: UIViewController {
     var elementPassed: Element!
     var elementName = ""
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         loadElementData()
@@ -33,9 +34,9 @@ class ElementDetailViewController: UIViewController {
         weightLabel.text = elementPassed.weight.description
         numberLabel.text = elementPassed.number.description
         symbolLabel.text = elementPassed.symbol
-        meltingPointLabel.text = elementPassed.melting?.description
-        boilingPointLabel.text = elementPassed.boiling?.description
-        //discoveryYearLabel.text = elementPassed.discovery_year?.description
+        meltingPointLabel.text = "Melting Point: \(elementPassed.melting!.description)"
+        boilingPointLabel.text = "BoilingPoit: \(elementPassed.boiling!.description)"
+        //discoveryYearLabel.text = elementPassed.discoveryYear?.description
     }
     
     func loadMyImage2() {
@@ -50,16 +51,27 @@ class ElementDetailViewController: UIViewController {
                                         completionHandler:setElementsToOnlineElements,
                                         errorHandler: {print($0)})
     }
-}
-
-
-
-
     
+    //MARK: POST REQUEST
     
-//    @IBAction func postButtonPressed(_ sender: UIButton) {
-//
-//    }
-//
-//}
+    struct myPost {
+        let myName: String
+        let favoriteElement: String
+    }
+    @IBAction func postButtonPressed(_ sender: Any) {
+        //Make POST request with my Name and Favorite Element
+        let posting = myPost(myName: "Kaniz", favoriteElement: elementPassed.name!)
+        POSTAPIClient.manager.post(Element: elementPassed){ print($0) }
+    }
+    }
+
+//NOTE: I was trying to change the typr for element above. Instead I wanted to pass in posting.
+    
+
+
+
+
+
+
+
 
