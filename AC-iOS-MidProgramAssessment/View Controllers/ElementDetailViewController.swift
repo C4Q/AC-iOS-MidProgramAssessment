@@ -11,7 +11,6 @@ import UIKit
 class ElementDetailViewController: UIViewController {
     
     @IBOutlet weak var elementImageView: UIImageView!
-    @IBOutlet weak var elementTitleLabel: UILabel!
     @IBOutlet weak var elementSymbolLabel: UILabel!
     @IBOutlet weak var elementAtomicNumberLabel: UILabel!
     @IBOutlet weak var elementWeightLabel: UILabel!
@@ -28,7 +27,7 @@ class ElementDetailViewController: UIViewController {
         guard let element = element else { return }
         spinner.isHidden = false
         spinner.startAnimating()
-        elementTitleLabel.text = element.name
+        self.navigationItem.title = element.name
         elementSymbolLabel.text = element.symbol
         elementAtomicNumberLabel.text = "\(element.number)"
         elementWeightLabel.text = "\(element.weight)"
