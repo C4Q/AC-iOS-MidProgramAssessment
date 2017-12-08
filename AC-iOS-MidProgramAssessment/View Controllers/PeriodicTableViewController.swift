@@ -54,7 +54,15 @@ class PeriodicTableViewController: UIViewController {
     
     //Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //to do
+        if
+            let cell = sender as? ElementTableViewCell,
+            let indexPath = periodicTableView.indexPath(for: cell),
+            let destinationVC = segue.destination as? ElementDetailViewController {
+            let selectedElement = elements[indexPath.row]
+            
+            destinationVC.element = selectedElement
+            
+        }
     }
 
 }
@@ -64,7 +72,9 @@ extension PeriodicTableViewController: UITableViewDelegate, UITableViewDataSourc
     
     //Delegate Methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //to do
+        if let selectedCell = tableView.cellForRow(at: indexPath) {
+            performSegue(withIdentifier: "detailedSegue", sender: selectedCell)
+        }
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
