@@ -41,7 +41,7 @@ struct FavoriteAPIClient {
         do {
             let encodedFavorite = try JSONEncoder().encode(favorite)
             authPostRequest.httpBody = encodedFavorite
-            NetworkHelper.manager.performDataTask(with: authPostRequest, completionHandler: {_ in print("Added to favorites")}, errorHandler: errorHandler)
+            NetworkHelper2.manager.performDataTask(with: authPostRequest, completionHandler: {_ in print("Added to favorites")}, errorHandler: errorHandler)
         }
         catch {
             errorHandler(AppError.codingError(rawError: error))
@@ -68,6 +68,7 @@ struct FavoriteAPIClient {
         let authStr = "Basic \(authBase64Str)"
         return authStr
     }
-    
+
 
 }
+

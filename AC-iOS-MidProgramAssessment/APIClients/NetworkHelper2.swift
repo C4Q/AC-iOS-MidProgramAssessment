@@ -1,5 +1,5 @@
 //
-//  NetworkHelper.swift
+//  NetworkHelper2.swift
 //  AC-iOS-MidProgramAssessment
 //
 //  Created by C4Q on 12/8/17.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-class NetworkHelper {
+class NetworkHelper2 {
     private init() {}
-    static let manager = NetworkHelper()
+    static let manager = NetworkHelper2()
     private let urlSession = URLSession(configuration: URLSessionConfiguration.default)
-    func performDataTask(with request: URL, // URLRequest for POST??
-                         completionHandler: @escaping (Data) -> Void,
-                         errorHandler: @escaping (AppError) -> Void) {
+    func performDataTask(with request: URLRequest,
+        completionHandler: @escaping (Data) -> Void,
+        errorHandler: @escaping (AppError) -> Void) {
         self.urlSession.dataTask(with: request){(data: Data?, response: URLResponse?, error: Error?) in
             DispatchQueue.main.async {
                 guard let data = data else {return}

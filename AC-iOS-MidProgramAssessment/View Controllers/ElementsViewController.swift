@@ -80,12 +80,3 @@ class ElementsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
 }
-
-// load elements data from the internet
-///https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/elements
-// segue to an element's details
-// set custom cell row height
-// load images from the internet
-/// Thumbnail (for table view): http://www.theodoregray.com/periodictable/Tiles/ElementNumberWithThreeDigits/s7.JPG
-//Example: http://www.theodoregray.com/periodictable/Tiles/018/s7.JPG
-
