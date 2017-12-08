@@ -18,8 +18,8 @@ class ImageAPIClient {
             return
         }
         
-        NetworkHelper.manager.getData(
-            from: url,
+        NetworkHelper.manager.performDataTask(
+            with: url,
             completionHandler: { (data) in
                 guard let image = UIImage(data: data) else {
                     errorHandler(AppError.badImageData)

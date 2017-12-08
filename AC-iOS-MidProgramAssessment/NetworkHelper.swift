@@ -12,7 +12,7 @@ class NetworkHelper {
     private init() {}
     static let manager = NetworkHelper()
     private let urlSession = URLSession(configuration: .default)
-    func getData(from urlRequest: URLRequest, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (AppError) -> Void) {
+    func performDataTask(with urlRequest: URLRequest, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (AppError) -> Void) {
         urlSession.dataTask(
         with: urlRequest) { (data, response, error) in
             DispatchQueue.main.async {
@@ -33,7 +33,7 @@ class NetworkHelper {
         }.resume()
     }
     
-    func getData(from url: URL, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (AppError) -> Void) {
+    func performDataTask(with url: URL, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (AppError) -> Void) {
         urlSession.dataTask(
         with: url) { (data, response, error) in
             DispatchQueue.main.async {

@@ -18,6 +18,10 @@
 		818572641FDB018300C2156D /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818572631FDB018300C2156D /* BackgroundColor.swift */; };
 		818572661FDB07AF00C2156D /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818572651FDB07AF00C2156D /* ImageAPIClient.swift */; };
 		818572681FDB1EC300C2156D /* ElementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818572671FDB1EC300C2156D /* ElementDetailViewController.swift */; };
+		81AF32A21FDB331500DF1E45 /* FavoriteElementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AF32A11FDB331500DF1E45 /* FavoriteElementsViewController.swift */; };
+		81AF32A41FDB334900DF1E45 /* FavoriteElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AF32A31FDB334900DF1E45 /* FavoriteElement.swift */; };
+		81AF32A61FDB335800DF1E45 /* FavoriteElementAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AF32A51FDB335800DF1E45 /* FavoriteElementAPIClient.swift */; };
+		81AF32A81FDB345900DF1E45 /* BasicAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AF32A71FDB345900DF1E45 /* BasicAuthRequest.swift */; };
 		81C9C62D1FDAEBE400AD5B09 /* ElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C9C62C1FDAEBE400AD5B09 /* ElementTableViewCell.swift */; };
 		81C9C62F1FDAED8F00AD5B09 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C9C62E1FDAED8F00AD5B09 /* Element.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +40,10 @@
 		818572631FDB018300C2156D /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
 		818572651FDB07AF00C2156D /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
 		818572671FDB1EC300C2156D /* ElementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ElementDetailViewController.swift; path = "AC-iOS-MidProgramAssessment/View Controllers/ElementDetailViewController.swift"; sourceTree = SOURCE_ROOT; };
+		81AF32A11FDB331500DF1E45 /* FavoriteElementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteElementsViewController.swift; sourceTree = "<group>"; };
+		81AF32A31FDB334900DF1E45 /* FavoriteElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteElement.swift; sourceTree = "<group>"; };
+		81AF32A51FDB335800DF1E45 /* FavoriteElementAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteElementAPIClient.swift; sourceTree = "<group>"; };
+		81AF32A71FDB345900DF1E45 /* BasicAuthRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuthRequest.swift; sourceTree = "<group>"; };
 		81C9C62C1FDAEBE400AD5B09 /* ElementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementTableViewCell.swift; sourceTree = "<group>"; };
 		81C9C62E1FDAED8F00AD5B09 /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +83,7 @@
 				54B2A8C11FDA411D0056D007 /* Main.storyboard */,
 				8185725F1FDAF4CB00C2156D /* AppError.swift */,
 				8185725C1FDAF43C00C2156D /* NetworkHelper.swift */,
+				81AF32A71FDB345900DF1E45 /* BasicAuthRequest.swift */,
 				818572581FDAF3FD00C2156D /* Models */,
 				81C9C62B1FDAEB8500AD5B09 /* Views */,
 				81C9C6281FDAE7B600AD5B09 /* View Controllers */,
@@ -88,6 +97,8 @@
 			children = (
 				81C9C62E1FDAED8F00AD5B09 /* Element.swift */,
 				8185725A1FDAF41600C2156D /* ElementAPIClient.swift */,
+				81AF32A31FDB334900DF1E45 /* FavoriteElement.swift */,
+				81AF32A51FDB335800DF1E45 /* FavoriteElementAPIClient.swift */,
 				818572651FDB07AF00C2156D /* ImageAPIClient.swift */,
 				818572631FDB018300C2156D /* BackgroundColor.swift */,
 			);
@@ -108,6 +119,7 @@
 			children = (
 				54B2A8BF1FDA411D0056D007 /* PeriodicTableViewController.swift */,
 				818572671FDB1EC300C2156D /* ElementDetailViewController.swift */,
+				81AF32A11FDB331500DF1E45 /* FavoriteElementsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -193,6 +205,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				81C9C62D1FDAEBE400AD5B09 /* ElementTableViewCell.swift in Sources */,
+				81AF32A21FDB331500DF1E45 /* FavoriteElementsViewController.swift in Sources */,
+				81AF32A41FDB334900DF1E45 /* FavoriteElement.swift in Sources */,
 				8185725B1FDAF41600C2156D /* ElementAPIClient.swift in Sources */,
 				54B2A8C01FDA411D0056D007 /* PeriodicTableViewController.swift in Sources */,
 				81C9C62F1FDAED8F00AD5B09 /* Element.swift in Sources */,
@@ -200,6 +214,8 @@
 				54B2A8BE1FDA411D0056D007 /* AppDelegate.swift in Sources */,
 				818572681FDB1EC300C2156D /* ElementDetailViewController.swift in Sources */,
 				818572661FDB07AF00C2156D /* ImageAPIClient.swift in Sources */,
+				81AF32A81FDB345900DF1E45 /* BasicAuthRequest.swift in Sources */,
+				81AF32A61FDB335800DF1E45 /* FavoriteElementAPIClient.swift in Sources */,
 				818572601FDAF4CB00C2156D /* AppError.swift in Sources */,
 				818572641FDB018300C2156D /* BackgroundColor.swift in Sources */,
 			);

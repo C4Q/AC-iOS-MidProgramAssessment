@@ -31,6 +31,13 @@ class ElementDetailViewController: UIViewController {
         setupUI()
     }
 
+    
+    @IBAction func addToClassFavoritesButtonPressed(_ sender: UIButton) {
+        let myFavoriteElement = FavoriteElement(name: "Melissa He :'D", favoriteElement: element.name)
+
+        FavoriteElementAPIClient.manager.post(myFavoriteElement, completionHandler: {print($0)}, errorHandler: {print($0)})
+    }
+    
     func setupUI() {
         let color: (red: CGFloat, green: CGFloat, blue: CGFloat) = BackgroundColor.forElement(group: element.group, symbol: element.symbol) ?? (1,1,1)
         let inverseColor: (red: CGFloat, green: CGFloat, blue: CGFloat) = BackgroundColor.inverseForElement(group: element.group, symbol: element.symbol) ?? (0,0,0)

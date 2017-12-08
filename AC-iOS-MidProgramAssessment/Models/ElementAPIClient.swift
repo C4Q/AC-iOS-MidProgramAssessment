@@ -19,8 +19,8 @@ class ElementAPIClient {
             return
         }
         
-        NetworkHelper.manager.getData(
-            from: url,
+        NetworkHelper.manager.performDataTask(
+            with: url,
             completionHandler: { (data) in
                 do {
                     let elements = try JSONDecoder().decode([Element].self, from: data)
