@@ -19,6 +19,7 @@
 		81637D001FDAEB8B00375399 /* DetailElementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81637CFF1FDAEB8B00375399 /* DetailElementsViewController.swift */; };
 		81637D021FDAEB9E00375399 /* ElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81637D011FDAEB9E00375399 /* ElementTableViewCell.swift */; };
 		81637D071FDAEC3F00375399 /* ElementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81637D061FDAEC3F00375399 /* ElementModel.swift */; };
+		81637D0D1FDB043200375399 /* BasicAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81637D0C1FDB043200375399 /* BasicAuthRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		81637CFF1FDAEB8B00375399 /* DetailElementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailElementsViewController.swift; sourceTree = "<group>"; };
 		81637D011FDAEB9E00375399 /* ElementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementTableViewCell.swift; sourceTree = "<group>"; };
 		81637D061FDAEC3F00375399 /* ElementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementModel.swift; sourceTree = "<group>"; };
+		81637D0C1FDB043200375399 /* BasicAuthRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuthRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,12 +111,21 @@
 		81637D051FDAEBDE00375399 /* Internet Support */ = {
 			isa = PBXGroup;
 			children = (
+				81637D0E1FDB043D00375399 /* POST Support */,
 				81637CF71FDAEB0300375399 /* NetworkHelper.swift */,
 				81637CFB1FDAEB3B00375399 /* AppErrorHandling.swift */,
 				81637CF91FDAEB1100375399 /* ElementAPIClient.swift */,
 				81637CF51FDAEADA00375399 /* ImageAPIClient.swift */,
 			);
 			path = "Internet Support";
+			sourceTree = "<group>";
+		};
+		81637D0E1FDB043D00375399 /* POST Support */ = {
+			isa = PBXGroup;
+			children = (
+				81637D0C1FDB043200375399 /* BasicAuthRequest.swift */,
+			);
+			path = "POST Support";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +207,7 @@
 				81637CFA1FDAEB1100375399 /* ElementAPIClient.swift in Sources */,
 				81637CF61FDAEADA00375399 /* ImageAPIClient.swift in Sources */,
 				81637D001FDAEB8B00375399 /* DetailElementsViewController.swift in Sources */,
+				81637D0D1FDB043200375399 /* BasicAuthRequest.swift in Sources */,
 				54B2A8BE1FDA411D0056D007 /* AppDelegate.swift in Sources */,
 				81637CFE1FDAEB7100375399 /* PeriodicElementsViewController.swift in Sources */,
 			);
