@@ -46,8 +46,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="154.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fat-st-dE8">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="Fat-st-dE8">
                                                     <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="155" id="40K-Pb-j16"/>
+                                                        <constraint firstAttribute="height" constant="155" id="eLR-5J-cHX"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Element Name: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcB-Bc-SIQ">
                                                     <rect key="frame" x="163" y="2" width="142" height="21"/>
@@ -216,4 +220,7 @@
             <point key="canvasLocation" x="701.25" y="132.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="images" width="258" height="195"/>
+    </resources>
 </document>

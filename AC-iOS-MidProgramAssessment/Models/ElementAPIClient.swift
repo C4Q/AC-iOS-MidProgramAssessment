@@ -12,7 +12,7 @@ import Foundation
 struct ElementAPIClient{
     private init() {}
     static let manager = ElementAPIClient()
-    func getElements(from urlStr: String, completionHandler: @escaping (Element) -> Void, errorHandler: @escaping (AppError) -> Void){
+    func getElements(from urlStr: String, completionHandler: @escaping ([Element]) -> Void, errorHandler: @escaping (AppError) -> Void){
         
         
         guard let url = URL(string: urlStr) else{
@@ -25,8 +25,8 @@ struct ElementAPIClient{
             do{
                 let myDecoder = JSONDecoder()
                 
-                let elementsArr = try myDecoder.decode(Element.self, from: data)
-                completionHandler(elementsArr)
+                let elements = try myDecoder.decode([Element].self, from: data)
+                completionHandler(elements)
                 
             } catch{
                 print("Elements Table Has This Error: " + error.localizedDescription)
@@ -36,4 +36,22 @@ struct ElementAPIClient{
         }
         NetworkHelper.manager.performDataTask(with: url, completionHandler: completion, errorHandler: errorHandler)
     }
+    
+    
+    
+    
+    
+    
+    enum HTTPVerb {
+        case POST
+        case GET
+    }
 }
+
+
+
+
+
+
+
+

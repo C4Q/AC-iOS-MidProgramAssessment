@@ -9,20 +9,15 @@
 import Foundation
 
 
-
-struct Element: Codable {
+struct Element: Codable{
     let id: Int
     let number: Int
     let weight: Double
     let name: String
     let symbol: String
-    let melting_c: Int
-    let boiling_c: Int
-    let discovery_year: Int
-
+    let melting_c: Int?
+    let boiling_c: Int?
 }
-
-
 
 
 

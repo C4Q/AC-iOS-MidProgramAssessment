@@ -9,33 +9,30 @@
 import UIKit
 
 class ElementViewController: UIViewController {
-
+    
     
     //Outlets
     @IBOutlet weak var tableView: UITableView!
     
     
     //Variables
-    var elements: [Element]?{
-        didSet{
-            tableView.reloadData()
+    
+    var elements: [Element]? {
+        didSet {
+            self.tableView.reloadData()
         }
     }
-    
-
     
     //Load Elements
     func loadElements() {
         
         let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/elements"
         
-        let completion: (Element) -> Void = {(onlineElements: [Element]) in
+        let completion = {(onlineElements: [Element]) in
             self.elements = onlineElements
+            self.tableView.reloadData()
         }
         
-        //          let setStockToOnlineStock: (Stock) -> Void = {(onlineStock: Stock) in
-//        self.stock = onlineStock
-//    }
         
         let errorHanlder: (AppError) -> Void = {(error: AppError) in
             switch error{
@@ -57,7 +54,7 @@ class ElementViewController: UIViewController {
                 print("Other error")
             }
         }
-
+        
         ElementAPIClient.manager.getElements(from: urlStr, completionHandler: completion, errorHandler: errorHanlder)
         
     }
@@ -84,49 +81,13 @@ extension ElementViewController: UITableViewDataSource {
     
     //Cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Element Cell", for: indexPath)
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "Element Cell", for: indexPath)
         let anElement = elements![indexPath.row]
         
         if let cell = cell as? ElementTableViewCell {
             cell.elementNameLabel.text = anElement.name
             cell.elementSymbolAngWeighLabel.text = "\(anElement.symbol) \(anElement.weight)"
             
-            //
-            
-//            cell.showImage.image = nil
-//            guard let imageUrlStr = showToSet.show.image?.medium else{
-//                cell.showImage.image = #imageLiteral(resourceName: "photo_not_available_large")
-//                cell.activityIndicator.stopAnimating()
-//                return cell
-//            }
-//
-//
-//
-//            let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
-//                cell.showImage.image = onlineImage
-//                cell.setNeedsLayout()
-//                //Activity Indicator Stop Animation
-//                cell.activityIndicator.stopAnimating()
-//
-//            }
-//
-//            //Activity Indicator Start Animation
-//            cell.activityIndicator.startAnimating()
-//            ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: completion, errorHandler: {print($0)})
-//
-   
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            //
             return cell
         }
         return cell
