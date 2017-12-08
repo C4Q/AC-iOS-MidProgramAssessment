@@ -9,7 +9,7 @@
 import UIKit
 
 class DetailedViewController: UIViewController {
-
+    
     @IBOutlet weak var elementNumberLabel: UILabel!
     
     @IBOutlet weak var elementLetterLabel: UILabel!
@@ -34,7 +34,7 @@ class DetailedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabelsAndImages()
-
+        
     }
     func setLabelsAndImages() {
         elementNumberLabel.text = "\(aSeguedElement.number)"
@@ -54,18 +54,23 @@ class DetailedViewController: UIViewController {
         if aSeguedElement.boilingPoint == nil {
             boilingPoint = "Unknown"
         } else {
-            meltingPoint = String(aSeguedElement.boilingPoint!)
+            boilingPoint = String(aSeguedElement.boilingPoint!)
         }
         if aSeguedElement.discoveryYear == nil {
-            boilingPoint = "Unknown"
+            discoveryYear = "Unknown"
         } else {
-            meltingPoint = String(aSeguedElement.discoveryYear!)
+            discoveryYear = String(aSeguedElement.discoveryYear!)
         }
         
-        meltingboilingPointLabel.text = "Melting Point: \(meltingPoint). Boiling Point: \(boilingPoint). Discovery Year: \(discoveryYear)"
+        meltingboilingPointLabel.text = "Melting Point: \(meltingPoint). Boiling Point: \(boilingPoint). Discovery Year: \(discoveryYear)."
         
+        let bigImageUrl = aSeguedElement.largeImageLink
+        let getTheImage: (UIImage) -> Void = {(onlineImage: UIImage) in
+            self.elementImageView.image = onlineImage
+        }
         
-        
+        ImageAPIClient.manager.getImage(from: bigImageUrl, completionHandler: getTheImage, errorHandler: {print($0)})
     }
-
+        
 }
+
