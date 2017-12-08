@@ -92,15 +92,18 @@ extension ElementViewController: UITableViewDataSource {
         }
         return cell
     }
+    
+    //Segue
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? DetailedElementViewController {
+            let selectedElement = elements![(tableView.indexPathForSelectedRow?.row)!]
+            destination.element = selectedElement
+        }
 }
 
 
-
-
-
-
-
-
+}
 
 
 
