@@ -53,6 +53,8 @@ extension ElementsViewController: UITableViewDataSource, UITableViewDelegate {
         let elementCell = tableView.dequeueReusableCell(withIdentifier: "Element Cell", for: indexPath)
         let selectedElement = self.elements[indexPath.row]
         if let elementCell = elementCell as? CustomElementTableViewCell {
+            elementCell.thumbnailSpinner.isHidden = false
+            elementCell.thumbnailSpinner.startAnimating()
             elementCell.elementNameLabel.text = selectedElement.name
             elementCell.elementInfoLabel.text =  "\(selectedElement.symbol)(\(selectedElement.number)) \(selectedElement.weight)"
             let elemImageURLStr = "http://www.theodoregray.com/periodictable/Tiles/\(formatElementID(elementID: selectedElement.id))/s7.JPG"
@@ -60,6 +62,8 @@ extension ElementsViewController: UITableViewDataSource, UITableViewDelegate {
             let completionImage: (UIImage) -> Void = { (onlineShowImage: UIImage) in
                 elementCell.elementImage.image = onlineShowImage
                 elementCell.setNeedsLayout()
+                elementCell.thumbnailSpinner.stopAnimating()
+                elementCell.thumbnailSpinner.isHidden = true
             }
             ImageAPIClient.manager.getImage(from: elemImageURLStr, completionHandler: completionImage, errorHandler: { print($0) })
         }

@@ -9,20 +9,23 @@
 import Foundation
 
 class ElementAPIClient {
+    
     private init() {}
     static let manager = ElementAPIClient()
+    
     func getElements(from urlStr: String, completionHandler: @escaping ([Element]) -> Void, errorHandler: @escaping (Error) -> Void) {
         guard let url = URL(string: urlStr) else { return }
-        let completion: (Data) -> Void = { (data: Data) in
+        let request = URLRequest(url: url)
+        let completion = {(data: Data) -> Void in
             do {
-                let decoder = JSONDecoder()
-                let elements = try decoder.decode([Element].self, from: data)
-                completionHandler(elements)
+                let onlineElements = try JSONDecoder().decode([Element].self, from: data)
+                completionHandler(onlineElements)
             }
             catch let error {
                 errorHandler(error)
             }
         }
-        NetworkHelper.manager.performDataTask(with: url, completionHandler: completion, errorHandler: errorHandler)
+        NetworkHelper.manager.performDataTask(with: request, completionHandler: completion, errorHandler: errorHandler)
     }
+    
 }

@@ -18,6 +18,8 @@
 		E2319BD31FDAE713007087B9 /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2319BD21FDAE713007087B9 /* ImageAPIClient.swift */; };
 		E2319BD51FDAE724007087B9 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2319BD41FDAE724007087B9 /* NetworkHelper.swift */; };
 		E2319BD71FDAF46A007087B9 /* ElementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2319BD61FDAF46A007087B9 /* ElementDetailViewController.swift */; };
+		E2319BD91FDB0A14007087B9 /* FavElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2319BD81FDB0A14007087B9 /* FavElement.swift */; };
+		E2319BDB1FDB0ACA007087B9 /* FavElementAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2319BDA1FDB0ACA007087B9 /* FavElementAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		E2319BD21FDAE713007087B9 /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
 		E2319BD41FDAE724007087B9 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		E2319BD61FDAF46A007087B9 /* ElementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementDetailViewController.swift; sourceTree = "<group>"; };
+		E2319BD81FDB0A14007087B9 /* FavElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavElement.swift; sourceTree = "<group>"; };
+		E2319BDA1FDB0ACA007087B9 /* FavElementAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavElementAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +103,9 @@
 			isa = PBXGroup;
 			children = (
 				E2319BCE1FDAE6FC007087B9 /* Element.swift */,
+				E2319BD81FDB0A14007087B9 /* FavElement.swift */,
 				E2319BD01FDAE708007087B9 /* ElementAPIClient.swift */,
+				E2319BDA1FDB0ACA007087B9 /* FavElementAPIClient.swift */,
 				E2319BD21FDAE713007087B9 /* ImageAPIClient.swift */,
 				E2319BD41FDAE724007087B9 /* NetworkHelper.swift */,
 			);
@@ -187,12 +193,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2319BD71FDAF46A007087B9 /* ElementDetailViewController.swift in Sources */,
+				E2319BD91FDB0A14007087B9 /* FavElement.swift in Sources */,
 				E2319BD51FDAE724007087B9 /* NetworkHelper.swift in Sources */,
 				54B2A8BE1FDA411D0056D007 /* AppDelegate.swift in Sources */,
 				E2319BD11FDAE708007087B9 /* ElementAPIClient.swift in Sources */,
 				E2319BCB1FDAE6D0007087B9 /* ElementsViewController.swift in Sources */,
 				E2319BD31FDAE713007087B9 /* ImageAPIClient.swift in Sources */,
 				E2319BCF1FDAE6FC007087B9 /* Element.swift in Sources */,
+				E2319BDB1FDB0ACA007087B9 /* FavElementAPIClient.swift in Sources */,
 				E2319BCD1FDAE6ED007087B9 /* CustomElementTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

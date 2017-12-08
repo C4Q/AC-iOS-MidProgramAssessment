@@ -18,16 +18,25 @@ class ElementDetailViewController: UIViewController {
     @IBOutlet weak var boilingPointLabel: UILabel!
     @IBOutlet weak var discoveryNameLabel: UILabel!
     
+    @IBOutlet weak var elementNumberLabel: UILabel!
+    @IBOutlet weak var elementSymbolLabel: UILabel!
+    @IBOutlet weak var elementNameLabel: UILabel!
+    @IBOutlet weak var elementAtomicWeightLabel: UILabel!
+    @IBOutlet weak var largeImageSpinner: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let element = element else { return }
+        largeImageSpinner.startAnimating()
         titleNameLabel.text = element.name
-        if let meltingPoint = element.melting_c { meltingPointLabel.text = "Melting Point: \(meltingPoint.description)" }
-        else { meltingPointLabel.text = "Melting Point N/A" }
-        if let boilingPoint = element.boiling_c { boilingPointLabel.text = "Boiling Point: \(boilingPoint.description)" }
-        else { boilingPointLabel.text = "Boiling Point N/A" }
-        discoveryNameLabel.text = "Coming soon..."
+        if let meltingPoint = element.melting_c { meltingPointLabel.text = "Melting Point: \(meltingPoint.description) °C" }
+        else { meltingPointLabel.text = "Melting Point: N/A" }
+        if let boilingPoint = element.boiling_c { boilingPointLabel.text = "Boiling Point: \(boilingPoint.description) °C" }
+        else { boilingPointLabel.text = "Boiling Point: N/A" }
+        if let yearAsInt = element.discovery_year_int { discoveryNameLabel.text = "Discovered: \(yearAsInt.description)" }
+        else { discoveryNameLabel.text = "Discovered: \(element.discovery_year_Str!)" }
         if element.id >= 90 {
+            hideSpinner()
             elementImage.image = UIImage(named: "noImageFound")
             return
         }
@@ -39,12 +48,32 @@ class ElementDetailViewController: UIViewController {
         let imageCompletion: (UIImage) -> Void = { (onlineLargeImage: UIImage) in
             self.elementImage.image = onlineLargeImage
             self.elementImage.setNeedsLayout()
+            self.elementNumberLabel.text = element.id.description
+            self.elementSymbolLabel.text = element.symbol
+            self.elementNameLabel.text = element.name
+            self.elementAtomicWeightLabel.text = element.weight.description
+            self.showElementLabels()
+            self.hideSpinner()
         }
         ImageAPIClient.manager.getImage(from: largeImageURLStr, completionHandler: imageCompletion, errorHandler: {print($0)} )
     }
+    
+    func showElementLabels() {
+        elementNumberLabel.isHidden = false
+        elementSymbolLabel.isHidden = false
+        elementNameLabel.isHidden = false
+        elementAtomicWeightLabel.isHidden = false
+    }
+    
+    func hideSpinner() {
+        largeImageSpinner.stopAnimating()
+        largeImageSpinner.isHidden = true
+    }
 
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
-        
+        guard let element = element else { return }
+        let myFavElement = FavElement(name: "Luis", favorite_element: element.symbol)
+        FavElementAPIClient.manager.post(favElement: myFavElement, errorHandler: {print($0)})
     }
     
 

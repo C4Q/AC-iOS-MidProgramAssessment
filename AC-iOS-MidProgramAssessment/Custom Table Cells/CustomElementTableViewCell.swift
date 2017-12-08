@@ -13,6 +13,7 @@ class CustomElementTableViewCell: UITableViewCell {
     @IBOutlet weak var elementImage: UIImageView!
     @IBOutlet weak var elementNameLabel: UILabel!
     @IBOutlet weak var elementInfoLabel: UILabel!
+    @IBOutlet weak var thumbnailSpinner: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
