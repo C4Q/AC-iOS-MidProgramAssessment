@@ -18,9 +18,9 @@ struct FavouriteAPIClient {
     static let manager = FavouriteAPIClient()
     func getFavourites(completionHandler: @escaping ([Favourite]) -> Void,
                    errorHandler: @escaping (Error) -> Void) {
-        let urlStr = "https://api.fieldbook.com/v1/5a21d3ea92dfac03005db55a/orders"
+        let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/favorites"
         guard let authenticatedRequest = buildAuthRequest(from: urlStr, httpVerb: .GET) else { errorHandler(AppError.badURL); return }
-        let parseDataIntoOrderArr = {(data: Data) in
+        let parseDataIntoFavouritesArr = {(data: Data) in
             do {
                 let onlineFavourites = try JSONDecoder().decode([Favourite].self, from: data)
                 completionHandler(onlineFavourites)
@@ -29,7 +29,7 @@ struct FavouriteAPIClient {
                 errorHandler(AppError.codingError(rawError: error))
             }
         }
-        NetworkHelperWithAuthentication.manager.performDataTask(with: authenticatedRequest, completionHandler: parseDataIntoOrderArr, errorHandler: errorHandler)
+        NetworkHelperWithAuthentication.manager.performDataTask(with: authenticatedRequest, completionHandler: parseDataIntoFavouritesArr, errorHandler: errorHandler)
     }
     //
     func post(favourite: Favourite, errorHandler: @escaping (Error) -> Void) {

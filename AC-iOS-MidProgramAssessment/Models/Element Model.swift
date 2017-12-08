@@ -26,7 +26,7 @@ struct Element: Codable {
     let weight: Double
     let meltingPointDegCel: Double?
     let boilingPointDegCel: Double?
-//    let discoveryYear: String?
+    let discoveryYear: Int?
     enum CodingKeys: String, CodingKey {
         case id
         case number
@@ -35,6 +35,17 @@ struct Element: Codable {
         case weight
         case meltingPointDegCel = "melting_c"
         case boilingPointDegCel = "boiling_c"
-//        case discoveryYear = "discovery_year"
+        case discoveryYear = "discovery_year"
     }
 }
+extension Decodable: Any{
+    //do struff
+}
+//enum CrazyType:Any, Codable{
+//    case String
+//    case Int
+//}
+
+
+
+

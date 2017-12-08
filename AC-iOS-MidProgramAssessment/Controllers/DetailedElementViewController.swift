@@ -44,18 +44,25 @@ class DetailedElementViewController: UIViewController {
         self.elementMeltingPoint.text = "Melting Point: \(element.meltingPointDegCel?.description ?? "No Registerd Melting Point")"
         self.elementNumber.text = element.number.description
         self.elementBackGroundImage.image = nil
-        
         // move them to viewWillLayout
+
+    }
+    override func viewWillLayoutSubviews() {
+        if let element = element{
         ImageAPIClient.manager.getImage(from: "http://images-of-elements.com/\(element.name.lowercased()).jpg", completionHandler: {self.elementBackGroundImage.image = $0}, errorHandler: {print($0)})
         print(elementBackGroundImage.alpha)
-        print(elementBackGroundImage)
         if elementBackGroundImage.alpha == 1{
-            self.elementTitle.textColor = UIColor.green
+            self.elementTitle.textColor = UIColor.white
             self.ElementSymbol.textColor = UIColor.white
-            elementBackGroundImage.alpha = 0.75
+            self.discoverYear.textColor = UIColor.white
+            self.elementWeight.textColor = UIColor.white
+            self.elementBoilingPoint.textColor = UIColor.white
+            self.elementMeltingPoint.textColor = UIColor.white
+            self.elementNumber.textColor = UIColor.white
+            elementBackGroundImage.alpha = 0.85
+        }
         }
     }
-    
     
     /*
     // MARK: - Navigation
