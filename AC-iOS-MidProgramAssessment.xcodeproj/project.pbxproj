@@ -72,20 +72,36 @@
 			children = (
 				54B2A8BD1FDA411D0056D007 /* AppDelegate.swift */,
 				54B2A8C11FDA411D0056D007 /* Main.storyboard */,
-				DB6369351FDAF063003E10E8 /* AppError.swift */,
-				DB6369371FDAF07E003E10E8 /* ElementsModel.swift */,
-				DB6369391FDAF08C003E10E8 /* FieldBookModel.swift */,
-				DB63693B1FDAF098003E10E8 /* NetWorkHelper.swift */,
-				DB63693D1FDAF0A7003E10E8 /* ImageAPIManager.swift */,
-				DB63693F1FDAF0BE003E10E8 /* ElementsViewController.swift */,
-				DB6369411FDAF0CD003E10E8 /* DetailedViewController.swift */,
-				DB6369431FDAF112003E10E8 /* CustomTableViewCell.swift */,
-				DB6369451FDAF143003E10E8 /* FieldBookViewController.swift */,
+				DB6369481FDB12CE003E10E8 /* Models */,
+				DB6369471FDB12AD003E10E8 /* ViewControllers */,
 				54B2A8C41FDA411D0056D007 /* Assets.xcassets */,
 				54B2A8C61FDA411D0056D007 /* LaunchScreen.storyboard */,
 				54B2A8C91FDA411D0056D007 /* Info.plist */,
 			);
 			path = "AC-iOS-MidProgramAssessment";
+			sourceTree = "<group>";
+		};
+		DB6369471FDB12AD003E10E8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB63693F1FDAF0BE003E10E8 /* ElementsViewController.swift */,
+				DB6369411FDAF0CD003E10E8 /* DetailedViewController.swift */,
+				DB6369451FDAF143003E10E8 /* FieldBookViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DB6369481FDB12CE003E10E8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DB6369351FDAF063003E10E8 /* AppError.swift */,
+				DB6369371FDAF07E003E10E8 /* ElementsModel.swift */,
+				DB6369391FDAF08C003E10E8 /* FieldBookModel.swift */,
+				DB63693B1FDAF098003E10E8 /* NetWorkHelper.swift */,
+				DB63693D1FDAF0A7003E10E8 /* ImageAPIManager.swift */,
+				DB6369431FDAF112003E10E8 /* CustomTableViewCell.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

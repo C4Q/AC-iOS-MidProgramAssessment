@@ -179,6 +179,9 @@
                         <viewLayoutGuide key="safeArea" id="eWv-0r-vvO"/>
                     </view>
                     <navigationItem key="navigationItem" title="The Periodic Elements" id="6ZM-OP-oq5"/>
+                    <connections>
+                        <outlet property="tableView" destination="qKm-QG-GYP" id="wSs-9f-mpk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dkt-yG-QN2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -23,7 +23,7 @@ struct ElementsClass: Codable {
     
     var weight: Double
     var name: String
-    //Make a computed property to lowercase the element name for the fullsize jpg image search.
+    //Make a computed property to lowercase the element name for the fullsize jpg image search. OR just .lowercased()
     //Full-size: (for detail view): http://images-of-elements.com/lowercasedElementName.jpg
     //Example: http://images-of-elements.com/argon.jpg
     var symbol: String
@@ -44,24 +44,21 @@ struct ElementsClass: Codable {
     }
 }
 
-/*
-struct ImagesAPIClient {
+struct ElementsAPIClient {
     private init() {}
-    static let manager = ImagesAPIClient()
+    static let manager = ElementsAPIClient()
     //THIS FUNC MAKES THE DATA ARRAY
-    func getImagesArray(from urlStr: String,
-                        completionHandler: @escaping ([ImageData]) -> Void,
+    func getElementsArray(from urlStr: String,
+                        completionHandler: @escaping ([ElementsClass]) -> Void,
                         errorHandler: @escaping (Error) -> Void) {
-        //guard let url = URL(string: urlStr) else {return}
         
         let urlreq = URLRequest(url: URL(string: urlStr)!)
         
-        
         let completion: (Data) -> Void = {(data: Data) in
             do {
-                let picturesFromTheInternet = try JSONDecoder().decode(OnlineImages.self, from: data)
-                let images: [ImageData] = picturesFromTheInternet.hits
-                completionHandler(images)
+                let elementsFromTheInternet = try JSONDecoder().decode(ElementsClass.self, from: data)
+                let elements: [ElementsClass] = [elementsFromTheInternet]
+                completionHandler(elements)
             }
             catch let error {
                 errorHandler(AppError.codingError(rawError: error))
@@ -72,4 +69,4 @@ struct ImagesAPIClient {
         
     }
 }
- */
+
