@@ -18,6 +18,7 @@ class DetailedElementViewController: UIViewController {
     @IBOutlet weak var elementWeightLabel: UILabel!
     @IBOutlet weak var atomicNumber: UILabel!
     @IBOutlet weak var detailedScroll: UITextView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     
@@ -65,9 +66,9 @@ setAllLabels()
             
             self.elementImage.image = onlineImage
     
-            
+            self.activityIndicator.stopAnimating()
         }
-        
+        activityIndicator.startAnimating()
         ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: completion, errorHandler: {print($0)})
         
         

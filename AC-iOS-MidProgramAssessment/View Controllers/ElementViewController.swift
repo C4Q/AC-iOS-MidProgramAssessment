@@ -105,9 +105,10 @@ extension ElementViewController: UITableViewDataSource {
             let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
                 cell.elementImage.image = onlineImage
                 cell.setNeedsLayout()
-
+                cell.activityIndicator.stopAnimating()
             }
             
+            cell.activityIndicator.startAnimating()
             ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: completion, errorHandler: {print($0)})
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             

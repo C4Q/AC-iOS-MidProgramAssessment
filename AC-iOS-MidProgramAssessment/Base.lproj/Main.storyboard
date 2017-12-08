@@ -70,11 +70,16 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="AlJ-KS-LCK">
+                                                    <rect key="frame" x="59" y="59" width="37" height="37"/>
+                                                    <color key="color" red="0.99215422569024025" green="1" blue="0.18532986661193984" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="cdg-At-uOw" firstAttribute="top" secondItem="xcB-Bc-SIQ" secondAttribute="bottom" constant="20" id="3zI-n5-w5C"/>
                                                 <constraint firstItem="cdg-At-uOw" firstAttribute="leading" secondItem="Fat-st-dE8" secondAttribute="trailing" constant="8" id="8TW-g9-u2w"/>
                                                 <constraint firstAttribute="trailing" secondItem="cdg-At-uOw" secondAttribute="trailing" id="Age-d7-0hP"/>
+                                                <constraint firstItem="AlJ-KS-LCK" firstAttribute="centerX" secondItem="Fat-st-dE8" secondAttribute="centerX" id="C4I-0c-95x"/>
                                                 <constraint firstAttribute="bottom" secondItem="cdg-At-uOw" secondAttribute="bottom" constant="32.5" id="Csj-31-P0y"/>
                                                 <constraint firstItem="Fat-st-dE8" firstAttribute="leading" secondItem="MXy-0J-kfn" secondAttribute="leading" id="Eex-H4-o4n"/>
                                                 <constraint firstItem="Fat-st-dE8" firstAttribute="top" secondItem="MXy-0J-kfn" secondAttribute="top" id="Itm-HB-hEu"/>
@@ -83,6 +88,7 @@
                                                 <constraint firstItem="xcB-Bc-SIQ" firstAttribute="leading" secondItem="Fat-st-dE8" secondAttribute="trailing" constant="8" symbolic="YES" id="Whg-sB-f83"/>
                                                 <constraint firstItem="cdg-At-uOw" firstAttribute="top" secondItem="xcB-Bc-SIQ" secondAttribute="bottom" constant="20" id="dwI-iJ-qHg"/>
                                                 <constraint firstAttribute="trailing" secondItem="xcB-Bc-SIQ" secondAttribute="trailing" constant="15" id="fZg-Yf-lXX"/>
+                                                <constraint firstItem="AlJ-KS-LCK" firstAttribute="centerY" secondItem="Fat-st-dE8" secondAttribute="centerY" id="gn7-Vx-IHm"/>
                                                 <constraint firstAttribute="bottom" secondItem="Fat-st-dE8" secondAttribute="bottom" id="iGp-WT-bsh"/>
                                                 <constraint firstItem="xcB-Bc-SIQ" firstAttribute="leading" secondItem="cdg-At-uOw" secondAttribute="leading" id="t0X-6C-OsQ"/>
                                                 <constraint firstItem="xcB-Bc-SIQ" firstAttribute="top" secondItem="MXy-0J-kfn" secondAttribute="topMargin" constant="-9" id="uxM-Dd-00q"/>
@@ -91,10 +97,11 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.31787357233502533" green="0.18348362389217002" blue="0.073320263495327526" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="AlJ-KS-LCK" id="rez-Tv-F2a"/>
                                             <outlet property="elementImage" destination="Fat-st-dE8" id="LMt-Na-ciF"/>
                                             <outlet property="elementNameLabel" destination="xcB-Bc-SIQ" id="W0I-fU-wO8"/>
                                             <outlet property="elementSymbolAngWeighLabel" destination="cdg-At-uOw" id="xll-hG-qJ3"/>
-                                            <segue destination="u0Y-bg-gzz" kind="show" id="7Op-4Z-MGM"/>
+                                            <segue destination="u0Y-bg-gzz" kind="show" animates="NO" id="7Op-4Z-MGM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -182,9 +189,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="d1w-qg-dVp">
+                                <rect key="frame" x="142" y="254" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="d1w-qg-dVp" firstAttribute="centerY" secondItem="ldP-du-Yos" secondAttribute="centerY" id="0II-hh-IVe"/>
                             <constraint firstItem="K0A-K5-4yG" firstAttribute="bottom" secondItem="ldP-du-Yos" secondAttribute="bottom" id="1Sm-8n-H1m"/>
                             <constraint firstItem="9jB-mu-M8P" firstAttribute="leading" secondItem="K0A-K5-4yG" secondAttribute="leading" id="3tO-AI-0R0"/>
                             <constraint firstItem="DOX-TS-NoQ" firstAttribute="centerY" secondItem="ldP-du-Yos" secondAttribute="centerY" id="Air-PK-qHv"/>
@@ -202,6 +214,7 @@
                             <constraint firstItem="K0A-K5-4yG" firstAttribute="bottom" secondItem="e45-rk-tOZ" secondAttribute="bottom" constant="20" id="fk0-gg-xhK"/>
                             <constraint firstItem="K0A-K5-4yG" firstAttribute="trailing" secondItem="e45-rk-tOZ" secondAttribute="trailing" id="ixe-le-MLh"/>
                             <constraint firstItem="ndy-AY-OmE" firstAttribute="top" secondItem="K0A-K5-4yG" secondAttribute="top" constant="87" id="ksw-Nv-sYT"/>
+                            <constraint firstItem="d1w-qg-dVp" firstAttribute="centerX" secondItem="ldP-du-Yos" secondAttribute="centerX" id="mME-4w-xdr"/>
                             <constraint firstItem="9jB-mu-M8P" firstAttribute="top" secondItem="ndy-AY-OmE" secondAttribute="bottom" constant="134.5" id="n68-qy-MHs"/>
                             <constraint firstItem="ldP-du-Yos" firstAttribute="top" secondItem="K0A-K5-4yG" secondAttribute="top" id="nkW-qu-VqP"/>
                             <constraint firstItem="DOX-TS-NoQ" firstAttribute="centerX" secondItem="ldP-du-Yos" secondAttribute="centerX" id="qvv-ay-vOC"/>
@@ -213,6 +226,7 @@
                         <viewLayoutGuide key="safeArea" id="K0A-K5-4yG"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="d1w-qg-dVp" id="xo9-xE-hmq"/>
                         <outlet property="atomicNumber" destination="ndy-AY-OmE" id="7bs-5l-ZM3"/>
                         <outlet property="detailedScroll" destination="cEf-r9-vND" id="l63-US-rRU"/>
                         <outlet property="elementImage" destination="ldP-du-Yos" id="krP-6M-b0D"/>

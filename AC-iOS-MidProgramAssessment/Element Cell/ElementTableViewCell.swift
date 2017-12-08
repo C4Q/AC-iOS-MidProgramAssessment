@@ -16,5 +16,6 @@ class ElementTableViewCell: UITableViewCell {
     @IBOutlet weak var elementNameLabel: UILabel!
     @IBOutlet weak var elementSymbolAngWeighLabel: UILabel!
     
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
 }
