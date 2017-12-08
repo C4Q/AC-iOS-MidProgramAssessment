@@ -48,15 +48,16 @@ class ElementsViewController: UIViewController, UITableViewDelegate, UITableView
             defaultCell.textLabel?.text = elementSetup.name
             return defaultCell
         }
-        
-        cell.textLabel?.text = elementSetup.name
-        cell.detailTextLabel?.text = elementSetup.symbol.description
-        cell.imageView?.image = #imageLiteral(resourceName: "defaultImage")
+        if let cell = cell as? ElementTableViewCell{
+        cell.elementName?.text = elementSetup.name
+            cell.elementSymbol.text = "\(elementSetup.symbol.description)(\(elementSetup.number))  \(elementSetup.weight)"
+        cell.elementImage?.image = #imageLiteral(resourceName: "defaultImage")
         if let imageNumber = elementSetup.imageNumber{
-        ImageAPIClient.manager.getImage(from: "http://www.theodoregray.com/periodictable/Tiles/\(imageNumber)/s7.JPG", completionHandler: {cell.imageView?.image = $0; cell.setNeedsLayout()}, errorHandler: {print($0)})
+        ImageAPIClient.manager.getImage(from: "http://www.theodoregray.com/periodictable/Tiles/\(imageNumber)/s7.JPG", completionHandler: {cell.elementImage.image = $0; cell.setNeedsLayout()}, errorHandler: {print($0)})
+        }
         }
         return cell
-    } 
+    }
     func loadElements(){
         let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/elements"
         ElementAPIClient.manager.getElements(from: urlStr, completionHandler: {self.elements = $0}, errorHandler: {print($0)})
