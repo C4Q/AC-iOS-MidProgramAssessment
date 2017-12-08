@@ -19,7 +19,7 @@ struct ElementsClass: Codable {
         while threeDigitVersion.count < 3 {
             threeDigitVersion = "0" + threeDigitVersion
         }
-        var computedThumbLink = "http://www.theodoregray.com/periodictable/Tiles/\(threeDigitVersion)/s7.JPG"
+        let computedThumbLink = "http://www.theodoregray.com/periodictable/Tiles/\(threeDigitVersion)/s7.JPG"
         return computedThumbLink
     }
     
@@ -29,14 +29,14 @@ struct ElementsClass: Codable {
     //Full-size: (for detail view): http://images-of-elements.com/lowercasedElementName.jpg
     //Example: http://images-of-elements.com/argon.jpg
     var largeImageLink: String {
-        var computedImageLink = "http://images-of-elements.com/\(name.lowercased()).jpg"
+        let computedImageLink = "http://images-of-elements.com/\(name.lowercased()).jpg"
         return computedImageLink
     }
     var symbol: String
     var meltingPoint: Int?
     var boilingPoint: Int?
     var density: Double?
-    var discoveryYear: Int?
+    //var discoveryYear: Int?
     
     enum CodingKeys: String, CodingKey {
         case number = "number"
@@ -46,7 +46,7 @@ struct ElementsClass: Codable {
         case meltingPoint = "melting_c"
         case boilingPoint = "boiling_c"
         case density = "density"
-        case discoveryYear = "discovery_year"
+        //case discoveryYear = "discovery_year"
     }
 }
 
@@ -62,8 +62,8 @@ struct ElementsAPIClient {
         
         let completion: (Data) -> Void = {(data: Data) in
             do {
-                let elementsFromTheInternet = try JSONDecoder().decode(ElementsClass.self, from: data)
-                let elements: [ElementsClass] = [elementsFromTheInternet]
+                let elementsFromTheInternet = try JSONDecoder().decode([ElementsClass].self, from: data)
+                let elements: [ElementsClass] = elementsFromTheInternet
                 completionHandler(elements)
             }
             catch let error {

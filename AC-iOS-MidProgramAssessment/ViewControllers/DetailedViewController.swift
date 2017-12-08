@@ -45,7 +45,7 @@ class DetailedViewController: UIViewController {
         //To check for nils
         var meltingPoint = ""
         var boilingPoint = ""
-        var discoveryYear = ""
+        //let discoveryYear = "\(aSeguedElement.discoveryYear ?? "Unknown")"
         if aSeguedElement.meltingPoint == nil {
             meltingPoint = "Unknown"
         } else {
@@ -56,13 +56,8 @@ class DetailedViewController: UIViewController {
         } else {
             boilingPoint = String(aSeguedElement.boilingPoint!)
         }
-        if aSeguedElement.discoveryYear == nil {
-            discoveryYear = "Unknown"
-        } else {
-            discoveryYear = String(aSeguedElement.discoveryYear!)
-        }
         
-        meltingboilingPointLabel.text = "Melting Point: \(meltingPoint). Boiling Point: \(boilingPoint). Discovery Year: \(discoveryYear)."
+        meltingboilingPointLabel.text = "Melting Point: \(meltingPoint). Boiling Point: \(boilingPoint)."
         
         let bigImageUrl = aSeguedElement.largeImageLink
         let getTheImage: (UIImage) -> Void = {(onlineImage: UIImage) in

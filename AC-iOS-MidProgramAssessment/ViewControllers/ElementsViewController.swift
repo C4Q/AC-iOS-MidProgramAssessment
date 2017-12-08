@@ -9,7 +9,7 @@
 import UIKit
 
 class ElementsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var tableView: UITableView!
     private let refreshControl = UIRefreshControl()
     
@@ -25,23 +25,20 @@ class ElementsViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.delegate = self
         self.refreshControl.addTarget(self, action: #selector(refreshElements), for: UIControlEvents.valueChanged)
         tableView.refreshControl = refreshControl
-
+        loadData()
     }
-    
     func loadData() {
-        func loadData() {
-            let urlStr = ElementsClass.apiEndPoint
-            let setElementsToOnlineElements = {(onlineElements: [ElementsClass]) in
-                self.allElements = onlineElements
-                self.tableView.reloadData()
-                self.refreshControl.endRefreshing()
-            }
-            let printErrors = {(error: Error) in
-                print(error)
-                self.refreshControl.endRefreshing()
-            }
-            ElementsAPIClient.manager.getElementsArray(from: urlStr, completionHandler: setElementsToOnlineElements, errorHandler: printErrors)
+        let urlStr = ElementsClass.apiEndPoint
+        let setElementsToOnlineElements = {(onlineElements: [ElementsClass]) in
+            self.allElements = onlineElements
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
         }
+        let printErrors = {(error: Error) in
+            print(error)
+            self.refreshControl.endRefreshing()
+        }
+        ElementsAPIClient.manager.getElementsArray(from: urlStr, completionHandler: setElementsToOnlineElements, errorHandler: printErrors)
     }
     
     //MARK: TableViewDelegates
@@ -82,5 +79,5 @@ class ElementsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-
+    
 }
