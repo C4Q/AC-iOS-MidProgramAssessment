@@ -28,7 +28,7 @@ class NetworkHelper {
                     return
                 }
                 if let response = response as? HTTPURLResponse {
-                    errorHandler(AppError.badStatusCode(num: response.statusCode))
+                    errorHandler(AppError.goodStatusCode(num: response.statusCode))
                     //print(response.statusCode)
                     //return
                 }

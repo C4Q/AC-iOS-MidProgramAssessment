@@ -9,6 +9,7 @@
 import Foundation
 
 enum AppError: Error {
+    case goodStatusCode(num: Int)
     case unauthenticated
     case invalidJSONResponse
     case couldNotParseJSON(rawError: Error)

@@ -56,19 +56,19 @@ class ElementsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func configureCell(cell: CustomTableViewCell, element: ElementsClass) {
+        cell.spinner.startAnimating()
+        cell.spinner.isHidden = false
         cell.nameLabel.text = element.name
         cell.symbolNumberAtomWeightLabel.text = "\(element.symbol)(\(element.number)) \(element.weight)"
         
-        cell.spinner.startAnimating()
-        cell.spinner.isHidden = false
         let urlStr = element.thumbnailLink
         let setImageToOnlineImage: (UIImage) -> Void = {(onlineImage: UIImage) in
             cell.elementImageView.image = onlineImage
             cell.setNeedsLayout()
+            cell.spinner.isHidden = true
+            cell.spinner.stopAnimating()
         }
         ImageAPIClient.manager.getImage(from: urlStr, completionHandler: setImageToOnlineImage, errorHandler: {print($0)})
-        cell.spinner.isHidden = true
-        cell.spinner.stopAnimating()
     }
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -35,11 +35,11 @@
                                                     <rect key="frame" x="15" y="11" width="98" height="98"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="gJ9-oa-hWi" secondAttribute="height" multiplier="1:1" id="AtF-JU-HP5"/>
-                                                        <constraint firstAttribute="height" priority="999" constant="100" id="JXO-Zw-sB6"/>
-                                                        <constraint firstAttribute="width" priority="999" constant="100" id="cgQ-Yn-ed2"/>
+                                                        <constraint firstAttribute="height" priority="999" constant="120" id="JXO-Zw-sB6"/>
+                                                        <constraint firstAttribute="width" priority="999" constant="120" id="cgQ-Yn-ed2"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHa-uh-x40">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHa-uh-x40">
                                                     <rect key="frame" x="123" y="11" width="172" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -51,7 +51,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1ou-Ij-222">
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1ou-Ij-222">
                                                     <rect key="frame" x="15" y="11" width="98" height="98"/>
                                                 </activityIndicatorView>
                                             </subviews>
@@ -138,7 +138,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="t20-v2-loW">
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="t20-v2-loW">
                                                     <rect key="frame" x="15" y="11" width="98" height="98"/>
                                                 </activityIndicatorView>
                                             </subviews>
@@ -202,43 +202,51 @@
                                     <constraint firstAttribute="width" secondItem="TNs-xS-ESL" secondAttribute="height" multiplier="1:1" id="uY6-Rx-bd3"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ElementNumber" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHZ-KB-NxU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHZ-KB-NxU">
                                 <rect key="frame" x="0.0" y="64" width="64" height="64"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.10196382705479452" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Letter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTD-qK-NcA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTD-qK-NcA">
                                 <rect key="frame" x="112" y="176.5" width="96" height="96"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.10196382705479452" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="71"/>
+                                <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ElementName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDv-gC-D26">
                                 <rect key="frame" x="0.0" y="282.5" width="320" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.10196382705479452" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AtomicWeight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wW-Rq-4Sl">
                                 <rect key="frame" x="0.0" y="333.5" width="320" height="40.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.10196382705479452" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MeltingBoilingPoint" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dO-5S-RIn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MeltingBoilingPoint" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dO-5S-RIn">
                                 <rect key="frame" x="106" y="389" width="204" height="37"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.10196382705479452" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHO-of-TC7">
                                 <rect key="frame" x="10" y="389" width="96" height="37"/>
-                                <state key="normal" title="Favorite This"/>
+                                <state key="normal" title="Favorite This!"/>
                                 <connections>
                                     <action selector="favoriteButton:" destination="eHx-Ag-iMe" eventType="touchUpInside" id="gWn-hy-NU0"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="RRE-Za-PwT">
+                                <rect key="frame" x="150" y="214" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -263,7 +271,9 @@
                             <constraint firstItem="HDv-gC-D26" firstAttribute="height" secondItem="0wW-Rq-4Sl" secondAttribute="height" id="Y9E-eb-L93"/>
                             <constraint firstItem="aHZ-KB-NxU" firstAttribute="height" secondItem="TNs-xS-ESL" secondAttribute="height" multiplier="0.2" id="Znj-kf-BkZ"/>
                             <constraint firstItem="aHZ-KB-NxU" firstAttribute="top" secondItem="eaK-5K-p8b" secondAttribute="top" id="aZz-XE-lmD"/>
+                            <constraint firstItem="RRE-Za-PwT" firstAttribute="centerX" secondItem="TNs-xS-ESL" secondAttribute="centerX" id="bNl-FF-oiR"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aHZ-KB-NxU" secondAttribute="trailing" constant="20" symbolic="YES" id="bQa-BY-QJ2"/>
+                            <constraint firstItem="RRE-Za-PwT" firstAttribute="centerY" secondItem="TNs-xS-ESL" secondAttribute="centerY" id="hHl-mP-uvU"/>
                             <constraint firstItem="eaK-5K-p8b" firstAttribute="bottom" secondItem="fHO-of-TC7" secondAttribute="bottom" constant="5" id="hLG-mk-1km"/>
                             <constraint firstItem="6dO-5S-RIn" firstAttribute="leading" secondItem="fHO-of-TC7" secondAttribute="trailing" id="rZ5-M7-2Wd"/>
                             <constraint firstItem="eaK-5K-p8b" firstAttribute="trailing" secondItem="6dO-5S-RIn" secondAttribute="trailing" constant="10" id="ssD-A2-TiN"/>
@@ -280,6 +290,7 @@
                         <outlet property="elementNameLabe" destination="HDv-gC-D26" id="g9V-zb-kNB"/>
                         <outlet property="elementNumberLabel" destination="aHZ-KB-NxU" id="sQG-Qp-R81"/>
                         <outlet property="meltingboilingPointLabel" destination="6dO-5S-RIn" id="EFh-hd-PTq"/>
+                        <outlet property="spinner" destination="RRE-Za-PwT" id="Dyw-Wx-Q4I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7PO-T8-3pv" userLabel="First Responder" sceneMemberID="firstResponder"/>

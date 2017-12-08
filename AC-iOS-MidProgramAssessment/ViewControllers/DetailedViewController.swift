@@ -12,6 +12,8 @@ class DetailedViewController: UIViewController {
     
     @IBOutlet weak var elementNumberLabel: UILabel!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     @IBOutlet weak var elementLetterLabel: UILabel!
     
     @IBOutlet weak var elementNameLabe: UILabel!
@@ -30,13 +32,15 @@ class DetailedViewController: UIViewController {
     
     var aSeguedElement: ElementsClass!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        spinner.isHidden = false
+        spinner.startAnimating()
         setLabelsAndImages()
-        
     }
+    
     func setLabelsAndImages() {
+        elementImageView.image = nil
         elementNumberLabel.text = "\(aSeguedElement.number)"
         elementLetterLabel.text = "\(aSeguedElement.symbol)"
         elementNameLabe.text = "\(aSeguedElement.name)"
@@ -62,10 +66,13 @@ class DetailedViewController: UIViewController {
         let bigImageUrl = aSeguedElement.largeImageLink
         let getTheImage: (UIImage) -> Void = {(onlineImage: UIImage) in
             self.elementImageView.image = onlineImage
+            self.spinner.isHidden = true
+            self.spinner.stopAnimating()
         }
         
         ImageAPIClient.manager.getImage(from: bigImageUrl, completionHandler: getTheImage, errorHandler: {print($0)})
     }
-        
+    
+    
 }
 
