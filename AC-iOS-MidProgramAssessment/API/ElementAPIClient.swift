@@ -24,6 +24,6 @@ struct ElementAPIClient {
                 errorHandler(.couldNotParseJSON(rawError: error))
             }
         }
-        NetworkHelper.manager.performDataTask(with: url, completionHandler: completion, errorHandler: errorHandler)
+        NetworkHelper.manager.performDataTask(with: URLRequest(url: url), completionHandler: completion, errorHandler: errorHandler)
     }
 }

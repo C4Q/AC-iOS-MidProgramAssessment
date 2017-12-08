@@ -20,6 +20,8 @@ class ElementDetailViewController: UIViewController {
     @IBOutlet weak var detailNameLabel: UILabel!
     @IBOutlet weak var detailWeightLabel: UILabel!
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
+        let newFav = FavoriteElement(name: "Nathan", favorite_element: (selectedElement?.symbol)!)
+        FavoriteAPIClient.manager.post(favorite: newFav, errorHandler: {print($0)})
     }
     
     override func viewDidLoad() {
@@ -36,7 +38,7 @@ class ElementDetailViewController: UIViewController {
         detailMeltingLabel.text = "Melting Point: \(selectedElement?.melting_c ?? 0)"
         let imageURL = "http://images-of-elements.com/\(selectedElement?.name.lowercased() ?? "N/A").jpg"
         ImageAPIClient.manager.getImage(from: imageURL, completionHandler: {self.detailImageView.image = $0}, errorHandler: {print($0)})
-//        navigationBar.topItem.title = selectedElement.name
+        navigationItem.title = selectedElement?.name
     }
     
 

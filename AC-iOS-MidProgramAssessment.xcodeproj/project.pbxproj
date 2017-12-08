@@ -18,6 +18,7 @@
 		818CDFD51FDAEA5500F60030 /* ElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818CDFD41FDAEA5500F60030 /* ElementTableViewCell.swift */; };
 		818CDFD81FDAF2AA00F60030 /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818CDFD71FDAF2AA00F60030 /* ImageAPIClient.swift */; };
 		818CDFDA1FDB05E500F60030 /* ElementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818CDFD91FDB05E500F60030 /* ElementDetailViewController.swift */; };
+		818CDFDC1FDB10F000F60030 /* PostFavoriteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818CDFDB1FDB10F000F60030 /* PostFavoriteAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		818CDFD41FDAEA5500F60030 /* ElementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementTableViewCell.swift; sourceTree = "<group>"; };
 		818CDFD71FDAF2AA00F60030 /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
 		818CDFD91FDB05E500F60030 /* ElementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementDetailViewController.swift; sourceTree = "<group>"; };
+		818CDFDB1FDB10F000F60030 /* PostFavoriteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFavoriteAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				818CDFCC1FDAE6CA00F60030 /* NetworkHelper.swift */,
 				818CDFD21FDAE93B00F60030 /* ElementAPIClient.swift */,
 				818CDFD71FDAF2AA00F60030 /* ImageAPIClient.swift */,
+				818CDFDB1FDB10F000F60030 /* PostFavoriteAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			files = (
 				818CDFDA1FDB05E500F60030 /* ElementDetailViewController.swift in Sources */,
 				818CDFD51FDAEA5500F60030 /* ElementTableViewCell.swift in Sources */,
+				818CDFDC1FDB10F000F60030 /* PostFavoriteAPI.swift in Sources */,
 				54B2A8C01FDA411D0056D007 /* ElementViewController.swift in Sources */,
 				818CDFD31FDAE93B00F60030 /* ElementAPIClient.swift in Sources */,
 				818CDFD81FDAF2AA00F60030 /* ImageAPIClient.swift in Sources */,
