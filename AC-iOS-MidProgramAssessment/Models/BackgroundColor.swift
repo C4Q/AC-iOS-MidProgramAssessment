@@ -24,6 +24,7 @@ class BackgroundColor {
         "otherMetals": (117/255, 185/255, 212/255) //everything else
     ]
     
+    //inversed colors of above
     private static let inverseColorDict: [String: (red: CGFloat, green: CGFloat, blue: CGFloat)] = [
         "alkaliMetal": (1 - 159/255, 1 - 234/255, 1 - 159/255), //Group 1 - after nonmetal and metalloids are checked for
         "alkalineEarthMetal": (1 - 247/255, 1 - 193/255, 1 - 101/255), //Group 2

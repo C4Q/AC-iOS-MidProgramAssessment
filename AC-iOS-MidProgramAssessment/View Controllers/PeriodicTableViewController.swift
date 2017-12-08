@@ -23,7 +23,33 @@ class PeriodicTableViewController: UIViewController {
     }
     
     func loadData() {
-        
+        ElementAPIClient.manager.getElements(
+            completionHandler: { (onlineElements) in
+                self.elements = onlineElements
+                self.periodicTableView.reloadData()
+        },
+            errorHandler: { (appError) in
+                let errorMessage: String
+                
+                switch appError {
+                case .badStatusCode(let num):
+                    errorMessage = "Bad Status Code: \(num)"
+                case .badURL(let string):
+                    errorMessage = "Bad URL:\n\(string)"
+                case .couldNotParseJSON(let rawError):
+                    errorMessage = "Could not parse JSON:\n\(rawError)"
+                case .other(let rawError):
+                    errorMessage = "\(rawError)"
+                default:
+                    errorMessage = appError.localizedDescription
+                }
+                
+                let alertController = UIAlertController(title: "ERROR", message: errorMessage, preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true, completion: nil)
+                
+        })
     }
     
     //Navigation
@@ -37,8 +63,12 @@ class PeriodicTableViewController: UIViewController {
 extension PeriodicTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     //Delegate Methods
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //to do
+    }
+    
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        // to do
+        // to do - should stop network request when the cell is no longer on the table view
     }
     
     //Data Source Methods
@@ -48,10 +78,52 @@ extension PeriodicTableViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "elementCell", for: indexPath)
+        let currentElement = elements[indexPath.row]
         
         if let elementCell = cell as? ElementTableViewCell {
             
-            //to do
+            elementCell.elementNameLabel.text = currentElement.name
+            elementCell.elementInfoLabel.text = "\(currentElement.symbol)(\(currentElement.number)) \(currentElement.weight)"
+            
+            //setting image
+            let elementNumber: String
+            
+            if currentElement.number.description.count == 1 {
+                elementNumber = "00" + currentElement.number.description
+            } else if currentElement.number.description.count == 2 {
+                elementNumber = "0" + currentElement.number.description
+            } else {
+                elementNumber = currentElement.number.description
+            }
+            
+            let urlString = "http://www.theodoregray.com/periodictable/Tiles/\(elementNumber)/s7.JPG"
+            
+            ImageAPIClient.manager.getImages(
+                from: urlString,
+                completionHandler: { (onlineImage) in
+                    elementCell.elementImageView.image = nil
+                    elementCell.elementImageView.image = onlineImage
+                    elementCell.setNeedsLayout()
+            },
+                errorHandler: { (appError) in
+                    let errorMessage: String
+                    
+                    switch appError {
+                    case .badStatusCode(let num):
+                        errorMessage = "Bad Status Code: \(num)"
+                    case .badImageURL(let string):
+                        errorMessage = "Bad Image URL:\n\(string)"
+                    case .other(let rawError):
+                        errorMessage = "\(rawError)"
+                    default:
+                        errorMessage = appError.localizedDescription
+                    }
+                    
+                    let alertController = UIAlertController(title: "ERROR", message: errorMessage, preferredStyle: .alert)
+                    let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(alertAction)
+                    self.present(alertController, animated: true, completion: nil)
+            })
             
             return elementCell
         }

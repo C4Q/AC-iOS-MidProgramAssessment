@@ -86,8 +86,8 @@
 			children = (
 				81C9C62E1FDAED8F00AD5B09 /* Element.swift */,
 				8185725A1FDAF41600C2156D /* ElementAPIClient.swift */,
-				818572631FDB018300C2156D /* BackgroundColor.swift */,
 				818572651FDB07AF00C2156D /* ImageAPIClient.swift */,
+				818572631FDB018300C2156D /* BackgroundColor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

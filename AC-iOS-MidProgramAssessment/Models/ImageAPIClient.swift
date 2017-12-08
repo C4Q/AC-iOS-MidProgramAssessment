@@ -12,7 +12,7 @@ import UIKit
 class ImageAPIClient {
     private init() {}
     static let manager = ImageAPIClient()
-    func getImages(from urlString: String, completionHandler: @escaping (UIImage) -> Void, errorHandler: @escaping (Error) -> Void) {
+    func getImages(from urlString: String, completionHandler: @escaping (UIImage) -> Void, errorHandler: @escaping (AppError) -> Void) {
         guard let url = URL(string: urlString) else {
             errorHandler(AppError.badImageURL(string: urlString))
             return

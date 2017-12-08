@@ -34,8 +34,8 @@ struct Element: Codable {
         self.weight = try container.decode(Double.self, forKey: .weight)
         self.name = try container.decode(String.self, forKey: .name)
         self.symbol = try container.decode(String.self, forKey: .symbol)
-        self.meltingPoint = try container.decode(Int.self, forKey: .meltingPoint)
-        self.boilingPoint = try container.decode(Int.self, forKey: .boilingPoint)
+        self.meltingPoint = try container.decode(Int?.self, forKey: .meltingPoint)
+        self.boilingPoint = try container.decode(Int?.self, forKey: .boilingPoint)
         
         if let int = try? container.decode(Int.self, forKey: .discoveryYearAsInt) {
             self.discoveryYearAsInt = int
