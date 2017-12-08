@@ -37,6 +37,10 @@ class ElementsViewController: UIViewController, UITableViewDelegate, UITableView
         
         cell.textLabel?.text = elementSetup.name
         cell.detailTextLabel?.text = elementSetup.symbol.description
+        cell.imageView?.image = #imageLiteral(resourceName: "defaultImage")
+        if let imageNumber = elementSetup.imageNumber{
+        ImageAPIClient.manager.getImage(from: "http://www.theodoregray.com/periodictable/Tiles/\(imageNumber)/s7.JPG", completionHandler: {cell.imageView?.image = $0; cell.setNeedsLayout()}, errorHandler: {print($0)})
+        }
         return cell
     }
     
@@ -58,14 +62,15 @@ class ElementsViewController: UIViewController, UITableViewDelegate, UITableView
         // Do any additional setup after loading the view.
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? DetailedElementViewController{
+            let elementSetup = elements[(elementsTableView.indexPathForSelectedRow?.row)!]
+            destination.element = elementSetup
+        }
     }
-    */
+    
 
 }
