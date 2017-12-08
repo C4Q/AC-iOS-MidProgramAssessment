@@ -103,7 +103,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Element Number" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gF-0u-DTU">
-                                <rect key="frame" x="32.666666666666671" y="74" width="165.33333333333331" height="28.333333333333329"/>
+                                <rect key="frame" x="32" y="74" width="354.33333333333331" height="28.333333333333329"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
@@ -146,6 +146,14 @@
                                 <color key="shadowColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <size key="shadowOffset" width="1" height="2"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLE-dk-IIF">
+                                <rect key="frame" x="5" y="701" width="404" height="30"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="Add to Favorites"/>
+                                <connections>
+                                    <action selector="addToFavsButtonPressed:" destination="SSk-0u-isK" eventType="touchUpInside" id="CEX-ZX-eNS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -154,10 +162,13 @@
                             <constraint firstItem="rlM-oP-vRj" firstAttribute="centerX" secondItem="VfH-f5-j4D" secondAttribute="centerX" id="Ase-Ea-6rj"/>
                             <constraint firstItem="erV-yu-ASY" firstAttribute="trailing" secondItem="ZXE-cR-nDB" secondAttribute="trailing" constant="22.666666666666629" id="C0x-CK-KMA"/>
                             <constraint firstItem="8uP-Pt-Ovt" firstAttribute="bottom" secondItem="ZXE-cR-nDB" secondAttribute="bottom" constant="-15" id="C6b-b2-sLB"/>
+                            <constraint firstItem="erV-yu-ASY" firstAttribute="trailing" secondItem="uLE-dk-IIF" secondAttribute="trailing" constant="5" id="Cvu-Ea-fEk"/>
                             <constraint firstItem="kU1-gE-Xfd" firstAttribute="top" secondItem="JSj-jL-Tix" secondAttribute="bottom" constant="10" id="EZ9-Nc-kp6"/>
+                            <constraint firstItem="uLE-dk-IIF" firstAttribute="leading" secondItem="erV-yu-ASY" secondAttribute="leading" constant="5" id="I6W-DH-uQr"/>
                             <constraint firstItem="rlM-oP-vRj" firstAttribute="top" secondItem="UxF-AR-QE2" secondAttribute="bottom" constant="5" id="J6x-1m-JLR"/>
                             <constraint firstItem="UxF-AR-QE2" firstAttribute="centerX" secondItem="ZXE-cR-nDB" secondAttribute="centerX" id="LF3-ZG-DcN"/>
                             <constraint firstItem="kU1-gE-Xfd" firstAttribute="leading" secondItem="erV-yu-ASY" secondAttribute="leading" constant="5" id="OlE-Fc-ma8"/>
+                            <constraint firstItem="erV-yu-ASY" firstAttribute="trailing" secondItem="ZXE-cR-nDB" secondAttribute="trailing" constant="22.666666666666629" id="PJd-P3-U0N"/>
                             <constraint firstItem="8uP-Pt-Ovt" firstAttribute="centerX" secondItem="VfH-f5-j4D" secondAttribute="centerX" id="Saw-xx-fqp"/>
                             <constraint firstItem="ZXE-cR-nDB" firstAttribute="height" secondItem="VfH-f5-j4D" secondAttribute="height" multiplier="1:2" id="Tqw-aT-ach"/>
                             <constraint firstItem="1gF-0u-DTU" firstAttribute="top" secondItem="ZXE-cR-nDB" secondAttribute="top" constant="10" id="az0-W0-Mef"/>
@@ -167,13 +178,16 @@
                             <constraint firstItem="erV-yu-ASY" firstAttribute="trailing" secondItem="JSj-jL-Tix" secondAttribute="trailing" constant="5" id="jjq-Da-g0Q"/>
                             <constraint firstItem="JSj-jL-Tix" firstAttribute="leading" secondItem="erV-yu-ASY" secondAttribute="leading" constant="5" id="l7Z-jf-CGz"/>
                             <constraint firstItem="ZXE-cR-nDB" firstAttribute="centerX" secondItem="rlM-oP-vRj" secondAttribute="centerX" id="mLm-Pv-lkT"/>
+                            <constraint firstItem="erV-yu-ASY" firstAttribute="bottom" secondItem="uLE-dk-IIF" secondAttribute="bottom" constant="5" id="s9t-aG-vVB"/>
                             <constraint firstItem="erV-yu-ASY" firstAttribute="trailing" secondItem="rlM-oP-vRj" secondAttribute="trailing" constant="5" id="ukz-mq-vnp"/>
                             <constraint firstAttribute="trailing" secondItem="UxF-AR-QE2" secondAttribute="trailing" id="vGP-f4-SJa"/>
                             <constraint firstItem="erV-yu-ASY" firstAttribute="trailing" secondItem="kU1-gE-Xfd" secondAttribute="trailing" constant="5" id="x0t-Cg-mm9"/>
+                            <constraint firstItem="ZXE-cR-nDB" firstAttribute="trailing" secondItem="1gF-0u-DTU" secondAttribute="trailing" constant="5" id="xxk-wV-s7M"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="erV-yu-ASY"/>
                     </view>
                     <connections>
+                        <outlet property="addToFavoritesButton" destination="uLE-dk-IIF" id="tt2-SC-0lj"/>
                         <outlet property="boilingPointLabel" destination="kU1-gE-Xfd" id="WPQ-T5-beE"/>
                         <outlet property="elementImageView" destination="ZXE-cR-nDB" id="S8g-iP-6VS"/>
                         <outlet property="elementNameLabel" destination="rlM-oP-vRj" id="Wxv-rG-7wL"/>
@@ -185,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTI-Jo-SoZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1156" y="33.733133433283363"/>
+            <point key="canvasLocation" x="1155.072463768116" y="33.423913043478265"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LE3-he-0Il">

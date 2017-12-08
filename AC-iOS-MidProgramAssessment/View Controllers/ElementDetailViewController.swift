@@ -17,6 +17,7 @@ class ElementDetailViewController: UIViewController {
     @IBOutlet weak var elementWeightLabel: UILabel!
     @IBOutlet weak var meltingPointLabel: UILabel!
     @IBOutlet weak var boilingPointLabel: UILabel!
+    @IBOutlet weak var addToFavoritesButton: UIButton!
     
     var element: Element!
     
@@ -44,6 +45,16 @@ class ElementDetailViewController: UIViewController {
         ElementImageAPIClient.manager.getImage(from: imageURLStr, completionHandler: completion, errorHandler: {print($0)})
         
     }
+
+    @IBAction func addToFavsButtonPressed(_ sender: Any) {
+        
+        let addFavorite = Element(name: element.name, symbol: element.symbol, number: element.number, weight: element.weight, meltingPointInCelsius: element.meltingPointInCelsius, boilingPointInCelsius: element.boilingPointInCelsius)
+        FavoriteAPIClient.manager.add(favorite: addFavorite){print($0)}
+        
+        
+    }
+    
+
 }
 
 //show the element image and on it (constrain to the image view instead of plain view)

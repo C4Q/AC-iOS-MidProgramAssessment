@@ -20,6 +20,7 @@
 		813C7F271FDAEC470009878A /* ElementAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C7F261FDAEC470009878A /* ElementAPIClient.swift */; };
 		813C7F2A1FDAEFDC0009878A /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C7F291FDAEFDC0009878A /* AppError.swift */; };
 		81D843701FDB171500B930B1 /* ElementImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D8436F1FDB171500B930B1 /* ElementImageAPIClient.swift */; };
+		81D843721FDB255200B930B1 /* FavoriteAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D843711FDB255200B930B1 /* FavoriteAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		813C7F261FDAEC470009878A /* ElementAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementAPIClient.swift; sourceTree = "<group>"; };
 		813C7F291FDAEFDC0009878A /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		81D8436F1FDB171500B930B1 /* ElementImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementImageAPIClient.swift; sourceTree = "<group>"; };
+		81D843711FDB255200B930B1 /* FavoriteAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				813C7F241FDAEC380009878A /* ImageAPIClient.swift */,
 				81D8436F1FDB171500B930B1 /* ElementImageAPIClient.swift */,
 				813C7F261FDAEC470009878A /* ElementAPIClient.swift */,
+				81D843711FDB255200B930B1 /* FavoriteAPIClient.swift */,
 			);
 			path = APIClients;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				813C7F271FDAEC470009878A /* ElementAPIClient.swift in Sources */,
 				813C7F1B1FDAE6710009878A /* CustomElementCell.swift in Sources */,
 				813C7F231FDAEC2B0009878A /* NetworkHelper.swift in Sources */,
+				81D843721FDB255200B930B1 /* FavoriteAPIClient.swift in Sources */,
 				813C7F201FDAEB370009878A /* Element.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
