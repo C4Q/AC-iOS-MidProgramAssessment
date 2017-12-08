@@ -25,7 +25,6 @@ struct Element: Codable {
     var discovery_year_int: Int?
     var discovery_year_Str: String?
     
-
     enum CodingKeys: String, CodingKey {
         case id
         case record_url

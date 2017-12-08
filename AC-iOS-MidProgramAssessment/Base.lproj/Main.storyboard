@@ -141,15 +141,15 @@
                                     <action selector="favoriteButtonPressed:" destination="SYu-sq-cpH" eventType="touchUpInside" id="AoO-dG-W89"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C41-L2-Oxe">
+                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C41-L2-Oxe">
                                 <rect key="frame" x="0.0" y="110" width="375" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="C41-L2-Oxe" secondAttribute="height" multiplier="1:1" priority="999" id="gCo-lR-07n"/>
                                 </constraints>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIN-j2-4pa">
-                                <rect key="frame" x="75.5" y="258.5" width="225.5" height="78"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="65"/>
+                                <rect key="frame" x="67" y="256" width="242.5" height="84"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="70"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -171,8 +171,8 @@
                                 </subviews>
                             </stackView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Num" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qva-Hk-RW2">
-                                <rect key="frame" x="15" y="125" width="360" height="54"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <rect key="frame" x="15" y="125" width="360" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
