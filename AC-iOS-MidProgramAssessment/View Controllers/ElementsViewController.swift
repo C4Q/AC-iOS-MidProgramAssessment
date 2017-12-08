@@ -68,6 +68,8 @@ extension ElementsViewController: UITableViewDelegate, UITableViewDataSource{
              threeDigitElementNumber = "00" + elementToSet.id.description
             case 2:
                 threeDigitElementNumber = "0" + elementToSet.id.description
+            case 3:
+                threeDigitElementNumber = elementToSet.id.description
             default:
                 threeDigitElementNumber = ""
                 
