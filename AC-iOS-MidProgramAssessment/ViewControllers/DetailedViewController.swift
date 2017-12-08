@@ -12,8 +12,6 @@ class DetailedViewController: UIViewController {
 
     @IBOutlet weak var elementNumberLabel: UILabel!
     
-    @IBOutlet weak var elementImageView: UIImageView!
-    
     @IBOutlet weak var elementLetterLabel: UILabel!
     
     @IBOutlet weak var elementNameLabe: UILabel!
@@ -22,9 +20,12 @@ class DetailedViewController: UIViewController {
     
     @IBOutlet weak var meltingboilingPointLabel: UILabel!
     
+    @IBOutlet weak var elementImageView: UIImageView!
+    
     @IBAction func favoriteButton(_ sender: UIButton) {
         //Insert POST Function Call Here
-        
+        let myPost = FieldBook(favorite_element: aSeguedElement.largeImageLink, name: "Responsible Richard aka String Master Hokage of the Git Gud Clan")
+        FieldBookAPIClient.manager.postImg(fieldbookpost: myPost, completionHandler: {print($0)}, errorHandler: {print($0)})
     }
     
     var aSeguedElement: ElementsClass!
@@ -32,8 +33,39 @@ class DetailedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLabelsAndImages()
 
-        // Do any additional setup after loading the view.
+    }
+    func setLabelsAndImages() {
+        elementNumberLabel.text = "\(aSeguedElement.number)"
+        elementLetterLabel.text = "\(aSeguedElement.symbol)"
+        elementNameLabe.text = "\(aSeguedElement.name)"
+        atomicWeightLabel.text = "\(aSeguedElement.weight)"
+        
+        //To check for nils
+        var meltingPoint = ""
+        var boilingPoint = ""
+        var discoveryYear = ""
+        if aSeguedElement.meltingPoint == nil {
+            meltingPoint = "Unknown"
+        } else {
+            meltingPoint = String(aSeguedElement.meltingPoint!)
+        }
+        if aSeguedElement.boilingPoint == nil {
+            boilingPoint = "Unknown"
+        } else {
+            meltingPoint = String(aSeguedElement.boilingPoint!)
+        }
+        if aSeguedElement.discoveryYear == nil {
+            boilingPoint = "Unknown"
+        } else {
+            meltingPoint = String(aSeguedElement.discoveryYear!)
+        }
+        
+        meltingboilingPointLabel.text = "Melting Point: \(meltingPoint). Boiling Point: \(boilingPoint). Discovery Year: \(discoveryYear)"
+        
+        
+        
     }
 
 }
