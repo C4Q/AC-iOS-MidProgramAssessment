@@ -55,6 +55,24 @@ setAllLabels()
         """
         detailedScroll.text = detailedText
         
+        
+        elementImage.image = #imageLiteral(resourceName: "images")
+        
+
+        let imageUrlStr = "http://images-of-elements.com/\(element.name.lowercased()).jpg"
+        
+        let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
+            
+            self.elementImage.image = onlineImage
+    
+            
+        }
+        
+        ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: completion, errorHandler: {print($0)})
+        
+        
+        
+        
     }
     
 }
