@@ -22,9 +22,15 @@ class ElementDetailViewController: UIViewController {
         super.viewDidLoad()
         guard let element = element else { return }
         titleNameLabel.text = element.name
-        meltingPointLabel.text = element.melting_c?.description ?? "Melting point N/A"
-        boilingPointLabel.text = element.boiling_c?.description ?? "Boiling point N/A"
+        if let meltingPoint = element.melting_c { meltingPointLabel.text = "Melting Point: \(meltingPoint.description)" }
+        else { meltingPointLabel.text = "Melting Point N/A" }
+        if let boilingPoint = element.boiling_c { boilingPointLabel.text = "Boiling Point: \(boilingPoint.description)" }
+        else { boilingPointLabel.text = "Boiling Point N/A" }
         discoveryNameLabel.text = "Coming soon..."
+        if element.id >= 90 {
+            elementImage.image = UIImage(named: "noImageFound")
+            return
+        }
         loadLargeElemImage(element: element)
     }
     
