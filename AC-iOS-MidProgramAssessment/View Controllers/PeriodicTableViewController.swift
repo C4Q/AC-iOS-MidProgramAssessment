@@ -8,11 +8,12 @@
 
 import UIKit
 
+
 class PeriodicTableViewController: UIViewController {
     
     @IBOutlet weak var periodicTableView: UITableView!
     
-    var elements: [String] = []
+    var elements: [Element] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

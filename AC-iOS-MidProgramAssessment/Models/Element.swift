@@ -13,8 +13,8 @@ struct Element: Codable {
     let weight: Double
     let name: String
     let symbol: String
-    let meltingPoint: Int
-    let boilingPoint: Int
+    let meltingPoint: Int?
+    let boilingPoint: Int?
     var discoveryYearAsInt: Int?
     var discoveryYearAsString: String?
     
@@ -26,6 +26,7 @@ struct Element: Codable {
         case discoveryYearAsString
     }
     
+    //Extra Credit
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
