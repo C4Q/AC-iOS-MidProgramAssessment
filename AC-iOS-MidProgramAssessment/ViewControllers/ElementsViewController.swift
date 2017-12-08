@@ -22,6 +22,7 @@ class ElementsViewController: UIViewController {
         super.viewDidLoad()
          self.tableView.dataSource = self
         loadElements()
+        
        
       
     }
@@ -54,8 +55,26 @@ extension ElementsViewController: UITableViewDataSource {
         let element = self.elements[indexPath.row]
         cell.name.text = element.name
         cell.symbolNumberWeight.text = element.symbol + "\(String(describing: element.number))"  + (element.weight.description)
-//        cell.elementImage.image = nil11
-//      
+        cell.elementImage.image = nil
+        
+        func loadImage() {
+            guard let url = URL(string: "http://www.theodoregray.com/periodictable/Tiles/018/s7.JPG") else {return}
+            let myGlobalQueue = DispatchQueue.global(qos: .utility)
+            myGlobalQueue.async {
+                print("About to make network connection")
+                guard let rawImageData = try? Data(contentsOf: url) else {return}
+                DispatchQueue.main.async {
+                    guard let onlineImage = UIImage(data: rawImageData) else {return}
+                    cell.elementImage.image = onlineImage
+                   
+                    
+                }
+                print("Just dispatched to main queue")
+            }
+            print("Just dispatched to global queue")
+        }
+
+//
        return cell
     }
 }

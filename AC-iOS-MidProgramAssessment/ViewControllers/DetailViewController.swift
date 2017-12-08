@@ -12,26 +12,37 @@ class DetailViewController: UIViewController {
 
     var element: ElementInfo!
     
+    @IBOutlet weak var titleElement: UILabel!
+    @IBOutlet weak var boilingPoint: UILabel!
+    @IBOutlet weak var meltingPoint: UILabel!
+    @IBOutlet weak var weight: UILabel!
+    @IBOutlet weak var symbolAndNumber: UILabel!
+    @IBOutlet weak var BigImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        boilingPoint.text = element.boiling_c?.description
+        meltingPoint.text = element.melting_c?.description
+        weight.text = element.weight.description
+        symbolAndNumber.text = element.symbol + "\(element.number)"
+        titleElement.text = element.name
+        loadImage()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func loadImage() {
+        guard let url = URL(string: "http://images-of-elements.com/\(element.name.lowercased()).jpg") else {return}
+        let myGlobalQueue = DispatchQueue.global(qos: .utility)
+        myGlobalQueue.async {
+            print("About to make network connection")
+            guard let rawImageData = try? Data(contentsOf: url) else {return}
+            DispatchQueue.main.async {
+                guard let onlineImage = UIImage(data: rawImageData) else {return}
+                self.BigImage.image = onlineImage
+               
+            }
+            print("Just dispatched to main queue")
+        }
+        print("Just dispatched to global queue")
     }
-    */
+
 
 }

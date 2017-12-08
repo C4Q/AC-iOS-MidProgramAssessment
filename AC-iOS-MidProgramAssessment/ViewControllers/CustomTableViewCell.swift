@@ -9,7 +9,8 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
-
+    var element: ElementInfo!
+    
     @IBOutlet weak var elementImage: UIImageView!
     
     @IBOutlet weak var symbolNumberWeight: UILabel!

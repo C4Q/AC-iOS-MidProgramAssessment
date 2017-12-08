@@ -14,8 +14,15 @@ enum AppError: Error {
     case couldNotParseJSON(rawError: Error)
     case noInternetConnection
     case badURL
-    case badStatusCode
+    case badStatusCode(num: Int)
     case noDataReceived
     case notAnImage
+    case badData
+    case codingError(rawError: Error)
     case other(rawError: Error)
+    case badStatusCode1
 }
+
+
+
+
