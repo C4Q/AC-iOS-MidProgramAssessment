@@ -32,8 +32,8 @@ class ElementDetailedViewController: UIViewController {
 		elementSymbolLabel?.text = element.symbol
 		elementNameLabel?.text = element.name
 		elementWeightLabel?.text = "\(element.weight)"
-		elementMeltingPointLabel?.text = "\(element.meltingPoint)"
-		elementBoilingPointLabel?.text = "\(element.boilingPoint)"
+		elementMeltingPointLabel?.text = "\(String(describing: element.meltingPoint))" ?? ""
+		elementBoilingPointLabel?.text = "\(String(describing: element.boilingPoint))" ?? ""
 		if element.number < 90 {
 			loadImage()
 		}
