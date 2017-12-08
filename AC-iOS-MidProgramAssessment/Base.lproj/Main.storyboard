@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-705" y="133"/>
         </scene>
-        <!--Element View Controller-->
+        <!--Elements-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ElementViewController" customModule="AC_iOS_MidProgramAssessment" customModuleProvider="target" sceneMemberID="viewController">
@@ -39,7 +39,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="155" id="UHy-UG-iNd" customClass="ElementTableViewCell" customModule="AC_iOS_MidProgramAssessment" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Element Cell" rowHeight="155" id="UHy-UG-iNd" customClass="ElementTableViewCell" customModule="AC_iOS_MidProgramAssessment" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="155"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UHy-UG-iNd" id="MXy-0J-kfn">
@@ -81,6 +81,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="elementImage" destination="Fat-st-dE8" id="LMt-Na-ciF"/>
+                                            <outlet property="elementNameLabel" destination="xcB-Bc-SIQ" id="W0I-fU-wO8"/>
+                                            <outlet property="elementSymbolAngWeighLabel" destination="cdg-At-uOw" id="xll-hG-qJ3"/>
                                             <segue destination="u0Y-bg-gzz" kind="show" id="7Op-4Z-MGM"/>
                                         </connections>
                                     </tableViewCell>
@@ -96,7 +99,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ovI-ng-Ziz"/>
+                    <navigationItem key="navigationItem" title="Elements" id="ovI-ng-Ziz">
+                        <barButtonItem key="backBarButtonItem" title="All Elements" id="hRc-8w-bLd"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="vIQ-Dd-E2y" id="nsY-wu-pzv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -194,6 +202,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K0A-K5-4yG"/>
                     </view>
+                    <connections>
+                        <outlet property="atomicNumber" destination="ndy-AY-OmE" id="7bs-5l-ZM3"/>
+                        <outlet property="detailedScroll" destination="cEf-r9-vND" id="l63-US-rRU"/>
+                        <outlet property="elementImage" destination="ldP-du-Yos" id="krP-6M-b0D"/>
+                        <outlet property="elementNameLabel" destination="9jB-mu-M8P" id="qDL-0A-3lZ"/>
+                        <outlet property="elementSymbolLabel" destination="DOX-TS-NoQ" id="hDH-eD-37Q"/>
+                        <outlet property="elementWeightLabel" destination="cft-5N-BPq" id="47q-26-ePu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7F3-2z-a4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
