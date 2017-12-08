@@ -12,6 +12,14 @@
 		54B2A8C31FDA411D0056D007 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54B2A8C11FDA411D0056D007 /* Main.storyboard */; };
 		54B2A8C51FDA411D0056D007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54B2A8C41FDA411D0056D007 /* Assets.xcassets */; };
 		54B2A8C81FDA411D0056D007 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54B2A8C61FDA411D0056D007 /* LaunchScreen.storyboard */; };
+		815CF54D1FDAE8A800144480 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815CF54C1FDAE8A800144480 /* NetworkHelper.swift */; };
+		815CF54F1FDAE8C200144480 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815CF54E1FDAE8C200144480 /* AppError.swift */; };
+		815CF5511FDAE94600144480 /* AllElementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815CF5501FDAE94600144480 /* AllElementsViewController.swift */; };
+		815CF5531FDAE96600144480 /* SelectedElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815CF5521FDAE96600144480 /* SelectedElementViewController.swift */; };
+		815CF5551FDAE98500144480 /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815CF5541FDAE98500144480 /* ImageAPIClient.swift */; };
+		815CF5571FDAE99C00144480 /* ElementAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815CF5561FDAE99C00144480 /* ElementAPIClient.swift */; };
+		815CF5591FDAED2400144480 /* ElementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815CF5581FDAED2400144480 /* ElementModel.swift */; };
+		815CF55D1FDAF26500144480 /* CustomElementCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815CF55C1FDAF26500144480 /* CustomElementCellTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +30,14 @@
 		54B2A8C41FDA411D0056D007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54B2A8C71FDA411D0056D007 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54B2A8C91FDA411D0056D007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		815CF54C1FDAE8A800144480 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		815CF54E1FDAE8C200144480 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		815CF5501FDAE94600144480 /* AllElementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllElementsViewController.swift; sourceTree = "<group>"; };
+		815CF5521FDAE96600144480 /* SelectedElementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedElementViewController.swift; sourceTree = "<group>"; };
+		815CF5541FDAE98500144480 /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
+		815CF5561FDAE99C00144480 /* ElementAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementAPIClient.swift; sourceTree = "<group>"; };
+		815CF5581FDAED2400144480 /* ElementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementModel.swift; sourceTree = "<group>"; };
+		815CF55C1FDAF26500144480 /* CustomElementCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomElementCellTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +70,46 @@
 		54B2A8BC1FDA411D0056D007 /* AC-iOS-MidProgramAssessment */ = {
 			isa = PBXGroup;
 			children = (
+				815CF54B1FDAE83000144480 /* Supporting Files */,
+				815CF5491FDAE80900144480 /* ViewControllers */,
+				815CF5451FDAE7C400144480 /* Models */,
+				815CF5471FDAE7E800144480 /* API */,
+			);
+			path = "AC-iOS-MidProgramAssessment";
+			sourceTree = "<group>";
+		};
+		815CF5451FDAE7C400144480 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				815CF5581FDAED2400144480 /* ElementModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		815CF5471FDAE7E800144480 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				815CF54C1FDAE8A800144480 /* NetworkHelper.swift */,
+				815CF54E1FDAE8C200144480 /* AppError.swift */,
+				815CF5541FDAE98500144480 /* ImageAPIClient.swift */,
+				815CF5561FDAE99C00144480 /* ElementAPIClient.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		815CF5491FDAE80900144480 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				815CF5501FDAE94600144480 /* AllElementsViewController.swift */,
+				815CF5521FDAE96600144480 /* SelectedElementViewController.swift */,
+				815CF55C1FDAF26500144480 /* CustomElementCellTableViewCell.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		815CF54B1FDAE83000144480 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				54B2A8BD1FDA411D0056D007 /* AppDelegate.swift */,
 				54B2A8BF1FDA411D0056D007 /* ViewController.swift */,
 				54B2A8C11FDA411D0056D007 /* Main.storyboard */,
@@ -61,7 +117,7 @@
 				54B2A8C61FDA411D0056D007 /* LaunchScreen.storyboard */,
 				54B2A8C91FDA411D0056D007 /* Info.plist */,
 			);
-			path = "AC-iOS-MidProgramAssessment";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +192,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				815CF5591FDAED2400144480 /* ElementModel.swift in Sources */,
+				815CF54F1FDAE8C200144480 /* AppError.swift in Sources */,
 				54B2A8C01FDA411D0056D007 /* ViewController.swift in Sources */,
+				815CF5531FDAE96600144480 /* SelectedElementViewController.swift in Sources */,
+				815CF5551FDAE98500144480 /* ImageAPIClient.swift in Sources */,
+				815CF5571FDAE99C00144480 /* ElementAPIClient.swift in Sources */,
+				815CF54D1FDAE8A800144480 /* NetworkHelper.swift in Sources */,
+				815CF5511FDAE94600144480 /* AllElementsViewController.swift in Sources */,
 				54B2A8BE1FDA411D0056D007 /* AppDelegate.swift in Sources */,
+				815CF55D1FDAF26500144480 /* CustomElementCellTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +339,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "AC-iOS-MidProgramAssessment/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/AC-iOS-MidProgramAssessment/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "c4q.AC-iOS-MidProgramAssessment";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -289,7 +353,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "AC-iOS-MidProgramAssessment/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/AC-iOS-MidProgramAssessment/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "c4q.AC-iOS-MidProgramAssessment";
 				PRODUCT_NAME = "$(TARGET_NAME)";
