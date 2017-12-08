@@ -42,26 +42,27 @@ class DetailedElementViewController: UIViewController {
         self.elementWeight.text = element.weight.description
         self.elementBoilingPoint.text = "Boiling Point: \(element.boilingPointDegCel?.description ?? "No Registerd Boiling Point")"
         self.elementMeltingPoint.text = "Melting Point: \(element.meltingPointDegCel?.description ?? "No Registerd Melting Point")"
+                self.elementBackGroundImage.image = nil
         self.elementNumber.text = element.number.description
-        self.elementBackGroundImage.image = nil
+        if let discoveryYearInt = element.discoveryYearInt{
+            self.discoverYear.text = "Discovery Year: \(discoveryYearInt.description)"
+        }
+        if let discoveryYearStr = element.discoveryYearStr{
+            self.discoverYear.text = "Discovery Year: \(discoveryYearStr)"
+        }
         // move them to viewWillLayout
-
-    }
-    override func viewWillLayoutSubviews() {
-        if let element = element{
         ImageAPIClient.manager.getImage(from: "http://images-of-elements.com/\(element.name.lowercased()).jpg", completionHandler: {self.elementBackGroundImage.image = $0}, errorHandler: {print($0)})
         print(elementBackGroundImage.alpha)
         if elementBackGroundImage.alpha == 1{
-            self.elementTitle.textColor = UIColor.white
-            self.ElementSymbol.textColor = UIColor.white
-            self.discoverYear.textColor = UIColor.white
-            self.elementWeight.textColor = UIColor.white
-            self.elementBoilingPoint.textColor = UIColor.white
-            self.elementMeltingPoint.textColor = UIColor.white
-            self.elementNumber.textColor = UIColor.white
+//            self.elementTitle.textColor = UIColor.white
+//            self.ElementSymbol.textColor = UIColor.white
+//            self.discoverYear.textColor = UIColor.white
+//            self.elementWeight.textColor = UIColor.white
+//            self.elementBoilingPoint.textColor = UIColor.white
+//            self.elementMeltingPoint.textColor = UIColor.white
+//            self.elementNumber.textColor = UIColor.white
             elementBackGroundImage.alpha = 0.85
-        }
-        }
+    }
     }
     
     /*

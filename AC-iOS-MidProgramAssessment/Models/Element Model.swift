@@ -26,7 +26,8 @@ struct Element: Codable {
     let weight: Double
     let meltingPointDegCel: Double?
     let boilingPointDegCel: Double?
-    let discoveryYear: Int?
+    let discoveryYearInt: Int?
+    let discoveryYearStr: String?
     enum CodingKeys: String, CodingKey {
         case id
         case number
@@ -35,16 +36,31 @@ struct Element: Codable {
         case weight
         case meltingPointDegCel = "melting_c"
         case boilingPointDegCel = "boiling_c"
-        case discoveryYear = "discovery_year"
+        case discoveryYearInt = "discovery_year"
+    }
+    init(from decoder: Decoder) throws{
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try values.decode(String.self, forKey: .name)
+        self.id = try values.decode(Double.self, forKey: .id)
+        self.number = try values.decode(Int.self, forKey: .number)
+        self.symbol = try values.decode(String.self, forKey: .symbol)
+        self.weight = try values.decode(Double.self, forKey: .weight)
+        self.meltingPointDegCel = try values.decode(Double?.self, forKey: .meltingPointDegCel)
+        self.boilingPointDegCel = try values.decode(Double?.self, forKey: .boilingPointDegCel)
+        if let discoveryInt = try? values.decode(Int.self, forKey: .discoveryYearInt){
+            self.discoveryYearInt = discoveryInt
+        }
+        else{
+            self.discoveryYearInt = nil
+        }
+        if let discoveryStr = try? values.decode(String?.self, forKey: .discoveryYearInt){
+            self.discoveryYearStr = discoveryStr
+        }
+        else{
+            self.discoveryYearStr = nil
+        }
     }
 }
-extension Decodable: Any{
-    //do struff
-}
-//enum CrazyType:Any, Codable{
-//    case String
-//    case Int
-//}
 
 
 

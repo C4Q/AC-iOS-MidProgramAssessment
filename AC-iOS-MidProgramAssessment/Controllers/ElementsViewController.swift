@@ -17,18 +17,32 @@ class ElementsViewController: UIViewController, UITableViewDelegate, UITableView
             elementsTableView.reloadData()
         }
     }
+    var filteredElements: [Element]{
+            guard searchTerm != "" else {
+                return elements
+        }
+        return elements.filter{$0.name.lowercased().contains(searchTerm.lowercased())}
+        }
+    
     var searchTerm: String = ""{
         didSet{
-            self.elements = elements.filter{$0.name.contains(searchTerm)}
+//            self.filteredElements = elements.filter{$0.name.lowercased().contains(searchTerm.lowercased())}
+            elementsTableView.reloadData()
         }
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchTerm = searchBar.text!
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchTerm = searchText
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return elements.count
+        return filteredElements.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let elementSetup = elements[indexPath.row]
+        let elementSetup = filteredElements[indexPath.row]
         guard let cell: UITableViewCell = elementsTableView.dequeueReusableCell(withIdentifier: "myCell") else {
             let defaultCell = UITableViewCell()
             defaultCell.textLabel?.text = elementSetup.name
@@ -67,7 +81,7 @@ class ElementsViewController: UIViewController, UITableViewDelegate, UITableView
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DetailedElementViewController{
-            let elementSetup = elements[(elementsTableView.indexPathForSelectedRow?.row)!]
+            let elementSetup = filteredElements[(elementsTableView.indexPathForSelectedRow?.row)!]
             destination.element = elementSetup
         }
     }
