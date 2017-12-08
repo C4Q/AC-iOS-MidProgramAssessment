@@ -29,21 +29,20 @@ class ElementDetailViewController: UIViewController {
         elementWeightLabel.text = element?.weight.description
         meltingPointLabel?.text = "Melting Point (C): \(element?.meltingPointInCelsius?.description ?? "N/A")"
         boilingPointLabel?.text = "Boiling Point (C): \(element?.boilingPointInCelsius?.description ?? "N/A")"
-        elementImageView.image = nil
+//        elementImageView.image = nil
         loadImage()
-        
     }
     
     
     func loadImage() {
-        let elementNameLowercased = element?.name.lowercased()
+        let elementNameLowercased = element.name.lowercased()
+//        let imageURLStr = "http://images-of-elements.com/\(elementNameLowercased).jpg"
         let imageURLStr = "http://images-of-elements.com/\(elementNameLowercased).jpg"
-        
         let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
             self.elementImageView.image = onlineImage
             self.elementImageView.setNeedsLayout()
         }
-        ImageAPIClient.manager.getImage(from: imageURLStr, completionHandler: completion, errorHandler: {print($0.localizedDescription)})
+        ElementImageAPIClient.manager.getImage(from: imageURLStr, completionHandler: completion, errorHandler: {print($0)})
         
     }
 }
