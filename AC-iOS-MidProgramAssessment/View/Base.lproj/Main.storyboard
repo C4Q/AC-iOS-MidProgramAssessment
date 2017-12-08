@@ -30,7 +30,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="139.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="s7" translatesAutoresizingMaskIntoConstraints="NO" id="YQn-w8-hIx">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="06-Carbon-Tile" translatesAutoresizingMaskIntoConstraints="NO" id="YQn-w8-hIx">
                                                     <rect key="frame" x="0.0" y="-0.5" width="140.5" height="140.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="YQn-w8-hIx" secondAttribute="height" multiplier="1:1" id="9XP-iN-ceL"/>
@@ -173,7 +173,7 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Post to Favorites"/>
                                 <connections>
-                                    <action selector="postButtonPressed:" destination="KmF-Cg-KhR" eventType="touchUpInside" id="XRx-xE-r8a"/>
+                                    <action selector="postButtonPressed:" destination="KmF-Cg-KhR" eventType="touchUpInside" id="xig-74-QOx"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carbon" translatesAutoresizingMaskIntoConstraints="NO" id="62F-hJ-fcR">
@@ -213,6 +213,7 @@
                         <outlet property="elementNumberLabel" destination="7bf-6F-Pvh" id="4Ot-qp-57r"/>
                         <outlet property="elementSymbolLabel" destination="lZ7-Wy-3W9" id="1za-8h-JQH"/>
                         <outlet property="elementWeightLabel" destination="BWD-Dd-ZYc" id="K52-ci-2iI"/>
+                        <outlet property="imageSpinner" destination="N8Q-Vr-u7P" id="n6n-kw-oi5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QqL-dY-Byl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -239,7 +240,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="06-Carbon-Tile" width="300" height="300"/>
         <image name="carbon" width="1124" height="1124"/>
-        <image name="s7" width="256" height="256"/>
     </resources>
 </document>

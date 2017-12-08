@@ -4,16 +4,22 @@
 //  Copyright © 2017 Winston Maragh. All rights reserved.
 
 import Foundation
+import UIKit
 
-//APPError
+//HTTP
+enum HTTPVerb: String {
+	case GET
+	case POST
+}
+
+//AppError
 enum AppError: Error {
 	case badData
 	case badURL
 	case unauthenticated
 	case codingError(rawError: Error)
 	case invalidJSONResponse
-	case JSONDecodeError(decodeError: Error)
-	case JSONEncodeError(encodeError: Error)
+	case couldNotParseJSON(rawError: Error)
 	case noInternetConnection
 	case badStatusCode
 	case noDataReceived
@@ -24,41 +30,49 @@ enum AppError: Error {
 
 //NetworkHelper - turns URL into Data
 struct NetworkHelper {
-	//Singleton
 	private init(){}
 	static let manager = NetworkHelper()
-	//Create Session
-	//private let session = URLSession(configuration: .default)
-	//Method to get Data
-	func performDataTask(with url: URL, completionHandler: @escaping (Data)->Void, errorHandler: @escaping (AppError)->Void){
-		//		let task = session.dataTask(with: url) {(data, response, error) in
-		let task = URLSession(configuration: .default).dataTask(with: url) {(data, response, error) in
+	private let session = URLSession(configuration: .default)
+	func performDataTask(withURL url: URL,
+											 completionHandler: @escaping (Data)->Void,
+											 errorHandler: @escaping (AppError)->Void){
+
+		session.dataTask(with: url) {(data, response, error) in
 			DispatchQueue.main.async {
 				guard let data = data else {errorHandler(AppError.badData); return}
+				if let error = error {
+					errorHandler(AppError.other(rawError: error))
+				}
 				completionHandler(data)
 			}
-		}
-		task.resume() //start task
+			}.resume()
+	}
+	func performDataTask(withURLRequest urlRequest: URLRequest,
+											 completionHandler: @escaping (Data) -> Void,
+											 errorHandler: @escaping (Error) -> Void) {
+		session.dataTask(with: urlRequest){(data, response, error) in
+			DispatchQueue.main.async {
+				guard let data = data else {errorHandler(AppError.badData); return}
+				if let error = error {
+					errorHandler(AppError.other(rawError: error))
+				}
+				completionHandler(data)
+			}
+			}.resume()
 	}
 }
 
-//ImageHelper
-struct ImageAPIClient {
-	//Singleton
+class ImageAPIClient {
 	private init() {}
 	static let manager = ImageAPIClient()
-	//Method to get Image
+
 	func getImage(from urlStr: String, completionHandler: @escaping (UIImage) -> Void, errorHandler: @escaping (AppError) -> Void) {
-		//guard URL for nil
-		guard let url = URL(string: urlStr) else {errorHandler(.badURL);return}
-		//Create Completion
+		guard let url = URL(string: urlStr) else { errorHandler(AppError.badURL); return}
 		let completion: (Data) -> Void = {(data: Data) in
 			guard let onlineImage = UIImage(data: data) else {return}
 			completionHandler(onlineImage) //call completionHandler
 		}
-		//call NetworkHelper
-		NetworkHelper.manager.performDataTask(with: url, completionHandler: completion, errorHandler: errorHandler)
+		NetworkHelper.manager.performDataTask(withURL: url, completionHandler: completion, errorHandler: errorHandler)
 	}
+	
 }
-
-

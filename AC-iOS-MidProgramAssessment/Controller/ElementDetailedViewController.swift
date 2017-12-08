@@ -18,15 +18,12 @@ class ElementDetailedViewController: UIViewController {
 	@IBOutlet weak var imageSpinner: UIActivityIndicatorView!
 
 	//MARK: Variables
-	var element: Element! {
-		didSet{
-			loadData()
-		}
-	}
+	var element: Element!
 
 	//MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
+			loadData()
     }
 
 	func loadData(){
@@ -37,7 +34,9 @@ class ElementDetailedViewController: UIViewController {
 		elementWeightLabel?.text = "\(element.weight)"
 		elementMeltingPointLabel?.text = "\(element.meltingPoint)"
 		elementBoilingPointLabel?.text = "\(element.boilingPoint)"
-		loadImage()
+		if element.number < 90 {
+			loadImage()
+		}
 	}
 
 	func loadImage(){
@@ -59,9 +58,39 @@ class ElementDetailedViewController: UIViewController {
 	
 	//MARK: Actions
 	@IBAction func postButtonPressed(_ sender: Any) {
-		let newFavorite = Element(name: "Winston", favorite_element: element.name)
-		ElementAPIClient.manager.postElement(element: newFavorite, errorHandler: { print($0) })
+		let newFavorite = Favorite(name: "Winston", favoriteElement: element.name)
+		FavoriteAPIClient.manager.post(favorite: newFavorite, errorHandler: { print($0) })
 	}
 
-
+//Second POST method - standalone
+	@IBAction func postButtonPressed2(_ sender: Any) {
+		let parameters = ["name”: “Winston”, “favoriteElement”: “\(element.name)"]
+		guard let url = URL(string: "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/favorites") else {return}
+		var request = URLRequest(url: url)
+		let userName = "key-1"
+		let password = "ptJP0XOFIQ_xysF7nwoB"
+		let nameAndPassStr = "\(userName):\(password)"
+		let nameAndPassData = nameAndPassStr.data(using: .utf8)!
+		let authBase64Str = nameAndPassData.base64EncodedString()
+		let authStr = "Basic \(authBase64Str)"
+		request.addValue(authStr, forHTTPHeaderField: "Authorization")
+		request.httpMethod = "POST"
+		request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+		request.addValue("application/json", forHTTPHeaderField: "Accept")
+		guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else {return}
+		request.httpBody = httpBody
+		let session = URLSession.shared
+		session.dataTask(with: request) { (data, response, error) in
+			if let response = response { print(response) }
+			if let data = data {
+				do {
+					let json = try JSONSerialization.jsonObject(with: data, options: [])
+					print(json)
+				}
+				catch {print(error)}
+			}
+			}.resume()
+	}
 }
+
+

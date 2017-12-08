@@ -1,10 +1,7 @@
-//
 //  ElementsViewController.swift
 //  AC-iOS-MidProgramAssessment
-//
 //  Created by Winston Maragh on 12/8/17.
 //  Copyright © 2017Winston Maragh. All rights reserved.
-//
 
 import UIKit
 
@@ -12,31 +9,60 @@ class ElementsViewController: UIViewController, UITableViewDelegate, UITableView
 	//MARK: Outlets
 	@IBOutlet weak var tableView: UITableView!
 
+	//MARK: Variables/Constants
+	private let refreshControl = UIRefreshControl()
+	var elements = [Element]()
 
 	//MARK: View Ovverides
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		tableView.dataSource = self
 		tableView.delegate = self
+		self.refreshControl.addTarget(self, action: #selector(refreshElements(_:)), for: UIControlEvents.valueChanged)
+		tableView.refreshControl = refreshControl
+		loadElements()
+		tableView.reloadData()
 	}
-
-	//MARK: Variables
-	var elements = [Element]() {
-		didSet {
-			loadElements()
-			self.tableView.reloadData()
-		}
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		loadElements()
 	}
 
 	//MARK: Functions
-	func loadElements(){
+	@objc private func refreshElements(_ sender: Any) {
+		loadElements()
+	}
+
+	func loadElements() {
 		let setElements = {(onlineElements: [Element]) in
 			self.elements = onlineElements
+			self.tableView.reloadData()
 		}
-		let printErrors = {(error: Error) in print(error)}
+		let printErrors = {(error: Error) in
+			print(error)
+		}
 		ElementAPIClient.manager.getElements(completionHandler: setElements, errorHandler: printErrors)
-//		ElementAPIClient.manager.getElements(from: urlStr, completionHandler:setElements, errorHandler: printErrors)
 	}
+
+
+	//GET ELEMENTS - manually
+	func getElements(){
+		guard let url = URL(string: "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/favorites") else {return}
+		let session = URLSession.shared
+		session.dataTask(with: url) {(data, response, error) in
+			if let response = response {
+				print(response)
+			}
+			if let data = data {
+				print(data)
+				do {
+					let elements = try JSONSerialization.jsonObject(with: data, options: [])
+					print(elements)
+				} catch {print(error)}
+			}
+			}.resume()
+	}
+
 
 	//MARK: TableView
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,7 +70,7 @@ class ElementsViewController: UIViewController, UITableViewDelegate, UITableView
 	}
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let cell = self.tableView.dequeueReusableCell(withIdentifier: "elementCell", for: indexPath) as? ElementTableViewCell else {return UITableViewCell()}
-		let element = elements[indexPath.row]
+		let element = self.elements[indexPath.row]
 		cell.elementNameLabel?.text = element.name
 		cell.elementSymbolWeightLabel?.text = "\(element.symbol)(\(element.number)) \(element.weight)"
 		//Image
