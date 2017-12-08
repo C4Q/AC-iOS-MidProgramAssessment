@@ -8,20 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		54B2A8BE1FDA411D0056D007 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B2A8BD1FDA411D0056D007 /* AppDelegate.swift */; };
-		54B2A8C01FDA411D0056D007 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B2A8BF1FDA411D0056D007 /* ViewController.swift */; };
 		54B2A8C31FDA411D0056D007 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54B2A8C11FDA411D0056D007 /* Main.storyboard */; };
 		54B2A8C51FDA411D0056D007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54B2A8C41FDA411D0056D007 /* Assets.xcassets */; };
 		54B2A8C81FDA411D0056D007 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54B2A8C61FDA411D0056D007 /* LaunchScreen.storyboard */; };
+		F4AC0D621FDAE68500B878CE /* PeriodicTableElementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AC0D611FDAE68500B878CE /* PeriodicTableElementsViewController.swift */; };
+		F4AC0D641FDAE6C900B878CE /* PeriodicTableElementsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AC0D631FDAE6C900B878CE /* PeriodicTableElementsDetailViewController.swift */; };
+		F4AC0D661FDAE6FA00B878CE /* PeriodicTableElementCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AC0D651FDAE6FA00B878CE /* PeriodicTableElementCustomTableViewCell.swift */; };
+		F4AC0D6B1FDAE8CF00B878CE /* Elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AC0D6A1FDAE8CF00B878CE /* Elements.swift */; };
+		F4AC0D6D1FDAEC7300B878CE /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AC0D6C1FDAEC7300B878CE /* NetworkHelper.swift */; };
+		F4AC0D6F1FDAECA400B878CE /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AC0D6E1FDAECA400B878CE /* ImageAPIClient.swift */; };
+		F4AC0D711FDAED9600B878CE /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AC0D701FDAED9600B878CE /* AppError.swift */; };
+		F4AC0D731FDAEF4700B878CE /* ElementsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AC0D721FDAEF4700B878CE /* ElementsAPIClient.swift */; };
+		F4AC0D751FDAF29200B878CE /* TableViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AC0D741FDAF29200B878CE /* TableViewControllerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		54B2A8BA1FDA411D0056D007 /* AC-iOS-MidProgramAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AC-iOS-MidProgramAssessment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B2A8BD1FDA411D0056D007 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		54B2A8BF1FDA411D0056D007 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		54B2A8C21FDA411D0056D007 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		54B2A8C41FDA411D0056D007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54B2A8C71FDA411D0056D007 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54B2A8C91FDA411D0056D007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4AC0D611FDAE68500B878CE /* PeriodicTableElementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableElementsViewController.swift; sourceTree = "<group>"; };
+		F4AC0D631FDAE6C900B878CE /* PeriodicTableElementsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableElementsDetailViewController.swift; sourceTree = "<group>"; };
+		F4AC0D651FDAE6FA00B878CE /* PeriodicTableElementCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableElementCustomTableViewCell.swift; sourceTree = "<group>"; };
+		F4AC0D6A1FDAE8CF00B878CE /* Elements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elements.swift; sourceTree = "<group>"; };
+		F4AC0D6C1FDAEC7300B878CE /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		F4AC0D6E1FDAECA400B878CE /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
+		F4AC0D701FDAED9600B878CE /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		F4AC0D721FDAEF4700B878CE /* ElementsAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsAPIClient.swift; sourceTree = "<group>"; };
+		F4AC0D741FDAF29200B878CE /* TableViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +70,62 @@
 		54B2A8BC1FDA411D0056D007 /* AC-iOS-MidProgramAssessment */ = {
 			isa = PBXGroup;
 			children = (
-				54B2A8BD1FDA411D0056D007 /* AppDelegate.swift */,
-				54B2A8BF1FDA411D0056D007 /* ViewController.swift */,
+				F4AC0D691FDAE73700B878CE /* Models */,
+				F4AC0D601FDAE62900B878CE /* SupportingFiles */,
+				F4AC0D671FDAE71500B878CE /* ViewControllers */,
 				54B2A8C11FDA411D0056D007 /* Main.storyboard */,
 				54B2A8C41FDA411D0056D007 /* Assets.xcassets */,
-				54B2A8C61FDA411D0056D007 /* LaunchScreen.storyboard */,
 				54B2A8C91FDA411D0056D007 /* Info.plist */,
 			);
 			path = "AC-iOS-MidProgramAssessment";
+			sourceTree = "<group>";
+		};
+		F4AC0D601FDAE62900B878CE /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				54B2A8C61FDA411D0056D007 /* LaunchScreen.storyboard */,
+				54B2A8BD1FDA411D0056D007 /* AppDelegate.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		F4AC0D671FDAE71500B878CE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F4AC0D681FDAE72700B878CE /* ViewControllerExtensions */,
+				F4AC0D761FDB02AA00B878CE /* CustomTableViewCell */,
+				F4AC0D611FDAE68500B878CE /* PeriodicTableElementsViewController.swift */,
+				F4AC0D631FDAE6C900B878CE /* PeriodicTableElementsDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F4AC0D681FDAE72700B878CE /* ViewControllerExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				F4AC0D741FDAF29200B878CE /* TableViewControllerExtensions.swift */,
+			);
+			path = ViewControllerExtensions;
+			sourceTree = "<group>";
+		};
+		F4AC0D691FDAE73700B878CE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F4AC0D6A1FDAE8CF00B878CE /* Elements.swift */,
+				F4AC0D721FDAEF4700B878CE /* ElementsAPIClient.swift */,
+				F4AC0D6C1FDAEC7300B878CE /* NetworkHelper.swift */,
+				F4AC0D6E1FDAECA400B878CE /* ImageAPIClient.swift */,
+				F4AC0D701FDAED9600B878CE /* AppError.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F4AC0D761FDB02AA00B878CE /* CustomTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				F4AC0D651FDAE6FA00B878CE /* PeriodicTableElementCustomTableViewCell.swift */,
+			);
+			path = CustomTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +200,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54B2A8C01FDA411D0056D007 /* ViewController.swift in Sources */,
+				F4AC0D661FDAE6FA00B878CE /* PeriodicTableElementCustomTableViewCell.swift in Sources */,
+				F4AC0D641FDAE6C900B878CE /* PeriodicTableElementsDetailViewController.swift in Sources */,
+				F4AC0D621FDAE68500B878CE /* PeriodicTableElementsViewController.swift in Sources */,
+				F4AC0D751FDAF29200B878CE /* TableViewControllerExtensions.swift in Sources */,
+				F4AC0D6F1FDAECA400B878CE /* ImageAPIClient.swift in Sources */,
+				F4AC0D711FDAED9600B878CE /* AppError.swift in Sources */,
 				54B2A8BE1FDA411D0056D007 /* AppDelegate.swift in Sources */,
+				F4AC0D731FDAEF4700B878CE /* ElementsAPIClient.swift in Sources */,
+				F4AC0D6D1FDAEC7300B878CE /* NetworkHelper.swift in Sources */,
+				F4AC0D6B1FDAE8CF00B878CE /* Elements.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
