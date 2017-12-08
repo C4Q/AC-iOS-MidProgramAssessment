@@ -12,6 +12,14 @@
 		54B2A8C31FDA411D0056D007 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54B2A8C11FDA411D0056D007 /* Main.storyboard */; };
 		54B2A8C51FDA411D0056D007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54B2A8C41FDA411D0056D007 /* Assets.xcassets */; };
 		54B2A8C81FDA411D0056D007 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54B2A8C61FDA411D0056D007 /* LaunchScreen.storyboard */; };
+		8145E4841FDAE5DD0015C2B3 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8145E4831FDAE5DD0015C2B3 /* NetworkHelper.swift */; };
+		8145E4871FDAE60F0015C2B3 /* Elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8145E4861FDAE60F0015C2B3 /* Elements.swift */; };
+		8145E4891FDAE6290015C2B3 /* ElementAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8145E4881FDAE6290015C2B3 /* ElementAPIClient.swift */; };
+		8145E48B1FDAE7040015C2B3 /* ElementCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8145E48A1FDAE7040015C2B3 /* ElementCellTableViewCell.swift */; };
+		8145E48D1FDAE7330015C2B3 /* ElementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8145E48C1FDAE7330015C2B3 /* ElementDetailViewController.swift */; };
+		8145E48F1FDAF50C0015C2B3 /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8145E48E1FDAF50C0015C2B3 /* ImageAPIClient.swift */; };
+		8145E4931FDB0C790015C2B3 /* FavoriteElementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8145E4921FDB0C790015C2B3 /* FavoriteElementsViewController.swift */; };
+		8145E4961FDB0D550015C2B3 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8145E4951FDB0D550015C2B3 /* Favorites.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +30,14 @@
 		54B2A8C41FDA411D0056D007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54B2A8C71FDA411D0056D007 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54B2A8C91FDA411D0056D007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8145E4831FDAE5DD0015C2B3 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		8145E4861FDAE60F0015C2B3 /* Elements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elements.swift; sourceTree = "<group>"; };
+		8145E4881FDAE6290015C2B3 /* ElementAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementAPIClient.swift; sourceTree = "<group>"; };
+		8145E48A1FDAE7040015C2B3 /* ElementCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementCellTableViewCell.swift; sourceTree = "<group>"; };
+		8145E48C1FDAE7330015C2B3 /* ElementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementDetailViewController.swift; sourceTree = "<group>"; };
+		8145E48E1FDAF50C0015C2B3 /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
+		8145E4921FDB0C790015C2B3 /* FavoriteElementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteElementsViewController.swift; sourceTree = "<group>"; };
+		8145E4951FDB0D550015C2B3 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +70,38 @@
 		54B2A8BC1FDA411D0056D007 /* AC-iOS-MidProgramAssessment */ = {
 			isa = PBXGroup;
 			children = (
+				8145E4851FDAE5E10015C2B3 /* Models */,
+				8145E4941FDB0C830015C2B3 /* ViewControllers */,
 				54B2A8BD1FDA411D0056D007 /* AppDelegate.swift */,
-				54B2A8BF1FDA411D0056D007 /* ViewController.swift */,
 				54B2A8C11FDA411D0056D007 /* Main.storyboard */,
 				54B2A8C41FDA411D0056D007 /* Assets.xcassets */,
 				54B2A8C61FDA411D0056D007 /* LaunchScreen.storyboard */,
 				54B2A8C91FDA411D0056D007 /* Info.plist */,
 			);
 			path = "AC-iOS-MidProgramAssessment";
+			sourceTree = "<group>";
+		};
+		8145E4851FDAE5E10015C2B3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8145E4951FDB0D550015C2B3 /* Favorites.swift */,
+				8145E4881FDAE6290015C2B3 /* ElementAPIClient.swift */,
+				8145E4831FDAE5DD0015C2B3 /* NetworkHelper.swift */,
+				8145E4861FDAE60F0015C2B3 /* Elements.swift */,
+				8145E48E1FDAF50C0015C2B3 /* ImageAPIClient.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8145E4941FDB0C830015C2B3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				54B2A8BF1FDA411D0056D007 /* ViewController.swift */,
+				8145E4921FDB0C790015C2B3 /* FavoriteElementsViewController.swift */,
+				8145E48C1FDAE7330015C2B3 /* ElementDetailViewController.swift */,
+				8145E48A1FDAE7040015C2B3 /* ElementCellTableViewCell.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +176,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8145E4891FDAE6290015C2B3 /* ElementAPIClient.swift in Sources */,
 				54B2A8C01FDA411D0056D007 /* ViewController.swift in Sources */,
+				8145E4931FDB0C790015C2B3 /* FavoriteElementsViewController.swift in Sources */,
+				8145E4961FDB0D550015C2B3 /* Favorites.swift in Sources */,
+				8145E48B1FDAE7040015C2B3 /* ElementCellTableViewCell.swift in Sources */,
+				8145E48F1FDAF50C0015C2B3 /* ImageAPIClient.swift in Sources */,
+				8145E4841FDAE5DD0015C2B3 /* NetworkHelper.swift in Sources */,
+				8145E4871FDAE60F0015C2B3 /* Elements.swift in Sources */,
 				54B2A8BE1FDA411D0056D007 /* AppDelegate.swift in Sources */,
+				8145E48D1FDAE7330015C2B3 /* ElementDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
