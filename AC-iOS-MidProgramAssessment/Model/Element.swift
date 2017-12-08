@@ -16,7 +16,7 @@ struct Element: Codable {
     let symbol: String
     let melting_c: Int?
     let boiling_c: Int?
-    let discovery_year: Int
+    //let discovery_year: Int
 }
 struct FaveElement: Codable {
     let name: String
