@@ -10,9 +10,10 @@ import Foundation
 
 enum AppError: Error {
     case badData
-    case badImageURL
+    case badImageData
+    case badImageURL(string: String)
     case badStatusCode(num: Int)
-    case badURL
+    case badURL(string: String)
     case couldNotParseJSON(rawError: Error)
     case noInternet
     case other(rawError: Error)

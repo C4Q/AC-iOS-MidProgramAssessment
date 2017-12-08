@@ -15,7 +15,7 @@ class ElementAPIClient {
         let urlString = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/elements"
         
         guard let url = URL(string: urlString) else {
-            errorHandler(AppError.badURL)
+            errorHandler(AppError.badURL(string: urlString))
             return
         }
         
