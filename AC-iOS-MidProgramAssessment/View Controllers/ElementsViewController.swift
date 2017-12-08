@@ -53,9 +53,25 @@ extension ElementsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let elementCell = tableView.dequeueReusableCell(withIdentifier: "Element Cell", for: indexPath)
         let selectedElement = self.elements[indexPath.row]
-        elementCell.textLabel?.text = selectedElement.name
-        elementCell.detailTextLabel?.text = selectedElement.id.description
+        if let elementCell = elementCell as? CustomElementTableViewCell {
+            elementCell.elementNameLabel.text = selectedElement.name
+            elementCell.elementInfoLabel.text =  "\(selectedElement.symbol)(\(selectedElement.number)) \(selectedElement.weight)"
+            let elemImageURLStr = "http://www.theodoregray.com/periodictable/Tiles/\(formatElementID(elementID: selectedElement.id))/s7.JPG"
+            elementCell.elementImage.image = nil
+            let completionImage: (UIImage) -> Void = { (onlineShowImage: UIImage) in
+                elementCell.elementImage.image = onlineShowImage
+                elementCell.setNeedsLayout()
+            }
+            ImageAPIClient.manager.getImage(from: elemImageURLStr, completionHandler: completionImage, errorHandler: { print($0) })
+        }
         return elementCell
+    }
+    
+    func formatElementID(elementID: Int) -> String {
+        let result: Double = Double(elementID)/100.0
+        if result >= 1 { return "\(elementID)" }
+        else if result < 1 && result >= 0.1 { return "0\(elementID)" }
+        else { return "00\(elementID)" }
     }
 
 }

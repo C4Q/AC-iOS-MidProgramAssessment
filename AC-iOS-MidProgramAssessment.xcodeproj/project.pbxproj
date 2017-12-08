@@ -17,6 +17,7 @@
 		E2319BD11FDAE708007087B9 /* ElementAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2319BD01FDAE708007087B9 /* ElementAPIClient.swift */; };
 		E2319BD31FDAE713007087B9 /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2319BD21FDAE713007087B9 /* ImageAPIClient.swift */; };
 		E2319BD51FDAE724007087B9 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2319BD41FDAE724007087B9 /* NetworkHelper.swift */; };
+		E2319BD71FDAF46A007087B9 /* ElementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2319BD61FDAF46A007087B9 /* ElementDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E2319BD01FDAE708007087B9 /* ElementAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementAPIClient.swift; sourceTree = "<group>"; };
 		E2319BD21FDAE713007087B9 /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
 		E2319BD41FDAE724007087B9 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		E2319BD61FDAF46A007087B9 /* ElementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				E2319BCA1FDAE6D0007087B9 /* ElementsViewController.swift */,
+				E2319BD61FDAF46A007087B9 /* ElementDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2319BD71FDAF46A007087B9 /* ElementDetailViewController.swift in Sources */,
 				E2319BD51FDAE724007087B9 /* NetworkHelper.swift in Sources */,
 				54B2A8BE1FDA411D0056D007 /* AppDelegate.swift in Sources */,
 				E2319BD11FDAE708007087B9 /* ElementAPIClient.swift in Sources */,
