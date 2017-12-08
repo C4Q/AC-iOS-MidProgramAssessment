@@ -43,7 +43,7 @@ class ElementDetailViewController: UIViewController {
             self.elementImageView.image = onlineImage
             self.elementImageView.setNeedsLayout()
         }
-        ImageAPIClient.manager.getImage(from: imageURLStr, completionHandler: completion, errorHandler: {print($0)})
+        ImageAPIClient.manager.getImage(from: imageURLStr, completionHandler: completion, errorHandler: {print($0.localizedDescription)})
         
     }
 }

@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -96,43 +97,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZXE-cR-nDB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="334"/>
+                                <rect key="frame" x="21.5" y="64" width="333.5" height="333.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="334" id="jyG-oc-dgM"/>
+                                    <constraint firstAttribute="width" secondItem="ZXE-cR-nDB" secondAttribute="height" multiplier="1:1" id="azN-L6-hdU"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Element Number" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gF-0u-DTU">
-                                <rect key="frame" x="50" y="114" width="320" height="25.5"/>
+                                <rect key="frame" x="31.5" y="74" width="338.5" height="25.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Element Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlM-oP-vRj">
-                                <rect key="frame" x="5" y="266" width="365" height="30"/>
+                                <rect key="frame" x="5" y="266.5" width="365" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uP-Pt-Ovt">
-                                <rect key="frame" x="5" y="359" width="365" height="24"/>
+                                <rect key="frame" x="5" y="358.5" width="365" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melting Point" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSj-jL-Tix">
-                                <rect key="frame" x="5" y="413" width="365" height="21"/>
+                                <rect key="frame" x="5" y="412.5" width="365" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boiling Point" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kU1-gE-Xfd">
-                                <rect key="frame" x="5" y="444" width="365" height="21"/>
+                                <rect key="frame" x="5" y="443.5" width="365" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Element Symbol" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxF-AR-QE2">
-                                <rect key="frame" x="0.0" y="201" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="201.5" width="375" height="60"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -141,7 +142,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="UxF-AR-QE2" firstAttribute="centerY" secondItem="ZXE-cR-nDB" secondAttribute="centerY" id="54H-YO-g3a"/>
-                            <constraint firstItem="1gF-0u-DTU" firstAttribute="leading" secondItem="ZXE-cR-nDB" secondAttribute="leading" constant="50" id="5Kr-fS-u82"/>
+                            <constraint firstItem="1gF-0u-DTU" firstAttribute="leading" secondItem="ZXE-cR-nDB" secondAttribute="leading" constant="10" id="5Kr-fS-u82"/>
                             <constraint firstItem="rlM-oP-vRj" firstAttribute="centerX" secondItem="VfH-f5-j4D" secondAttribute="centerX" id="Ase-Ea-6rj"/>
                             <constraint firstItem="erV-yu-ASY" firstAttribute="trailing" secondItem="1gF-0u-DTU" secondAttribute="trailing" constant="5" id="C0x-CK-KMA"/>
                             <constraint firstItem="8uP-Pt-Ovt" firstAttribute="bottom" secondItem="ZXE-cR-nDB" secondAttribute="bottom" constant="-15" id="C6b-b2-sLB"/>
@@ -149,10 +150,9 @@
                             <constraint firstItem="rlM-oP-vRj" firstAttribute="top" secondItem="UxF-AR-QE2" secondAttribute="bottom" constant="5" id="J6x-1m-JLR"/>
                             <constraint firstItem="UxF-AR-QE2" firstAttribute="centerX" secondItem="ZXE-cR-nDB" secondAttribute="centerX" id="LF3-ZG-DcN"/>
                             <constraint firstItem="kU1-gE-Xfd" firstAttribute="leading" secondItem="erV-yu-ASY" secondAttribute="leading" constant="5" id="OlE-Fc-ma8"/>
-                            <constraint firstAttribute="trailing" secondItem="ZXE-cR-nDB" secondAttribute="trailing" id="Pje-bT-sU8"/>
                             <constraint firstItem="8uP-Pt-Ovt" firstAttribute="centerX" secondItem="VfH-f5-j4D" secondAttribute="centerX" id="Saw-xx-fqp"/>
-                            <constraint firstItem="ZXE-cR-nDB" firstAttribute="top" secondItem="erV-yu-ASY" secondAttribute="top" id="VqY-05-deJ"/>
-                            <constraint firstItem="1gF-0u-DTU" firstAttribute="top" secondItem="ZXE-cR-nDB" secondAttribute="top" constant="50" id="az0-W0-Mef"/>
+                            <constraint firstItem="ZXE-cR-nDB" firstAttribute="height" secondItem="VfH-f5-j4D" secondAttribute="height" multiplier="1:2" id="Tqw-aT-ach"/>
+                            <constraint firstItem="1gF-0u-DTU" firstAttribute="top" secondItem="ZXE-cR-nDB" secondAttribute="top" constant="10" id="az0-W0-Mef"/>
                             <constraint firstItem="JSj-jL-Tix" firstAttribute="top" secondItem="ZXE-cR-nDB" secondAttribute="bottom" constant="15" id="bEH-pV-NVX"/>
                             <constraint firstItem="ZXE-cR-nDB" firstAttribute="top" secondItem="erV-yu-ASY" secondAttribute="top" id="d4l-2N-YEw"/>
                             <constraint firstItem="erV-yu-ASY" firstAttribute="trailing" secondItem="8uP-Pt-Ovt" secondAttribute="trailing" constant="5" id="gky-C1-xF4"/>
@@ -162,7 +162,6 @@
                             <constraint firstItem="erV-yu-ASY" firstAttribute="trailing" secondItem="rlM-oP-vRj" secondAttribute="trailing" constant="5" id="ukz-mq-vnp"/>
                             <constraint firstAttribute="trailing" secondItem="UxF-AR-QE2" secondAttribute="trailing" id="vGP-f4-SJa"/>
                             <constraint firstItem="erV-yu-ASY" firstAttribute="trailing" secondItem="kU1-gE-Xfd" secondAttribute="trailing" constant="5" id="x0t-Cg-mm9"/>
-                            <constraint firstItem="ZXE-cR-nDB" firstAttribute="leading" secondItem="erV-yu-ASY" secondAttribute="leading" id="xeu-Xz-0wN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="erV-yu-ASY"/>
                     </view>
