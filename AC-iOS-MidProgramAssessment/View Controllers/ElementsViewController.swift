@@ -76,7 +76,7 @@ class ElementsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ElementDetailViewController {
-            let element = elements[(tableView.indexPathForSelectedRow?.row)!]
+            destination.element = elements[(tableView.indexPathForSelectedRow?.row)!]
         }
     }
 }

@@ -18,16 +18,17 @@ class ElementDetailViewController: UIViewController {
     @IBOutlet weak var meltingPointLabel: UILabel!
     @IBOutlet weak var boilingPointLabel: UILabel!
     
-    var element: Element?
+    var element: Element!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        elementNumberLabel.text = "\(element.number)"
         elementSymbolLabel.text = element?.symbol
         elementNameLabel.text = element?.name
         elementWeightLabel.text = element?.weight.description
-        meltingPointLabel.text = element?.meltingPointInCelsius?.description
-        boilingPointLabel.text = element?.boilingPointInCelsius?.description
+        meltingPointLabel?.text = "Melting Point (C): \(element?.meltingPointInCelsius?.description ?? "N/A")"
+        boilingPointLabel?.text = "Boiling Point (C): \(element?.boilingPointInCelsius?.description ?? "N/A")"
         elementImageView.image = nil
         loadImage()
         
@@ -35,7 +36,9 @@ class ElementDetailViewController: UIViewController {
     
     
     func loadImage() {
-        guard let imageURLStr = "http://images-of-elements.com/\(element?.name.lowercased()).jpg" else {return}
+        let elementNameLowercased = element?.name.lowercased()
+        let imageURLStr = "http://images-of-elements.com/\(elementNameLowercased).jpg"
+        
         let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
             self.elementImageView.image = onlineImage
             self.elementImageView.setNeedsLayout()
