@@ -26,6 +26,7 @@ class ElementDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        elementImage.alpha = 0.8
         guard let element = element else { return }
         largeImageSpinner.startAnimating()
         titleNameLabel.text = element.name
@@ -38,6 +39,7 @@ class ElementDetailViewController: UIViewController {
         if element.id >= 90 {
             hideSpinner()
             elementImage.image = UIImage(named: "noImageFound")
+            setAndshowElementLabels()
             return
         }
         loadLargeElemImage(element: element)
@@ -48,17 +50,18 @@ class ElementDetailViewController: UIViewController {
         let imageCompletion: (UIImage) -> Void = { (onlineLargeImage: UIImage) in
             self.elementImage.image = onlineLargeImage
             self.elementImage.setNeedsLayout()
-            self.elementNumberLabel.text = element.id.description
-            self.elementSymbolLabel.text = element.symbol
-            self.elementNameLabel.text = element.name
-            self.elementAtomicWeightLabel.text = element.weight.description
-            self.showElementLabels()
+            self.setAndshowElementLabels()
             self.hideSpinner()
         }
         ImageAPIClient.manager.getImage(from: largeImageURLStr, completionHandler: imageCompletion, errorHandler: {print($0)} )
     }
     
-    func showElementLabels() {
+    func setAndshowElementLabels() {
+        guard let element = element else { return }
+        elementNumberLabel.text = element.id.description
+        elementSymbolLabel.text = element.symbol
+        elementNameLabel.text = element.name
+        elementAtomicWeightLabel.text = element.weight.description
         elementNumberLabel.isHidden = false
         elementSymbolLabel.isHidden = false
         elementNameLabel.isHidden = false

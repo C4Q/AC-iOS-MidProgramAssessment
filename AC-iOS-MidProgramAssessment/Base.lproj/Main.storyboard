@@ -68,6 +68,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="fhY-4l-Egq" secondAttribute="trailing" constant="10" id="vAH-mS-2sc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <connections>
                                             <outlet property="elementImage" destination="qze-QV-221" id="JM6-Hy-vpv"/>
                                             <outlet property="elementInfoLabel" destination="OeS-Qa-MWD" id="9e7-Uc-ZPw"/>
@@ -79,7 +80,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QfY-6P-OHd" firstAttribute="centerX" secondItem="LWX-G5-Bbd" secondAttribute="centerX" id="8zL-Yf-j0u"/>
                             <constraint firstItem="QfY-6P-OHd" firstAttribute="centerY" secondItem="LWX-G5-Bbd" secondAttribute="centerY" id="BvA-My-HeC"/>
@@ -141,7 +142,7 @@
                                     <action selector="favoriteButtonPressed:" destination="SYu-sq-cpH" eventType="touchUpInside" id="AoO-dG-W89"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C41-L2-Oxe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C41-L2-Oxe">
                                 <rect key="frame" x="0.0" y="110" width="375" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="C41-L2-Oxe" secondAttribute="height" multiplier="1:1" priority="999" id="gCo-lR-07n"/>
@@ -180,7 +181,7 @@
                                 <rect key="frame" x="178" y="287" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="qva-Hk-RW2" firstAttribute="leading" secondItem="C41-L2-Oxe" secondAttribute="leading" constant="15" id="492-kj-ZLn"/>
                             <constraint firstItem="tlO-sO-Bim" firstAttribute="top" secondItem="C41-L2-Oxe" secondAttribute="bottom" constant="12" id="6On-Wg-jCL"/>
