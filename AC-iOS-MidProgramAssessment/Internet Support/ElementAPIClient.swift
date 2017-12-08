@@ -14,10 +14,11 @@ class ElementAPIClient {
     static let manager = ElementAPIClient()
     
     //MARK: - Getting elements
-    func getElements(completionHandler: @escaping ([PeriodicElement]) -> Void,
+    func getElements(from urlStr: String, completionHandler: @escaping ([PeriodicElement]) -> Void,
                      errorHandler: @escaping (Error) -> Void){
-        let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/elements"
-        
+       
+        //let urlStr = "https://api.fieldbook.com/v1/0 + \(number)/elements"
+        //guard let url = URL(string: urlStr) else {return}
         //if urlRequest is nil
         guard let basicAuthRequest = BasicAuthRequest.generate.buildAuthRequest(from: urlStr, httpMethod: .GET) else {errorHandler(AppError.badURL);return}
         

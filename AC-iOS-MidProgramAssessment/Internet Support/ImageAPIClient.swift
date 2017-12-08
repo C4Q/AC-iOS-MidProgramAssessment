@@ -11,22 +11,22 @@ import UIKit
 
 ///CONFORM TO IMPORT UIKIT
 class ImageAPIClient {
-    
+
     private init() {}
     static let manager = ImageAPIClient()
-    
+
     func getImage(from urlString: String,
                   completionHandler: @escaping (UIImage) -> Void,
                   errorHandler: @escaping (Error) -> Void) {
-        
+
         //make sure you have a url
         guard let url = URL(string: urlString) else {
             errorHandler(AppError.badURL)
             return
         }
-        
+
         let request = URLRequest(url: url)
-        
+
         NetworkHelper.manager.performDataTask(from: request,
                                               completionHandler: { (data) in
                 //make sure you have an image
@@ -44,9 +44,11 @@ class ImageAPIClient {
 //    private init() {}
 //    static let manager = ImageAPIClient()
 //
-//    func getImages(from keyWord: String, completionHandler: @escaping ([Element]) -> Void, errorHandler: @escaping (Error) -> Void) {
-//        let apiKey = "7289848-451c3dc743d77a89fabd39354"
-//        let searchKeyword = keyWord.replacingOccurrences(of: " ", with: "+")
+//    func getImages(from keyWord: String,
+//                   completionHandler: @escaping ([PeriodicElement]) -> Void,
+//                   errorHandler: @escaping (Error) -> Void) {
+//        //let apiKey = "7289848-451c3dc743d77a89fabd39354"
+//        //let searchKeyword = keyWord.replacingOccurrences(of: " ", with: "+")
 //        let urlString = "https://pixabay.com/api?key=\(apiKey)&q=\(searchKeyword)"
 //
 //        guard let url = URL(string: urlString) else {
