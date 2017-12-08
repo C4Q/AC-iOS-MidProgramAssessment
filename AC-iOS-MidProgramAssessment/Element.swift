@@ -14,7 +14,17 @@ struct Element: Codable {
     let symbol: String
     let melting_c: Int?
     let boiling_c: Int?
-    let discovery_year: Int?
-    
+    //come back to discovery year later
+    //let discovery_year: Int?
+    var urlNumber: String {
+        switch number {
+        case 0..<10 :
+            return "00" + "\(number)"
+        case 10..<100 :
+            return "0" + "\(number)"
+        default :
+            return "\(number)"
+        }
+    }
 }
 

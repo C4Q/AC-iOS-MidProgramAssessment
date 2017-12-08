@@ -9,20 +9,62 @@
 import UIKit
 
 class ElementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+   
+    
 
     
     @IBOutlet weak var elementTableView: UITableView!
     
     
+    var elements = [Element]() {
+        didSet {
+            self.elementTableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
+        self.elementTableView.dataSource = self
+        self.elementTableView.delegate = self
+      
         
     }
 
-   
-
+    func loadData() {
+        let setElements = {(onlineElements: [Element]) in
+            self.elements = onlineElements
+         
+        }
+        let printErrors = {(error: Error) in
+            print(error)
+        }
+        ElementAPICLient.manager.getElement(completionHandler: setElements, errorHandler: printErrors)
+    }
     
     
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return elements.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.elementTableView.dequeueReusableCell(withIdentifier: "Element Cell", for: indexPath) as! ElementTableViewCell
+        let thisElement = self.elements[indexPath.row]
+        cell.elementNameLabel.text = thisElement.name
+        cell.symbolAtomicWeightLabel.text = thisElement.symbol + " " + "(\(thisElement.number))" + " " + thisElement.weight.description
+        cell.elementImageView.image = nil
+        
+        let imageUrl = "http://www.theodoregray.com/periodictable/Tiles/\(thisElement.urlNumber)/s7.JPG"
+        let getImage: (UIImage) -> Void = {(onlineImage: UIImage) in
+            cell.elementImageView.image = onlineImage
+            cell.setNeedsLayout()
+        }
+         ImageAPIClient.manager.getImage(from: imageUrl, completionHandler: getImage, errorHandler: {print($0)})
+        return cell
+        
+    }
 
 }
 
