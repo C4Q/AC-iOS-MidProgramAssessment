@@ -46,7 +46,21 @@ class FieldBookViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.nameLabel.text = "Student: \(aFavorite.name ?? "Mysterious One")"
         cell.symbolNumberAtomWeightLabel.text = "Favorite Element: \(aFavorite.favorite_element ?? "Unknown")"
         cell.elementImageView.image = #imageLiteral(resourceName: "molecule")
+        cell.spinner.isHidden = false
+        cell.spinner.startAnimating()
+        if let bigImageUrl = aFavorite.favorite_element {
+            print(bigImageUrl)
+        let getTheImage: (UIImage) -> Void = {(onlineImage: UIImage) in
+            cell.elementImageView.image = onlineImage
+            cell.spinner.isHidden = true
+            cell.spinner.stopAnimating()
+        }
         
+        ImageAPIClient.manager.getImage(from: bigImageUrl, completionHandler: getTheImage, errorHandler: {print($0)})
+        } else {
+            cell.spinner.isHidden = true
+            cell.spinner.stopAnimating()
+        }
         return cell
     }
     
