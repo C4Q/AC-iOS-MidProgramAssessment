@@ -51,7 +51,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="154.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="Fat-st-dE8">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GTOA01-3D-handmade-wood-mosaic-dimensional-depth-artistic-trendy-unique-tile-by-globaltrendsbuildingsupply-Recovered" translatesAutoresizingMaskIntoConstraints="NO" id="Fat-st-dE8">
                                                     <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="155" id="40K-Pb-j16"/>
@@ -241,6 +241,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="GTOA01-3D-handmade-wood-mosaic-dimensional-depth-artistic-trendy-unique-tile-by-globaltrendsbuildingsupply-Recovered" width="1185" height="1209"/>
         <image name="images" width="258" height="195"/>
     </resources>
 </document>

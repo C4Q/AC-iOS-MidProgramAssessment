@@ -99,7 +99,7 @@ extension ElementViewController: UITableViewDataSource {
                 elementID = anElement.id.description
             }
             //Image
-            cell.elementImage.image = #imageLiteral(resourceName: "images")
+            cell.elementImage.image = #imageLiteral(resourceName: "GTOA01-3D-handmade-wood-mosaic-dimensional-depth-artistic-trendy-unique-tile-by-globaltrendsbuildingsupply-Recovered")
             let imageUrlStr = "http://www.theodoregray.com/periodictable/Tiles/\(elementID)/s7.JPG"
             
             let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
