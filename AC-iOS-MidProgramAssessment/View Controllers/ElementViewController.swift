@@ -54,7 +54,7 @@ class ElementViewController: UIViewController {
                 print("Other error")
             }
         }
-        
+   
         ElementAPIClient.manager.getElements(from: urlStr, completionHandler: completion, errorHandler: errorHanlder)
         
     }
@@ -88,7 +88,7 @@ extension ElementViewController: UITableViewDataSource {
             cell.elementNameLabel.text = anElement.name
             cell.elementSymbolAngWeighLabel.text = "\(anElement.symbol) \(anElement.weight)"
             
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
          
             var elementID = "001"
             if String(anElement.id).count == 1 {
@@ -110,7 +110,7 @@ extension ElementViewController: UITableViewDataSource {
             
             cell.activityIndicator.startAnimating()
             ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: completion, errorHandler: {print($0)})
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             
             
             

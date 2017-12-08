@@ -18,4 +18,5 @@ public enum AppError: Error {
     case noDataReceived
     case other(rawError: Error)
     case notAnImage
+    case codingError(rawError: Error)
 }

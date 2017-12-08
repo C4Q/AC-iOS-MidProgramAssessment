@@ -12,7 +12,7 @@ import UIKit
 class ImageAPIClient{
     private init() {}
     static let manager = ImageAPIClient()
-    
+
     func getImage(from urlStr: String, completionHandler: @escaping (UIImage) -> Void, errorHandler: @escaping (AppError) -> Void){
         guard let url = URL(string: urlStr) else{
             errorHandler(.badURL)
@@ -25,7 +25,10 @@ class ImageAPIClient{
             }
             completionHandler(onlineImage)
         }
-        
+
         NetworkHelper.manager.performDataTask(with: url, completionHandler: completion, errorHandler: errorHandler)
     }
 }
+
+
+
