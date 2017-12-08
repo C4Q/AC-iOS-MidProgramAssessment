@@ -16,6 +16,7 @@
 		8185725D1FDAF43C00C2156D /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185725C1FDAF43C00C2156D /* NetworkHelper.swift */; };
 		818572601FDAF4CB00C2156D /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185725F1FDAF4CB00C2156D /* AppError.swift */; };
 		818572641FDB018300C2156D /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818572631FDB018300C2156D /* BackgroundColor.swift */; };
+		818572661FDB07AF00C2156D /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818572651FDB07AF00C2156D /* ImageAPIClient.swift */; };
 		81C9C62D1FDAEBE400AD5B09 /* ElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C9C62C1FDAEBE400AD5B09 /* ElementTableViewCell.swift */; };
 		81C9C62F1FDAED8F00AD5B09 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C9C62E1FDAED8F00AD5B09 /* Element.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		8185725C1FDAF43C00C2156D /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		8185725F1FDAF4CB00C2156D /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		818572631FDB018300C2156D /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
+		818572651FDB07AF00C2156D /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
 		81C9C62C1FDAEBE400AD5B09 /* ElementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementTableViewCell.swift; sourceTree = "<group>"; };
 		81C9C62E1FDAED8F00AD5B09 /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 				81C9C62E1FDAED8F00AD5B09 /* Element.swift */,
 				8185725A1FDAF41600C2156D /* ElementAPIClient.swift */,
 				818572631FDB018300C2156D /* BackgroundColor.swift */,
+				818572651FDB07AF00C2156D /* ImageAPIClient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				81C9C62F1FDAED8F00AD5B09 /* Element.swift in Sources */,
 				8185725D1FDAF43C00C2156D /* NetworkHelper.swift in Sources */,
 				54B2A8BE1FDA411D0056D007 /* AppDelegate.swift in Sources */,
+				818572661FDB07AF00C2156D /* ImageAPIClient.swift in Sources */,
 				818572601FDAF4CB00C2156D /* AppError.swift in Sources */,
 				818572641FDB018300C2156D /* BackgroundColor.swift in Sources */,
 			);
