@@ -18,7 +18,6 @@ class DetailedElementViewController: UIViewController {
     @IBOutlet weak var elementNumber: UILabel!
     @IBOutlet weak var ElementSymbol: UILabel!
     @IBOutlet weak var elementTitle: UILabel!
-    
     @IBAction func favourite(_ sender: UIButton) {
         guard let element = element else {
             return
@@ -29,11 +28,20 @@ class DetailedElementViewController: UIViewController {
     }
     
     
+    func setFontColor() {
+        if elementBackGroundImage.alpha == 1{
+            self.elementTitle.textColor = UIColor.green
+            self.ElementSymbol.textColor = UIColor.green
+            self.discoverYear.textColor = UIColor.green
+            self.elementWeight.textColor = UIColor.green
+            self.elementBoilingPoint.textColor = UIColor.green
+            self.elementMeltingPoint.textColor = UIColor.green
+            self.elementNumber.textColor = UIColor.green
+            elementBackGroundImage.alpha = 0.85
+        }
+    }
     
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func setElement(){
         guard let element = element else {
             return
         }
@@ -42,7 +50,7 @@ class DetailedElementViewController: UIViewController {
         self.elementWeight.text = element.weight.description
         self.elementBoilingPoint.text = "Boiling Point: \(element.boilingPointDegCel?.description ?? "No Registerd Boiling Point")"
         self.elementMeltingPoint.text = "Melting Point: \(element.meltingPointDegCel?.description ?? "No Registerd Melting Point")"
-                self.elementBackGroundImage.image = nil
+        self.elementBackGroundImage.image = nil
         self.elementNumber.text = element.number.description
         if let discoveryYearInt = element.discoveryYearInt{
             self.discoverYear.text = "Discovery Year: \(discoveryYearInt.description)"
@@ -51,28 +59,22 @@ class DetailedElementViewController: UIViewController {
             self.discoverYear.text = "Discovery Year: \(discoveryYearStr)"
         }
         // move them to viewWillLayout
-        ImageAPIClient.manager.getImage(from: "http://images-of-elements.com/\(element.name.lowercased()).jpg", completionHandler: {self.elementBackGroundImage.image = $0}, errorHandler: {print($0)})
+        ImageAPIClient.manager.getImage(from: "http://images-of-elements.com/\(element.name.lowercased()).jpg", completionHandler: {self.elementBackGroundImage.image = $0; self.setFontColor()}, errorHandler: {print($0)})
         print(elementBackGroundImage.alpha)
-        if elementBackGroundImage.alpha == 1{
-//            self.elementTitle.textColor = UIColor.white
-//            self.ElementSymbol.textColor = UIColor.white
-//            self.discoverYear.textColor = UIColor.white
-//            self.elementWeight.textColor = UIColor.white
-//            self.elementBoilingPoint.textColor = UIColor.white
-//            self.elementMeltingPoint.textColor = UIColor.white
-//            self.elementNumber.textColor = UIColor.white
-            elementBackGroundImage.alpha = 0.85
     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setElement()
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

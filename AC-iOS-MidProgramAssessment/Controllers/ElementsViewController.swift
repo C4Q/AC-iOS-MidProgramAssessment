@@ -56,16 +56,11 @@ class ElementsViewController: UIViewController, UITableViewDelegate, UITableView
         ImageAPIClient.manager.getImage(from: "http://www.theodoregray.com/periodictable/Tiles/\(imageNumber)/s7.JPG", completionHandler: {cell.imageView?.image = $0; cell.setNeedsLayout()}, errorHandler: {print($0)})
         }
         return cell
-    }
-    
-    
+    } 
     func loadElements(){
         let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/elements"
         ElementAPIClient.manager.getElements(from: urlStr, completionHandler: {self.elements = $0}, errorHandler: {print($0)})
     }
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
