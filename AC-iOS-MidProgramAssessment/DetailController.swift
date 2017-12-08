@@ -10,25 +10,7 @@ import UIKit
 
 class DetailController: UIViewController {
     
-    var element: Element! {
-        didSet {
-            print(element.discoveryYear)
-            
-            let completion: (Data) -> Void = {
-                if let image = UIImage(data: $0) {
-                    print("Ok")
-                    self.mainImageView.image = image
-                } else {
-                    print("No goof")
-                    self.mainImageView.image = UIImage(named: "ElementalNinja")
-                }
-            }
-            
-            ImageDownloader.manager.getImage(from: element.largeImageEndpoint,
-                                             completionHandler: completion,
-                                             errorHandler: {self.mainImageView.image = UIImage(named: "ElementalNinja")})
-        }
-    }
+    var element: Element!
     
     @IBOutlet weak var discoveryYearLabel: UILabel!
     @IBOutlet weak var IDLabel: UILabel!
@@ -53,14 +35,22 @@ class DetailController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        ImageDownloader.manager.getImage(from: element.largeImageEndpoint,
+                                         completionHandler: {self.mainImageView.image = UIImage(data: $0)},
+                                         errorHandler: {self.mainImageView.image = UIImage(named: "ElementalNinja")})
         self.title = element.name
-        meltingLabel.text = (element.meltingC?.description ?? "") + "°C"
-        boilingLabel.text = (element.boilingC?.description ?? "") + "°C"
+        setUpLabels(from: element)
+    }
+    
+    func setUpLabels(from element: Element) {
+        nameLabel.text = element.name
+        symbolLabel.text = element.symbol
         
         IDLabel.text = element.id.description
-        symbolLabel.text = element.symbol
         weightLabel.text = element.weight.description
-        nameLabel.text = element.name
+        
+        meltingLabel.text = (element.meltingC?.description ?? "") + "°C"
+        boilingLabel.text = (element.boilingC?.description ?? "") + "°C"
         
         discoveryYearLabel.text = {
             switch element.discoveryYear {

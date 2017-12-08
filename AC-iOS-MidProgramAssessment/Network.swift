@@ -129,7 +129,9 @@ struct ImageDownloader {
                         completionHandler(data)
                     }
                 } else {
-                    errorHandler()
+                    DispatchQueue.main.async {
+                        errorHandler()
+                    }
                 }
             }
         }

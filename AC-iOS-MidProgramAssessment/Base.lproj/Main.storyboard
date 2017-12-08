@@ -119,7 +119,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="269.5"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OlA-7f-eQw">
-                                <rect key="frame" x="170.5" y="617" width="33" height="30"/>
+                                <rect key="frame" x="170.5" y="556.5" width="33" height="90.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Post"/>
                                 <connections>
@@ -160,7 +160,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vg3-O3-Hfd">
-                                <rect key="frame" x="107" y="494" width="161" height="101.5"/>
+                                <rect key="frame" x="107" y="433.5" width="161" height="101.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="stx-gq-tg1">
                                         <rect key="frame" x="0.0" y="0.0" width="161" height="20.5"/>
@@ -221,6 +221,7 @@
                             <constraint firstItem="vg3-O3-Hfd" firstAttribute="centerX" secondItem="RCC-uY-9fe" secondAttribute="centerX" id="4uL-Ke-OR7"/>
                             <constraint firstItem="iXc-rZ-XVa" firstAttribute="leading" secondItem="RCC-uY-9fe" secondAttribute="leading" constant="10" id="5wk-Tt-oST"/>
                             <constraint firstItem="RCC-uY-9fe" firstAttribute="leading" secondItem="lO9-HC-AZr" secondAttribute="leading" id="67c-Ot-CYD"/>
+                            <constraint firstItem="lO9-HC-AZr" firstAttribute="bottom" secondItem="OlA-7f-eQw" secondAttribute="bottom" constant="20" id="JpS-Rr-VAe"/>
                             <constraint firstItem="iXc-rZ-XVa" firstAttribute="top" secondItem="RCC-uY-9fe" secondAttribute="top" constant="10" id="M3w-Mg-sch"/>
                             <constraint firstItem="OlA-7f-eQw" firstAttribute="centerX" secondItem="RCC-uY-9fe" secondAttribute="centerX" id="OAO-Cn-iVr"/>
                             <constraint firstItem="21e-Ix-C9u" firstAttribute="centerX" secondItem="jhi-YB-yAp" secondAttribute="centerX" id="P4B-kX-vKt"/>
@@ -231,7 +232,7 @@
                             <constraint firstAttribute="centerY" secondItem="RCC-uY-9fe" secondAttribute="bottom" id="Y52-3n-peU"/>
                             <constraint firstItem="jhi-YB-yAp" firstAttribute="centerX" secondItem="RCC-uY-9fe" secondAttribute="centerX" id="YWy-Ue-c7X"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iXc-rZ-XVa" secondAttribute="trailing" constant="20" symbolic="YES" id="ZWf-FA-gpP"/>
-                            <constraint firstItem="vg3-O3-Hfd" firstAttribute="top" secondItem="RCC-uY-9fe" secondAttribute="bottom" constant="160.5" id="dzW-WM-u2a"/>
+                            <constraint firstItem="vg3-O3-Hfd" firstAttribute="top" secondItem="RCC-uY-9fe" secondAttribute="bottom" constant="100" id="dzW-WM-u2a"/>
                             <constraint firstItem="lO9-HC-AZr" firstAttribute="trailing" secondItem="RCC-uY-9fe" secondAttribute="trailing" id="up8-02-vbB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lO9-HC-AZr"/>

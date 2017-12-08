@@ -52,7 +52,6 @@ enum DiscoveryYear: Codable {
     case string(String)
 }
 
-
 extension DiscoveryYear {
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
