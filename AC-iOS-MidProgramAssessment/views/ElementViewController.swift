@@ -65,6 +65,22 @@ class ElementViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
         
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationDVC = segue.destination as? ElementDetailViewController {
+            let selectedRow = elementTableView.indexPathForSelectedRow?.row
+            let selectedElement = elements[selectedRow!]
+            destinationDVC.anElement = selectedElement
+            let bigImageUrl = "http://images-of-elements.com/\(destinationDVC.anElement.name.lowercased()).jpg"
+            
+            let getBigImage: (UIImage) -> Void = {(onlineImage: UIImage) in
+                destinationDVC.elementBigImage.image = onlineImage
+                
+            }
+            ImageAPIClient.manager.getImage(from: bigImageUrl, completionHandler: getBigImage, errorHandler: {print($0)})
+        }
+    }
+    
+    
 }
 
