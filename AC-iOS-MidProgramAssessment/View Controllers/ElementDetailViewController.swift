@@ -36,7 +36,6 @@ class ElementDetailViewController: UIViewController {
     
     func loadImage() {
         let elementNameLowercased = element.name.lowercased()
-//        let imageURLStr = "http://images-of-elements.com/\(elementNameLowercased).jpg"
         let imageURLStr = "http://images-of-elements.com/\(elementNameLowercased).jpg"
         let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
             self.elementImageView.image = onlineImage

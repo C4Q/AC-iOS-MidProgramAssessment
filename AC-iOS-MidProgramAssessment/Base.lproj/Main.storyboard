@@ -103,22 +103,28 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Element Number" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gF-0u-DTU">
-                                <rect key="frame" x="32.666666666666657" y="74" width="376.33333333333337" height="25.666666666666671"/>
+                                <rect key="frame" x="32.666666666666671" y="74" width="165.33333333333331" height="28.333333333333329"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <size key="shadowOffset" width="1" height="2"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Element Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlM-oP-vRj">
-                                <rect key="frame" x="5" y="283.33333333333331" width="404" height="30"/>
+                                <rect key="frame" x="5" y="283.66666666666669" width="404" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <size key="shadowOffset" width="1" height="2"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uP-Pt-Ovt">
-                                <rect key="frame" x="5" y="393" width="404" height="24"/>
+                                <rect key="frame" x="5" y="391" width="404" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <size key="shadowOffset" width="1" height="2"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melting Point" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSj-jL-Tix">
                                 <rect key="frame" x="5" y="447" width="404" height="21"/>
@@ -133,10 +139,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Element Symbol" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxF-AR-QE2">
-                                <rect key="frame" x="0.0" y="218.33333333333334" width="414" height="60.000000000000028"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="0.0" y="218.33333333333334" width="414" height="60.333333333333343"/>
+                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="50"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <size key="shadowOffset" width="1" height="2"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -144,7 +152,7 @@
                             <constraint firstItem="UxF-AR-QE2" firstAttribute="centerY" secondItem="ZXE-cR-nDB" secondAttribute="centerY" id="54H-YO-g3a"/>
                             <constraint firstItem="1gF-0u-DTU" firstAttribute="leading" secondItem="ZXE-cR-nDB" secondAttribute="leading" constant="10" id="5Kr-fS-u82"/>
                             <constraint firstItem="rlM-oP-vRj" firstAttribute="centerX" secondItem="VfH-f5-j4D" secondAttribute="centerX" id="Ase-Ea-6rj"/>
-                            <constraint firstItem="erV-yu-ASY" firstAttribute="trailing" secondItem="1gF-0u-DTU" secondAttribute="trailing" constant="5" id="C0x-CK-KMA"/>
+                            <constraint firstItem="erV-yu-ASY" firstAttribute="trailing" secondItem="ZXE-cR-nDB" secondAttribute="trailing" constant="22.666666666666629" id="C0x-CK-KMA"/>
                             <constraint firstItem="8uP-Pt-Ovt" firstAttribute="bottom" secondItem="ZXE-cR-nDB" secondAttribute="bottom" constant="-15" id="C6b-b2-sLB"/>
                             <constraint firstItem="kU1-gE-Xfd" firstAttribute="top" secondItem="JSj-jL-Tix" secondAttribute="bottom" constant="10" id="EZ9-Nc-kp6"/>
                             <constraint firstItem="rlM-oP-vRj" firstAttribute="top" secondItem="UxF-AR-QE2" secondAttribute="bottom" constant="5" id="J6x-1m-JLR"/>
