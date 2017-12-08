@@ -9,5 +9,27 @@
 import Foundation
 
 class ElementAPIClient {
-    
+    private init() {}
+    static let manager = ElementAPIClient()
+    func getElements(completionHandler: @escaping ([Element]) -> Void, errorHandler: @escaping (Error) -> Void) {
+        let urlString = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/elements"
+        
+        guard let url = URL(string: urlString) else {
+            errorHandler(AppError.badURL)
+            return
+        }
+        
+        NetworkHelper.manager.getData(
+            from: url,
+            completionHandler: { (data) in
+                do {
+                    let elements = try JSONDecoder().decode([Element].self, from: data)
+                    
+                    completionHandler(elements)
+                } catch let error {
+                    errorHandler(AppError.couldNotParseJSON(rawError: error))
+                }
+        },
+            errorHandler: errorHandler)
+    }
 }
