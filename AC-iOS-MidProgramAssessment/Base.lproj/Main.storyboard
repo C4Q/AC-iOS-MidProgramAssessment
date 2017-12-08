@@ -166,6 +166,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="erV-yu-ASY"/>
                     </view>
+                    <connections>
+                        <outlet property="boilingPointLabel" destination="kU1-gE-Xfd" id="WPQ-T5-beE"/>
+                        <outlet property="elementImageView" destination="ZXE-cR-nDB" id="S8g-iP-6VS"/>
+                        <outlet property="elementNameLabel" destination="rlM-oP-vRj" id="Wxv-rG-7wL"/>
+                        <outlet property="elementNumberLabel" destination="1gF-0u-DTU" id="br7-rE-cAt"/>
+                        <outlet property="elementSymbolLabel" destination="UxF-AR-QE2" id="pfl-3l-dny"/>
+                        <outlet property="elementWeightLabel" destination="8uP-Pt-Ovt" id="GAA-It-D6K"/>
+                        <outlet property="meltingPointLabel" destination="JSj-jL-Tix" id="Eh9-Ck-rmL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTI-Jo-SoZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,12 +9,40 @@
 import UIKit
 
 class ElementDetailViewController: UIViewController {
-
+    
+    @IBOutlet weak var elementImageView: UIImageView!
+    @IBOutlet weak var elementNumberLabel: UILabel!
+    @IBOutlet weak var elementSymbolLabel: UILabel!
+    @IBOutlet weak var elementNameLabel: UILabel!
+    @IBOutlet weak var elementWeightLabel: UILabel!
+    @IBOutlet weak var meltingPointLabel: UILabel!
+    @IBOutlet weak var boilingPointLabel: UILabel!
+    
+    var element: Element?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        elementSymbolLabel.text = element?.symbol
+        elementNameLabel.text = element?.name
+        elementWeightLabel.text = element?.weight.description
+        meltingPointLabel.text = element?.meltingPointInCelsius?.description
+        boilingPointLabel.text = element?.boilingPointInCelsius?.description
+        elementImageView.image = nil
+        loadImage()
+        
     }
-
+    
+    
+    func loadImage() {
+        guard let imageURLStr = "http://images-of-elements.com/\(element?.name.lowercased()).jpg" else {return}
+        let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
+            self.elementImageView.image = onlineImage
+            self.elementImageView.setNeedsLayout()
+        }
+        ImageAPIClient.manager.getImage(from: imageURLStr, completionHandler: completion, errorHandler: {print($0)})
+        
+    }
 }
 
 //show the element image and on it (constrain to the image view instead of plain view)

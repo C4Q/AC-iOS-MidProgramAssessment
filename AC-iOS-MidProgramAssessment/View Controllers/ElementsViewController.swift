@@ -72,8 +72,13 @@ class ElementsViewController: UIViewController, UITableViewDataSource, UITableVi
         return CGFloat(120)
     }
     
+    // prepare for segue
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ElementDetailViewController {
+            let element = elements[(tableView.indexPathForSelectedRow?.row)!]
+        }
+    }
 }
 
 // load elements data from the internet
