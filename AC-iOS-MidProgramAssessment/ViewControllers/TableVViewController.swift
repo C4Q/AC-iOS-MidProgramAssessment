@@ -75,9 +75,24 @@ extension TableVViewController: UITableViewDelegate, UITableViewDataSource {
             cell.spinner.isHidden = false
             cell.spinner.stopAnimating()
             
+            let idNum = element.id
+            var newID: String = element.id.description
+                switch idNum {
+                case 0..<10 :
+                    newID = "00\(idNum)"
+                case 10..<100:
+                    newID = "0\(idNum)"
+                case 100..<1000:
+                    newID = "\(idNum)"
+                default:
+                    ""
+                }
+                print(newID)
             
-        
-            let imageStr = "http://www.theodoregray.com/periodictable/Tiles/0\(element.id.description)/s7.JPG"
+            
+
+            
+            let imageStr = "http://www.theodoregray.com/periodictable/Tiles/\(newID)/s7.JPG"
             let setImage: (UIImage) -> Void = {(onlineImage: UIImage) in
                 cell.elementImageView?.image = onlineImage
                 cell.setNeedsLayout() // indicates that view needs to be redrawn
