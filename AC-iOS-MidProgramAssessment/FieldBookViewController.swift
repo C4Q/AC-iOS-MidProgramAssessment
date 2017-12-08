@@ -43,27 +43,9 @@ class FieldBookViewController: UIViewController, UITableViewDelegate, UITableVie
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "favoritesCell", for: indexPath) as? CustomTableViewCell else {return UITableViewCell()}
         let aFavorite = favorites[indexPath.row]
         
-        cell.nameLabel
-        cell.favoriteByInsertNameHereLabel.text = "\(aFavorite.student_name)"
-        
-        //Insert IMAGE API HERE
-        if let urlStr = aFavorite.image_link {
-            cell.spinner.isHidden = false
-            cell.spinner.startAnimating()
-            let setImageToOnlineImage: (UIImage) -> Void = {(onlineImage: UIImage) in
-                cell.imageViewInCell.image = onlineImage
-                cell.setNeedsLayout()
-            }
-            ImageAPIClient.manager.getImage(from: urlStr,
-                                            completionHandler: setImageToOnlineImage,
-                                            errorHandler: {print($0)})
-            //cell.spinner.stopAnimating()
-            //cell.spinner.isHidden = true
-            
-        } else {
-            //cell.spinner.isHidden = true
-            //cell.imageViewInCell.image = nil
-        }
+        cell.nameLabel.text = "Student: \(aFavorite.name ?? "Mysterious One")"
+        cell.symbolNumberAtomWeightLabel.text = "Favorite Element: \(aFavorite.favorite_element ?? "Unknown")"
+        cell.elementImageView.image = #imageLiteral(resourceName: "molecule")
         
         return cell
     }
