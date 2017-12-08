@@ -63,23 +63,15 @@ class ElementViewController: UIViewController, UITableViewDelegate, UITableViewD
         {return UITableViewCell()}
         cell.elementNameLabel.text = cellElementContent.name
         cell.elementSymbolAndAtomicWeightLabel.text = cellElementContent.symbol + " " + cellElementContent.weight.description
-//        let completion: (UIImage) -> Void = {(onlineElementImage: UIImage) in
-//            cell.elementThumbNailImageView.image = onlineElementImage
-//            cell.setNeedsLayout()
-//        }
-//        guard let image = else {
-//            return cell
-//        }
-//        ImageAPIClient.manager.getImage(from: image.medium, completionHandler: completion, errorHandler: {print($0)})
         return cell
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let destination = segue.destination as? EpisodesDetailViewController {
-//            let selectedRow = self.episodesTableView.indexPathForSelectedRow!.row
-//            let selectedEpisode = self.episodeArr[selectedRow]
-//            destination.tvEpisodeInfo = selectedEpisode
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ElementDetailViewController {
+            let selectedRow = self.elementsTableView.indexPathForSelectedRow!.row
+            let selectedElement = self.elementArr[selectedRow]
+            destination.elementInfo = selectedElement
+        }
+    }
     
 }

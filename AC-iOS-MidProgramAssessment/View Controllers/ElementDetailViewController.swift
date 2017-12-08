@@ -9,6 +9,8 @@
 import UIKit
 
 class ElementDetailViewController: UIViewController {
+    
+    var elementInfo: ElementWrapper!
 
     @IBOutlet weak var elementImageView: UIImageView!
     
@@ -24,7 +26,11 @@ class ElementDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        symbolLabel.text = elementInfo.symbol
+        numberLabel.text = elementInfo.name.description
+        weightLabel.text = elementInfo.weight.description
+        meltingPointLabel.text = elementInfo.meltingPointInC?.description
+        boilingPointLabel.text = elementInfo.boilingPointInC?.description
     }
     
 }
