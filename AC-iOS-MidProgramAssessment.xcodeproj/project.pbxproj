@@ -17,6 +17,9 @@
 		81799B511FDAEC5500039BCB /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81799B501FDAEC5500039BCB /* NetworkHelper.swift */; };
 		81799B531FDAECA600039BCB /* Element APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81799B521FDAECA600039BCB /* Element APIClient.swift */; };
 		81799B551FDAED0900039BCB /* Image APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81799B541FDAED0900039BCB /* Image APIClient.swift */; };
+		81799B571FDB06C500039BCB /* Favourite Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81799B561FDB06C500039BCB /* Favourite Model.swift */; };
+		81799B591FDB073700039BCB /* Favourite APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81799B581FDB073700039BCB /* Favourite APIClient.swift */; };
+		81799B5B1FDB084300039BCB /* NetworkHelperWithAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81799B5A1FDB084300039BCB /* NetworkHelperWithAuthentication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		81799B501FDAEC5500039BCB /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		81799B521FDAECA600039BCB /* Element APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Element APIClient.swift"; sourceTree = "<group>"; };
 		81799B541FDAED0900039BCB /* Image APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image APIClient.swift"; sourceTree = "<group>"; };
+		81799B561FDB06C500039BCB /* Favourite Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favourite Model.swift"; sourceTree = "<group>"; };
+		81799B581FDB073700039BCB /* Favourite APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favourite APIClient.swift"; sourceTree = "<group>"; };
+		81799B5A1FDB084300039BCB /* NetworkHelperWithAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelperWithAuthentication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,9 @@
 			isa = PBXGroup;
 			children = (
 				81799B4E1FDAEA6D00039BCB /* Element Model.swift */,
+				81799B561FDB06C500039BCB /* Favourite Model.swift */,
+				81799B581FDB073700039BCB /* Favourite APIClient.swift */,
+				81799B5A1FDB084300039BCB /* NetworkHelperWithAuthentication.swift */,
 				81799B501FDAEC5500039BCB /* NetworkHelper.swift */,
 				81799B521FDAECA600039BCB /* Element APIClient.swift */,
 				81799B541FDAED0900039BCB /* Image APIClient.swift */,
@@ -180,7 +189,10 @@
 				81799B4F1FDAEA6D00039BCB /* Element Model.swift in Sources */,
 				81799B511FDAEC5500039BCB /* NetworkHelper.swift in Sources */,
 				81799B531FDAECA600039BCB /* Element APIClient.swift in Sources */,
+				81799B591FDB073700039BCB /* Favourite APIClient.swift in Sources */,
+				81799B5B1FDB084300039BCB /* NetworkHelperWithAuthentication.swift in Sources */,
 				81799B4B1FDAE86600039BCB /* DetailedElementViewController.swift in Sources */,
+				81799B571FDB06C500039BCB /* Favourite Model.swift in Sources */,
 				81799B491FDAE85300039BCB /* ElementsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

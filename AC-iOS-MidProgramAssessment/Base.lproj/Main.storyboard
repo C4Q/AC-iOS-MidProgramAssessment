@@ -135,6 +135,9 @@
                                 <rect key="frame" x="284" y="89" width="63" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Favourite"/>
+                                <connections>
+                                    <action selector="favourite:" destination="DLr-SB-aUD" eventType="touchUpInside" id="ELS-qG-eki"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIS-qI-dhq">
                                 <rect key="frame" x="99" y="155" width="134" height="141"/>

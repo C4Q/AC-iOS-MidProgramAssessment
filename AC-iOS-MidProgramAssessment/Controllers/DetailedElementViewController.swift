@@ -10,7 +10,6 @@ import UIKit
 
 class DetailedElementViewController: UIViewController {
     var element: Element?
-    
     @IBOutlet weak var elementBackGroundImage: UIImageView!
     @IBOutlet weak var discoverYear: UILabel!
     @IBOutlet weak var elementBoilingPoint: UILabel!
@@ -19,6 +18,20 @@ class DetailedElementViewController: UIViewController {
     @IBOutlet weak var elementNumber: UILabel!
     @IBOutlet weak var ElementSymbol: UILabel!
     @IBOutlet weak var elementTitle: UILabel!
+    
+    @IBAction func favourite(_ sender: UIButton) {
+        guard let element = element else {
+            return
+        }
+        let myFavourite = Favourite(name: "Yaseen", favouriteElement: "\(element.name)")
+        FavouriteAPIClient.manager.post(favourite: myFavourite, errorHandler: {print($0)})
+        
+    }
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let element = element else {
