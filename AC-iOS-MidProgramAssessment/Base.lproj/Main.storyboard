@@ -48,13 +48,13 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Yh-ec-boj">
                                                     <rect key="frame" x="0.0" y="17" width="120" height="120"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbol&amp;Atomic Weight" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEH-FY-dBg">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbol&amp;Atomic Weight" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEH-FY-dBg">
                                                     <rect key="frame" x="120" y="92" width="185" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Element Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afv-J6-hQP">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Element Name" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afv-J6-hQP">
                                                     <rect key="frame" x="120" y="41" width="185" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -145,19 +145,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discovery Year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71n-KS-eMN">
-                                <rect key="frame" x="16" y="417" width="288" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="C2l-5H-Jee" firstAttribute="top" secondItem="WAI-yj-Uu6" secondAttribute="bottom" constant="8" id="0fZ-hn-IXG"/>
                             <constraint firstItem="Mp0-EJ-9Ua" firstAttribute="top" secondItem="sbM-td-JuA" secondAttribute="bottom" constant="8" id="20F-wG-8F4"/>
-                            <constraint firstItem="rR1-l0-TuK" firstAttribute="bottom" secondItem="71n-KS-eMN" secondAttribute="bottom" constant="42" id="6dG-mt-Jd1"/>
-                            <constraint firstItem="71n-KS-eMN" firstAttribute="top" secondItem="Mp0-EJ-9Ua" secondAttribute="bottom" constant="8" id="9q4-dF-I6I"/>
                             <constraint firstItem="WAI-yj-Uu6" firstAttribute="top" secondItem="k7b-c8-Qgm" secondAttribute="topMargin" constant="8" id="CVB-vB-zOJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vbt-E3-bcw" secondAttribute="trailing" id="Jbh-3C-B6g"/>
                             <constraint firstItem="WAI-yj-Uu6" firstAttribute="leading" secondItem="k7b-c8-Qgm" secondAttribute="leadingMargin" constant="8" id="K7D-Hh-nm4"/>
@@ -167,25 +159,22 @@
                             <constraint firstItem="Mp0-EJ-9Ua" firstAttribute="leading" secondItem="k7b-c8-Qgm" secondAttribute="leadingMargin" id="cM1-mh-jvW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="C2l-5H-Jee" secondAttribute="trailing" id="fvt-Vh-xvr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cMj-WF-xdv" secondAttribute="trailing" id="hbd-X3-RM3"/>
+                            <constraint firstItem="rR1-l0-TuK" firstAttribute="bottom" secondItem="Mp0-EJ-9Ua" secondAttribute="bottom" constant="71" id="iDA-fy-b8S"/>
                             <constraint firstItem="sbM-td-JuA" firstAttribute="top" secondItem="vbt-E3-bcw" secondAttribute="bottom" constant="8" id="jDy-Oe-qEn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="71n-KS-eMN" secondAttribute="trailing" id="n4A-oI-4UH"/>
                             <constraint firstItem="cMj-WF-xdv" firstAttribute="top" secondItem="C2l-5H-Jee" secondAttribute="bottom" constant="8" id="n6L-tO-yoq"/>
                             <constraint firstItem="vbt-E3-bcw" firstAttribute="leading" secondItem="k7b-c8-Qgm" secondAttribute="leadingMargin" id="p8G-18-ngD"/>
-                            <constraint firstItem="71n-KS-eMN" firstAttribute="leading" secondItem="k7b-c8-Qgm" secondAttribute="leadingMargin" id="qRa-q1-mdE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Mp0-EJ-9Ua" secondAttribute="trailing" id="rdf-Rd-7iC"/>
                             <constraint firstItem="sbM-td-JuA" firstAttribute="leading" secondItem="k7b-c8-Qgm" secondAttribute="leadingMargin" id="rhM-uV-uYt"/>
                             <constraint firstItem="vbt-E3-bcw" firstAttribute="top" secondItem="cMj-WF-xdv" secondAttribute="bottom" constant="8" id="s63-05-zRM"/>
                             <constraint firstItem="vbt-E3-bcw" firstAttribute="top" secondItem="cMj-WF-xdv" secondAttribute="bottom" constant="8" id="tzv-aK-keC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sbM-td-JuA" secondAttribute="trailing" id="ueX-lA-j8P"/>
                             <constraint firstItem="sbM-td-JuA" firstAttribute="top" secondItem="vbt-E3-bcw" secondAttribute="bottom" constant="8" id="yyW-cM-LAo"/>
-                            <constraint firstItem="71n-KS-eMN" firstAttribute="top" secondItem="Mp0-EJ-9Ua" secondAttribute="bottom" constant="8" id="zXN-UZ-VXF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WAI-yj-Uu6" secondAttribute="trailing" constant="8" id="zhh-fM-LBo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rR1-l0-TuK"/>
                     </view>
                     <connections>
                         <outlet property="boilingPointLabel" destination="Mp0-EJ-9Ua" id="wVL-cl-vHR"/>
-                        <outlet property="discoveryYearLabel" destination="71n-KS-eMN" id="idl-z1-6d6"/>
                         <outlet property="elementImageView" destination="WAI-yj-Uu6" id="SeK-pm-Oas"/>
                         <outlet property="meltingPointLabel" destination="sbM-td-JuA" id="yeV-g9-Jcu"/>
                         <outlet property="numberLabel" destination="cMj-WF-xdv" id="dTe-fH-8C9"/>

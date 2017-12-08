@@ -13,7 +13,7 @@ class ElementsAPIClient {
 
     static let manager = ElementsAPIClient()
 
-    func getTVEpisodes (from urlStr: String,
+    func getElementInfo (from urlStr: String,
                         completionHandler: @escaping ([ElementWrapper]) -> Void,
                         errorHandler: @escaping (Error) -> Void){
         guard let url = URL(string: urlStr) else {return}

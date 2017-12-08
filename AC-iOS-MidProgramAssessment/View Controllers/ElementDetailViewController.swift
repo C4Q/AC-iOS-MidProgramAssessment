@@ -22,8 +22,6 @@ class ElementDetailViewController: UIViewController {
     
     @IBOutlet weak var boilingPointLabel: UILabel!
     
-    @IBOutlet weak var discoveryYearLabel: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
