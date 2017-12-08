@@ -32,16 +32,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lG7-Yq-xJD">
-                                                    <rect key="frame" x="14.999999999999993" y="11" width="104.33333333333331" height="199.66666666666666"/>
+                                                    <rect key="frame" x="15.000000000000007" y="11" width="103.66666666666669" height="199.66666666666666"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82l-Ee-WeP">
-                                                    <rect key="frame" x="124.33333333333334" y="21" width="269.66666666666663" height="21"/>
+                                                    <rect key="frame" x="123.66666666666666" y="21" width="270.33333333333337" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbol(Number) Atomic Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fl-ZP-pal">
-                                                    <rect key="frame" x="124.33333333333334" y="168.66666666666666" width="284.66666666666663" height="21"/>
+                                                    <rect key="frame" x="123.66666666666666" y="168.66666666666666" width="285.33333333333337" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -103,7 +103,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Element Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlM-oP-vRj">
-                                <rect key="frame" x="24" y="283" width="366" height="32"/>
+                                <rect key="frame" x="23" y="283.33333333333331" width="368" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
@@ -111,7 +111,7 @@
                                 <size key="shadowOffset" width="1" height="2"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uP-Pt-Ovt">
-                                <rect key="frame" x="22.666666666666657" y="396" width="368" height="26"/>
+                                <rect key="frame" x="23" y="396" width="368" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
@@ -119,7 +119,7 @@
                                 <size key="shadowOffset" width="1" height="2"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melting Point" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSj-jL-Tix">
-                                <rect key="frame" x="22.666666666666657" y="448" width="368" height="21"/>
+                                <rect key="frame" x="23" y="448" width="368" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -131,16 +131,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Element Symbol" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxF-AR-QE2">
-                                <rect key="frame" x="24" y="218" width="366" height="60"/>
+                                <rect key="frame" x="23" y="218.33333333333334" width="368" height="60.000000000000028"/>
                                 <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="50"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <size key="shadowOffset" width="1" height="2"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLE-dk-IIF">
-                                <rect key="frame" x="152" y="703" width="111" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLE-dk-IIF">
+                                <rect key="frame" x="151.66666666666666" y="515" width="110.99999999999997" height="30"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Add to Favorites"/>
                                 <connections>
@@ -173,13 +172,16 @@
                             <constraint firstItem="rlM-oP-vRj" firstAttribute="width" secondItem="UxF-AR-QE2" secondAttribute="width" id="bEx-hn-eIY"/>
                             <constraint firstItem="UxF-AR-QE2" firstAttribute="centerY" secondItem="ZXE-cR-nDB" secondAttribute="centerY" id="di5-6b-H9v"/>
                             <constraint firstItem="rlM-oP-vRj" firstAttribute="top" secondItem="UxF-AR-QE2" secondAttribute="bottom" constant="5" id="iCH-65-AMI"/>
+                            <constraint firstItem="UxF-AR-QE2" firstAttribute="width" secondItem="ZXE-cR-nDB" secondAttribute="width" id="jAe-OK-2MM"/>
                             <constraint firstItem="ZXE-cR-nDB" firstAttribute="top" secondItem="erV-yu-ASY" secondAttribute="top" id="kMX-hV-8dN"/>
                             <constraint firstItem="ZXE-cR-nDB" firstAttribute="height" secondItem="VfH-f5-j4D" secondAttribute="height" multiplier="1:2" id="oav-g1-aKL"/>
                             <constraint firstItem="JSj-jL-Tix" firstAttribute="top" secondItem="ZXE-cR-nDB" secondAttribute="bottom" constant="16" id="r6c-jp-Mgo"/>
                             <constraint firstItem="8uP-Pt-Ovt" firstAttribute="centerX" secondItem="kU1-gE-Xfd" secondAttribute="centerX" id="sKM-km-dOP"/>
+                            <constraint firstItem="uLE-dk-IIF" firstAttribute="top" secondItem="kU1-gE-Xfd" secondAttribute="bottom" constant="15" id="sZJ-WX-wrx"/>
                             <constraint firstItem="8uP-Pt-Ovt" firstAttribute="centerX" secondItem="rlM-oP-vRj" secondAttribute="centerX" id="t3I-PG-c5O"/>
                             <constraint firstItem="kU1-gE-Xfd" firstAttribute="top" secondItem="JSj-jL-Tix" secondAttribute="bottom" constant="10" id="xWK-7B-QeB"/>
                             <constraint firstItem="1gF-0u-DTU" firstAttribute="trailing" secondItem="ZXE-cR-nDB" secondAttribute="trailing" id="znw-Sk-tT9"/>
+                            <constraint firstItem="uLE-dk-IIF" firstAttribute="centerX" secondItem="erV-yu-ASY" secondAttribute="centerX" id="zok-Dm-EFe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="erV-yu-ASY"/>
                     </view>

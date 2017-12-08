@@ -13,6 +13,11 @@ enum HTTPVerb: String {
     case POST
 }
 
+struct FavoriteElement: Codable {
+    let name: String
+    let favorite_element: String
+}
+
 struct FavoriteAPIClient {
     private init() {}
     static let manager = FavoriteAPIClient()
@@ -35,7 +40,7 @@ struct FavoriteAPIClient {
 //        NetworkHelper.manager.performDataTask(with: authenticatedRequest, completionHandler: parseDataIntoFavoritesArr, errorHandler: errorHandler)
 //    }
 
-    func add(favorite: Element, errorHandler: @escaping (Error) -> Void) {
+    func add(favorite: FavoriteElement, errorHandler: @escaping (Error) -> Void) {
         let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/favorites"
         guard var authPostRequest = buildAuthRequest(from: urlStr, httpVerb: .POST) else {errorHandler(AppError.badURL); return }
         do {
