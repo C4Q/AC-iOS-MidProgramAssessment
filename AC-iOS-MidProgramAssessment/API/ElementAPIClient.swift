@@ -9,24 +9,6 @@
 import Foundation
 
 
-//struct ElementAPIClient {
-//    private init() {}
-//    static let manager = ElementAPIClient()
-//    func getElement(from urlStr: String, completionHandler: @escaping ([ElementInfo]) -> Void, errorHandler: @escaping (AppError) ->Void) {
-//        guard let url = URL(string: urlStr) else { return }
-//        let completion: (Data) -> Void = {(data: Data) in
-//            do {
-//                let elements = try JSONDecoder().decode([ElementInfo].self, from: data)
-//                completionHandler(elements)
-//            } catch {
-//                errorHandler(.couldNotParseJSON(rawError: error))
-//            }
-//        }
-//        NetworkHelper.manager.performDataTask(with: url, completionHandler: completion, errorHandler: errorHandler)
-//    }
-//
-//}
-
 struct ElementPost: Codable{
     let name: String
     let favorite_element: String
@@ -41,7 +23,7 @@ struct ElementAPIClient {
     private init() {}
     static let manager = ElementAPIClient()
     func getElement(from urlStr: String, completionHandler: @escaping ([ElementInfo]) -> Void,
-                   errorHandler: @escaping (Error) -> Void) {
+                   errorHandler: @escaping (AppError) -> Void) {
         let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/elements"
         guard let authenticatedRequest = buildAuthRequest(from: urlStr, httpVerb: .GET) else { errorHandler(AppError.badURL); return }
         let parseDataIntoFavArr = {(data: Data) in

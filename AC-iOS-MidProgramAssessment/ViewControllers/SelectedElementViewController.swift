@@ -21,7 +21,6 @@ class SelectedElementViewController: UIViewController {
     @IBOutlet weak var boilingPointLabel: UILabel!
     @IBAction func favoriteButton(_ sender: UIButton) {
         let favoritedElement = ElementPost(name: "Kash", favorite_element: selectedElement.symbol)
-//            ElementAPIClient.manager.post(favElement: favoritedElement, completionHandler: {print($0)}, errorHandler: {print($0)})
         ElementAPIClient.manager.postFavorite(favElement: favoritedElement, errorHandler: {_ in print(Error.self)})
     }
     
