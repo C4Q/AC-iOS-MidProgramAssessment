@@ -10,16 +10,18 @@ import Foundation
 class NetworkHelper {
     private init() {}
     static let manager = NetworkHelper()
-    let urlSession = URLSession(configuration: URLSessionConfiguration.default)
-    func performDataTask(with url: URLRequest, completionHandler: @escaping ((Data) -> Void), errorHandler: @escaping (Error) -> Void) {
-        self.urlSession.dataTask(with: url){(data: Data?, response: URLResponse?, error: Error?) in
+    let urlSession = URLSession(configuration: .default)
+    func performDataTask(with urlRequest: URLRequest, completionHandler: @escaping ((Data) -> Void), errorHandler: @escaping (Error) -> Void) {
+        self.urlSession.dataTask(with: urlRequest){(data: Data?, response: URLResponse?, error: Error?) in
             DispatchQueue.main.async {
                 guard let data = data else {
                     errorHandler(AppError.noDataReceived)
                     return
                 }
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    errorHandler(AppError.badStatusCode)
+                    if let _ = error {
+                        errorHandler(AppError.badStatusCode)
+                    }
                     return
                 }
                 if let error = error {

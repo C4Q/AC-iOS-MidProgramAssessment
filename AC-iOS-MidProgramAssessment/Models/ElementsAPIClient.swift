@@ -47,8 +47,8 @@ class ElementsAPIClient {
         let userName = "key-1"
         let password = "ptJP0XOFIQ_xysF7nwoB"
         let authStr = buildAuthStr(userName: userName, password: password)
-        request.addValue(authStr, forHTTPHeaderField: "Authorization")
         if httpVerb == .POST {
+            request.addValue(authStr, forHTTPHeaderField: "Authorization")
             request.httpMethod = "POST"
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")

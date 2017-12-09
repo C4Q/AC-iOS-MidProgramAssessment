@@ -23,4 +23,6 @@ enum AppError: Error {
 enum HTTPVerb: String {
     case GET
     case POST
+    case DELETE
+    case UPDATE
 }
