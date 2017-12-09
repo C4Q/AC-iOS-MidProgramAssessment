@@ -45,7 +45,7 @@ class ElementDetailViewController: UIViewController {
         symbolLabel.text = anElement.symbol
         numberLabel.text = anElement.number.description
         weightLabel.text = anElement.weight.description
-        meltingLabel.text = "Melting Point: \(anElement.boiling_c ?? 0)"
+        meltingLabel.text = "Melting Point: \(anElement.melting_c ?? 0)"
         boilingLabel.text = "Boiling Point: \(anElement.boiling_c ?? 0)"
         
         
