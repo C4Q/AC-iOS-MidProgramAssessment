@@ -53,11 +53,23 @@ class ElementsTableViewController: UITableViewController {
         
         func loadMyImage() {
             var urlStr = ""
-            if elementChosen.number <= 9 {
-            urlStr = "http://www.theodoregray.com/periodictable/Tiles/00\(elementChosen.number)/s7.JPG"
-            } else {
-            urlStr = "http://www.theodoregray.com/periodictable/Tiles/0\(elementChosen.number)/s7.JPG"
+            switch elementChosen.number {
+            case 1..<10:
+               urlStr = "http://www.theodoregray.com/periodictable/Tiles/00\(elementChosen.number)/s7.JPG"
+            case 10..<100:
+                urlStr = "http://www.theodoregray.com/periodictable/Tiles/0\(elementChosen.number)/s7.JPG"
+            default:
+                urlStr = "http://www.theodoregray.com/periodictable/Tiles/\(elementChosen.number)/s7.JPG"
             }
+            
+//            if elementChosen.number <= 9 {
+//            urlStr = "http://www.theodoregray.com/periodictable/Tiles/00\(elementChosen.number)/s7.JPG"
+//            } else if elementChosen.number >= 10 && elementChosen.number <=99 {
+//            urlStr = "http://www.theodoregray.com/periodictable/Tiles/0\(elementChosen.number)/s7.JPG"
+//            } else {
+//            urlStr = "http://www.theodoregray.com/periodictable/Tiles/\(elementChosen.number)/s7.JPG"
+//            }
+            
             let setElementsToOnlineElements: (UIImage) -> Void = {(onlineImage: UIImage) in
                 cell.elementThumbnail.image = onlineImage
             }
@@ -68,7 +80,7 @@ class ElementsTableViewController: UITableViewController {
         loadMyImage()
         return cell
     }
-    
+
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ElementDetailViewController {
@@ -77,3 +89,4 @@ class ElementsTableViewController: UITableViewController {
         }
     }
 }
+

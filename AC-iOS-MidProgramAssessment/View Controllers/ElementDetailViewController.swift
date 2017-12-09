@@ -22,7 +22,6 @@ class ElementDetailViewController: UIViewController {
     var elementPassed: Element!
     var elementName = ""
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         loadElementData()
@@ -53,23 +52,11 @@ class ElementDetailViewController: UIViewController {
     }
     
     //MARK: POST REQUEST
-    
-    struct myPost {
-        let myName: String
-        let favoriteElement: String
-    }
     @IBAction func postButtonPressed(_ sender: Any) {
-        //Make POST request with my Name and Favorite Element
-        let posting = myPost(myName: "Kaniz", favoriteElement: elementPassed.name!)
-        POSTAPIClient.manager.post(Element: elementPassed){ print($0) }
+        let myPost = MyfaveElement(myName: "Kaniz", favorite_element:elementPassed.name!)
+        MyFavoriteElementAPIClient.manager.post(fav: myPost){ print($0) }
     }
-    }
-
-//NOTE: I was trying to change the typr for element above. Instead I wanted to pass in posting.
-    
-
-
-
+}
 
 
 

@@ -11,7 +11,9 @@
 		54B2A8C31FDA411D0056D007 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54B2A8C11FDA411D0056D007 /* Main.storyboard */; };
 		54B2A8C51FDA411D0056D007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54B2A8C41FDA411D0056D007 /* Assets.xcassets */; };
 		54B2A8C81FDA411D0056D007 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54B2A8C61FDA411D0056D007 /* LaunchScreen.storyboard */; };
-		817144981FDB3F7C0070F7CC /* POSTAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817144971FDB3F7C0070F7CC /* POSTAPIClient.swift */; };
+		8171449C1FDC91C70070F7CC /* MyFaveElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8171449B1FDC91C70070F7CC /* MyFaveElement.swift */; };
+		8171449E1FDC92A60070F7CC /* MyFaveElementAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8171449D1FDC92A60070F7CC /* MyFaveElementAPIClient.swift */; };
+		817144A01FDC95B30070F7CC /* PostNetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8171449F1FDC95B30070F7CC /* PostNetworkHelper.swift */; };
 		81BA09901FDAEC78000A92FF /* ElementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA098F1FDAEC78000A92FF /* ElementsTableViewController.swift */; };
 		81BA09921FDAEC9E000A92FF /* ElementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA09911FDAEC9E000A92FF /* ElementDetailViewController.swift */; };
 		81BA09941FDAED58000A92FF /* ElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA09931FDAED58000A92FF /* ElementTableViewCell.swift */; };
@@ -28,7 +30,9 @@
 		54B2A8C41FDA411D0056D007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54B2A8C71FDA411D0056D007 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54B2A8C91FDA411D0056D007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		817144971FDB3F7C0070F7CC /* POSTAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POSTAPIClient.swift; sourceTree = "<group>"; };
+		8171449B1FDC91C70070F7CC /* MyFaveElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFaveElement.swift; sourceTree = "<group>"; };
+		8171449D1FDC92A60070F7CC /* MyFaveElementAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFaveElementAPIClient.swift; sourceTree = "<group>"; };
+		8171449F1FDC95B30070F7CC /* PostNetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkHelper.swift; sourceTree = "<group>"; };
 		81BA098F1FDAEC78000A92FF /* ElementsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsTableViewController.swift; sourceTree = "<group>"; };
 		81BA09911FDAEC9E000A92FF /* ElementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementDetailViewController.swift; sourceTree = "<group>"; };
 		81BA09931FDAED58000A92FF /* ElementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementTableViewCell.swift; sourceTree = "<group>"; };
@@ -104,7 +108,8 @@
 				81BA09971FDAED9E000A92FF /* NetworkHelper.swift */,
 				81BA09991FDAEDBB000A92FF /* ElementAPIClient.swift */,
 				81BA099B1FDAEE18000A92FF /* ImageAPIClient.swift */,
-				817144971FDB3F7C0070F7CC /* POSTAPIClient.swift */,
+				8171449D1FDC92A60070F7CC /* MyFaveElementAPIClient.swift */,
+				8171449F1FDC95B30070F7CC /* PostNetworkHelper.swift */,
 			);
 			path = "Network Models";
 			sourceTree = "<group>";
@@ -113,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				81BA09951FDAED6D000A92FF /* Element.swift */,
+				8171449B1FDC91C70070F7CC /* MyFaveElement.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,11 +206,13 @@
 				81BA099A1FDAEDBB000A92FF /* ElementAPIClient.swift in Sources */,
 				81BA09901FDAEC78000A92FF /* ElementsTableViewController.swift in Sources */,
 				81BA09921FDAEC9E000A92FF /* ElementDetailViewController.swift in Sources */,
+				817144A01FDC95B30070F7CC /* PostNetworkHelper.swift in Sources */,
 				81BA099C1FDAEE18000A92FF /* ImageAPIClient.swift in Sources */,
+				8171449C1FDC91C70070F7CC /* MyFaveElement.swift in Sources */,
 				81BA09941FDAED58000A92FF /* ElementTableViewCell.swift in Sources */,
 				54B2A8BE1FDA411D0056D007 /* AppDelegate.swift in Sources */,
-				817144981FDB3F7C0070F7CC /* POSTAPIClient.swift in Sources */,
 				81BA09981FDAED9E000A92FF /* NetworkHelper.swift in Sources */,
+				8171449E1FDC92A60070F7CC /* MyFaveElementAPIClient.swift in Sources */,
 				81BA09961FDAED6D000A92FF /* Element.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
