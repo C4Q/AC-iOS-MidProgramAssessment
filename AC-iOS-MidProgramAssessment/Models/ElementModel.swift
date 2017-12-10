@@ -7,19 +7,46 @@
 //
 
 import Foundation
+//full size images
+// http://images-of-elements.com/lowercasedElementName.jpg
 
-struct PeriodicElement {
-    let number: Int?
-    let weight: Double?
+//thumbnail images
+//http://www.theodoregray.com/periodictable/Tiles/ElementNumberWithThreeDigits/s7.JPG
+
+struct PeriodicElement: Codable {
+
+    var thumbNailImage: String {
+        var threeDigitNumber = String(number)
+        while threeDigitNumber.count < 3 {
+             threeDigitNumber = "0" + threeDigitNumber
+        }
+        let newThumbNail = "http://www.theodoregray.com/periodictable/Tiles/\(threeDigitNumber)/s7.JPG"
+        return newThumbNail
+    }
+    
+    var largeImage: String {
+        let largeImage = "http://images-of-elements.com/\(name.lowercased()).jpg"
+        return largeImage
+    }
+    
+    let number: Int
+    let weight: Double
     let name: String
-    let symbol: String?
+    let symbol: String
     let meltingPoint: Int?
     let boilingPoint: Int?
-    let discoveryYear: Int
- 
+    //let discoveryYear: Int
+    
     enum CodingKeys: String, CodingKey {
+        case number
+        case weight
+        case name
+        case symbol
         case meltingPoint = "melting_c"
         case boilingPoint = "boiling_c"
-        case discoveryYear = "discovery_year"
+        //case discoveryYear = "discovery_year"
     }
 }
+
+//CONFORM TO CODABLE!
+//List EVERYTHING within coding keys!

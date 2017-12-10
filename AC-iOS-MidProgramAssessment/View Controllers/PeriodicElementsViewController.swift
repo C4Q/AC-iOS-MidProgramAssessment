@@ -8,12 +8,16 @@
 
 import UIKit
 
+
+//full size images
+// http://images-of-elements.com/lowercasedElementName.jpg
+
+
 class PeriodicElementsViewController: UIViewController {
     
     @IBOutlet weak var elementsTableView: UITableView!
-    
     @IBOutlet weak var activitySpinner1: UIActivityIndicatorView!
-    var element = [PeriodicElement]()
+    
     //what is powering app
     var periodicElements = [PeriodicElement]() {
         didSet{
@@ -25,17 +29,18 @@ class PeriodicElementsViewController: UIViewController {
         super.viewDidLoad()
         elementsTableView.dataSource = self
         elementsTableView.delegate = self
-        //activitySpinner.isHidden = true
+        activitySpinner1.isHidden = true
         getPeriodicElementData()
     }
     
     func getPeriodicElementData(){
         //ElementAPIClient
-        
-        let urlStr = "http://www.theodoregray.com/periodictable/Tiles/\(symbol)/s7.JPG"
+        // link to access all the data
+        let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/elements"
         //set completion
-        let completion: ([PeriodicElement]) -> Void = {(onlinePeriodicElement: [PeriodicElement]) in
-            self.periodicElements = onlinePeriodicElement
+        let completion: ([PeriodicElement]) -> Void = {(onlineElement: [PeriodicElement]) in
+            self.periodicElements = onlineElement
+            //PeriodicElements generated and put into the array
         }
         //set errorHandler
         let errorHandler: (Error) -> Void = {(error: Error) in
@@ -47,19 +52,21 @@ class PeriodicElementsViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
         }
         //call ElementsAPIClient
-        ElementAPIClient.manager.getElements(from: urlStr, completionHandler: completion, errorHandler: errorHandler)
+        ElementAPIClient.manager.getElements(from: urlStr,
+                                             completionHandler: completion,
+                                             errorHandler: errorHandler) //errorHandler
     }
     
     // MARK: - Navigation
-    //http://images-of-elements.com/lowercasedElementName.jpg
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DetailElementsViewController{
             let selectedRow = self.elementsTableView.indexPathForSelectedRow!.row
             let selectedElement = self.periodicElements[selectedRow]
             //sending url of element image over
-            let elementName =  //how to access the name from the model
-            destination.detailElement = "http://images-of-elements.com/\(name.lowercased()).jpg"
-            //print(selectedEpisode.show.name)
+            destination.detailElement = selectedElement
+            //let elementName = PeriodicElement.CodingKeys.name
+            //"http://images-of-elements.com/\(elementName).jpg"
+            print(selectedElement.name)
         }
     }
 }
@@ -80,9 +87,12 @@ extension PeriodicElementsViewController: UITableViewDelegate, UITableViewDataSo
             let defaultCell = UITableViewCell()
             defaultCell.textLabel?.text = element.name
             defaultCell.detailTextLabel?.text = element.symbol
+            defaultCell.imageView?.image = #imageLiteral(resourceName: "noImg")
             return defaultCell
         }
+        
         //set properties
+        
         elementCell.elementNameLabel.text = "\(element.name)" //(Sodium)
         elementCell.elementSymbolLabel.text = "\(element.symbol,"(\(String(describing: element.number))")" //Na(11)
         elementCell.elementWeightLabel.text = "\(String(describing: element.weight))" //12.111
@@ -91,21 +101,23 @@ extension PeriodicElementsViewController: UITableViewDelegate, UITableViewDataSo
         elementCell.layer.borderWidth = 5
         elementCell.layer.borderColor = UIColor.black.cgColor
         
-        elementCell.elementImage.image = #imageLiteral(resourceName: "noImg") //defaultImage
+       // elementCell.elementImage.image = #imageLiteral(resourceName: "noImg") //defaultImage
         
         //settingImage
-        guard let imageUrlStr = elementCell.elementImage.imageView?.image else {return elementCell}
-        //        activitySpinner1.isHidden = false
-        //        activitySpinner1.startAnimating()
-        let completion : (UIImage) -> Void = {(onlineImage: UIImage) in
-            elementCell.imageView?.image = onlineImage
-            elementCell.setNeedsLayout()//image loads as soon as it's ready
-            //            self.activitySpinner1.isHidden = true
-            //            self.activitySpinner1.stopAnimating()
-        }
-        ImageAPIClient.manager.getImage(from: imageUrlStr,
-                                        completionHandler: completion,
-                                        errorHandler: {print($0)})
+        //make sure you can convert the url into an image
+        let imageUrlStr = element.thumbNailImage
+                activitySpinner1.isHidden = false
+                activitySpinner1.startAnimating()
+                let completion : (UIImage) -> Void = {(onlineImage: UIImage) in
+                    elementCell.imageView?.image = onlineImage
+                    elementCell.setNeedsLayout()//image loads as soon as it's ready
+                    self.activitySpinner1.isHidden = true
+                    self.activitySpinner1.stopAnimating()
+                }
+        
+                ImageAPIClient.manager.getImage(from: imageUrlStr,
+                                                completionHandler: completion,
+                                                errorHandler: {print($0)})
         return elementCell
     }
 }

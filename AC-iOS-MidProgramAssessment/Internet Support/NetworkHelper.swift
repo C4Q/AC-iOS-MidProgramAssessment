@@ -7,7 +7,6 @@
 //
 
 import Foundation
-//add links to use
 
 class NetworkHelper {
     
@@ -42,16 +41,3 @@ class NetworkHelper {
             }.resume()
     }
 }
-
-//use for post portion
-//if let error = error {
-//    let error = error as NSError
-//    if error.domain == NSURLErrorDomain && error.code == NSURLErrorNotConnectedToInternet {
-//        errorHandler(AppError.noInternetConnection)
-//        return
-//    } else {
-//        errorHandler(AppError.other(rawError: error))
-//        return
-//    }
-//}
-
