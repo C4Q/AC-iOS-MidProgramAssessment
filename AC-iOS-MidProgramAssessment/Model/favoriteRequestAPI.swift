@@ -29,24 +29,24 @@ struct FavoriteAPIClient {
                    errorHandler: @escaping (Error) -> Void) {
         let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/favorites"
         guard let authenticatedRequest = buildAuthRequest(from: urlStr, httpVerb: .GET) else { errorHandler(AppError.badURL); return }
-        let parseDataIntoOrderArr = {(data: Data) in
+        let parseDataIntoFavoriteArr = {(data: Data) in
             do {
-                let onlineOrders = try JSONDecoder().decode([FavoriteInfo].self, from: data)
-                completionHandler(onlineOrders)
+                let onlineFavorite = try JSONDecoder().decode([FavoriteInfo].self, from: data)
+                completionHandler(onlineFavorite)
             }
             catch let error {
                 errorHandler(AppError.codingError(rawError: error))
             }
         }
-        NetworkHelperPOST.manager.performDataTask(with: authenticatedRequest, completionHandler: parseDataIntoOrderArr, errorHandler: errorHandler)
+        NetworkHelper.manager.performDataTask(with: authenticatedRequest, completionHandler: parseDataIntoFavoriteArr, errorHandler: errorHandler)
     }
     func post(favorite: FavoriteInfo , errorHandler: @escaping (Error) -> Void) {
-        let urlStr = "https://api.fieldbook.com/v1/5a21d3ea92dfac03005db55a/orders"
+        let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/favorites"
         guard var authPostRequest = buildAuthRequest(from: urlStr, httpVerb: .POST) else {errorHandler(AppError.badURL); return }
         do {
             let encodedfavorite = try JSONEncoder().encode(favorite)
             authPostRequest.httpBody = encodedfavorite
-            NetworkHelperPOST.manager.performDataTask(with: authPostRequest,
+            NetworkHelper.manager.performDataTask(with: authPostRequest,
                                                   completionHandler: {_ in print("Made a post request")},
                                                   errorHandler: errorHandler)
         }
@@ -60,7 +60,7 @@ struct FavoriteAPIClient {
         guard let url = URL(string: urlStr) else { return nil }
         var request = URLRequest(url: url)
         let userName = "key-1"
-        let password = "p3Z-A83YixDsI-B4aRLm"
+        let password = "ptJP0XOFIQ_xysF7nwoB"
         let authStr = buildAuthStr(userName: userName, password: password)
         request.addValue(authStr, forHTTPHeaderField: "Authorization")
         if httpVerb == .POST {
@@ -78,5 +78,6 @@ struct FavoriteAPIClient {
         return authStr
     }
 }
+
 
 

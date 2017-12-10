@@ -24,16 +24,15 @@ class ElementsViewController: UIViewController {
         loadElements()
         
        
-      
     }
 
     func loadElements() {
-     let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/elements"
+        let url = URL(string:"https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/elements")
      let completion: ([ElementInfo]) -> Void = {(onlineElements: [ElementInfo]) in
             self.elements = onlineElements
         }
         let errorHandler: (AppError) -> Void = {(error: AppError) in ()}
-        ElementAPIClient.manager.getElements(from: urlStr, completionHandler: completion, errorHandler: errorHandler)
+        ElementAPIClient.manager.getElements(from: url!, completionHandler: completion, errorHandler: errorHandler)
     
 }
     //MARK:- Segue
@@ -54,11 +53,21 @@ extension ElementsViewController: UITableViewDataSource {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "Element Cell", for: indexPath) as! CustomTableViewCell
         let element = self.elements[indexPath.row]
         cell.name.text = element.name
-        cell.symbolNumberWeight.text = element.symbol + "\(String(describing: element.number))"  + (element.weight.description)
+        cell.symbolNumberWeight.text = element.symbol + "(\(element.number.description))" + " "   + element.weight.description
         cell.elementImage.image = nil
-        
+        var threeDigitNumber = ""
         func loadImage() {
-            guard let url = URL(string: "http://www.theodoregray.com/periodictable/Tiles/018/s7.JPG") else {return}
+          
+            switch element.number.description.count {
+            case 1:
+              threeDigitNumber = "00" + element.number.description
+            case 2:
+              threeDigitNumber = "0" + element.number.description
+            default:
+               threeDigitNumber = element.number.description
+                
+            }
+            guard let url = URL(string: "http://www.theodoregray.com/periodictable/Tiles/\(threeDigitNumber)/s7.JPG") else {return}
             let myGlobalQueue = DispatchQueue.global(qos: .utility)
             myGlobalQueue.async {
                 print("About to make network connection")
@@ -74,7 +83,7 @@ extension ElementsViewController: UITableViewDataSource {
             print("Just dispatched to global queue")
         }
 
-//
+        loadImage()
        return cell
     }
 }

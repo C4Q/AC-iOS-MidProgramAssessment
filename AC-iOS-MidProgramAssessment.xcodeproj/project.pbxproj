@@ -19,7 +19,6 @@
 		818C0BD51FDAED300045E6CE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C0BD41FDAED300045E6CE /* DetailViewController.swift */; };
 		818C0BD71FDAED560045E6CE /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C0BD61FDAED560045E6CE /* CustomTableViewCell.swift */; };
 		818C0BD91FDAF2500045E6CE /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C0BD81FDAF2500045E6CE /* AppError.swift */; };
-		818C0BDD1FDAF2A50045E6CE /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C0BDC1FDAF2A50045E6CE /* NetworkHelper.swift */; };
 		818C0BDF1FDAF2D40045E6CE /* ElementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C0BDE1FDAF2D40045E6CE /* ElementModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 		818C0BD41FDAED300045E6CE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		818C0BD61FDAED560045E6CE /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		818C0BD81FDAF2500045E6CE /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
-		818C0BDC1FDAF2A50045E6CE /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		818C0BDE1FDAF2D40045E6CE /* ElementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				818C0BD81FDAF2500045E6CE /* AppError.swift */,
-				818C0BDC1FDAF2A50045E6CE /* NetworkHelper.swift */,
 				811BFA101FDAFA020015CB06 /* ElementsAPIClient.swift */,
 				811BFA161FDB42610015CB06 /* NetworkHelper1.swift */,
 				818C0BDE1FDAF2D40045E6CE /* ElementModel.swift */,
@@ -194,7 +191,6 @@
 				811BFA151FDB3E6A0015CB06 /* favoriteRequestAPI.swift in Sources */,
 				818C0BD91FDAF2500045E6CE /* AppError.swift in Sources */,
 				818C0BD71FDAED560045E6CE /* CustomTableViewCell.swift in Sources */,
-				818C0BDD1FDAF2A50045E6CE /* NetworkHelper.swift in Sources */,
 				811BFA171FDB42610015CB06 /* NetworkHelper1.swift in Sources */,
 				818C0BD21FDAECF50045E6CE /* ElementsViewController.swift in Sources */,
 				811BFA131FDB14140015CB06 /* NewFavoriteViewController.swift in Sources */,

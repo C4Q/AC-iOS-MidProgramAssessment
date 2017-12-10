@@ -10,13 +10,12 @@ import Foundation
 struct ElementAPIClient {
     private init() {}
     static let manager = ElementAPIClient()
-    func getElements(from urlStr: String,
+    func getElements(from url: URL,
     completionHandler: @escaping ([ElementInfo]) -> Void,
     errorHandler: @escaping (AppError) -> Void) {
-    guard let url = URL(string: urlStr) else {
-    errorHandler(.badURL)
-    return
-    }
+        let url = URLRequest(url: url)
+        
+    
         let completion: (Data) -> Void = {(data: Data) in
             do {
                 let elementInfo = try JSONDecoder().decode([ElementInfo].self, from: data)
@@ -30,8 +29,8 @@ struct ElementAPIClient {
                                               completionHandler: completion,
                                               errorHandler: errorHandler)
     }
-}
 
+}
 
 
 
