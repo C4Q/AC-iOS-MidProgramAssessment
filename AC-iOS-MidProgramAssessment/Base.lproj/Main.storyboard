@@ -72,7 +72,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="twM-2U-064">
+                            <searchBar contentMode="redraw" placeholder="Search Elements by Name" translatesAutoresizingMaskIntoConstraints="NO" id="twM-2U-064">
                                 <rect key="frame" x="0.0" y="64" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
