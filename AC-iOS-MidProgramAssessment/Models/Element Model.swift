@@ -10,7 +10,7 @@ import Foundation
 struct Element: Codable {
     let id: Double
     let number: Int
-    // to avoid the error of the computated varible from codable exclude it from  codingKeys https://stackoverflow.com/questions/44655562/how-to-exclude-properties-from-swift-4s-codable
+    // to avoid the error of the computated varible from codable exclude it from codingKeys https://stackoverflow.com/questions/44655562/how-to-exclude-properties-from-swift-4s-codable
     var imageNumber: String?{
         switch self.number.description.count {
         case 1:
