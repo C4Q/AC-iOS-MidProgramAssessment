@@ -20,15 +20,21 @@ class DetailedElementViewController: UIViewController {
     @IBOutlet weak var detailedScroll: UITextView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    //Actions
+    
+    @IBAction func postToFavorites(_ sender: UIButton) {
+        let elementPost = ElementPost(name: "Ashlee", favorite_element: element.symbol)
+        ElementAPIClient.manager.post(elementPost: elementPost, completionHandler: {print($0)}, errorHandler: {print($0)})
+    }
     
     
     //Variables
     var element: Element!
-    
+
     //View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-setAllLabels()
+        setAllLabels()
         
         
     }
@@ -59,13 +65,13 @@ setAllLabels()
         
         elementImage.image = #imageLiteral(resourceName: "images")
         
-
+        
         let imageUrlStr = "http://images-of-elements.com/\(element.name.lowercased()).jpg"
         
         let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
             
             self.elementImage.image = onlineImage
-    
+            
             self.activityIndicator.stopAnimating()
         }
         activityIndicator.startAnimating()

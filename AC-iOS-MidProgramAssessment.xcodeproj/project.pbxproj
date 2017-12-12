@@ -19,6 +19,7 @@
 		93F190AE1FDAE925004EF8E9 /* ElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F190AD1FDAE925004EF8E9 /* ElementTableViewCell.swift */; };
 		93F190B31FDAF108004EF8E9 /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F190B21FDAF108004EF8E9 /* ImageAPIClient.swift */; };
 		93F190B51FDAF1CE004EF8E9 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F190B41FDAF1CE004EF8E9 /* AppError.swift */; };
+		93F191801FE07081004EF8E9 /* ElementPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F1917F1FE07081004EF8E9 /* ElementPost.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		93F190AD1FDAE925004EF8E9 /* ElementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementTableViewCell.swift; sourceTree = "<group>"; };
 		93F190B21FDAF108004EF8E9 /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
 		93F190B41FDAF1CE004EF8E9 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		93F1917F1FE07081004EF8E9 /* ElementPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementPost.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				93F190A71FDAE8F0004EF8E9 /* Element.swift */,
 				93F190B21FDAF108004EF8E9 /* ImageAPIClient.swift */,
 				93F190A91FDAE8FF004EF8E9 /* ElementAPIClient.swift */,
+				93F1917F1FE07081004EF8E9 /* ElementPost.swift */,
 				93F190AB1FDAE90E004EF8E9 /* NetworkHelper.swift */,
 				93F190B41FDAF1CE004EF8E9 /* AppError.swift */,
 			);
@@ -191,6 +194,7 @@
 			files = (
 				54B2A8BE1FDA411D0056D007 /* AppDelegate.swift in Sources */,
 				93F190AA1FDAE8FF004EF8E9 /* ElementAPIClient.swift in Sources */,
+				93F191801FE07081004EF8E9 /* ElementPost.swift in Sources */,
 				93F190B51FDAF1CE004EF8E9 /* AppError.swift in Sources */,
 				93F190A61FDAE8E1004EF8E9 /* DetailedElementViewController.swift in Sources */,
 				93F190B31FDAF108004EF8E9 /* ImageAPIClient.swift in Sources */,

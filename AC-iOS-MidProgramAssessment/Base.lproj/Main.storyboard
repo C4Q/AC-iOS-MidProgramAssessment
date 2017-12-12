@@ -165,6 +165,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="postToFavorites:" destination="u0Y-bg-gzz" eventType="touchUpInside" id="sww-vK-Plj"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kxZ-l8-CUA">
                                 <rect key="frame" x="162" y="151" width="118.5" height="20.5"/>
