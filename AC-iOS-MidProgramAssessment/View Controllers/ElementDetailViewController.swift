@@ -48,9 +48,14 @@ class ElementDetailViewController: UIViewController {
             self.elementPicture.image = onlineImage
             self.activityIndicator.stopAnimating()
         }
-        
+            let errorImage: (Error) -> Void  = {(error: Error) in
+                self.activityIndicator.stopAnimating()
+                self.elementPicture.image = #imageLiteral(resourceName: "image_not_available")
+                print(error)
+            }
+            
         self.activityIndicator.startAnimating()
-        ImageAPIClient.manager.getImage(from: urlStr, completionHandler: completion, errorHandler: {print($0)})
+        ImageAPIClient.manager.getImage(from: urlStr, completionHandler: completion, errorHandler: errorImage)
 
         } else{
             activityIndicator.stopAnimating()
