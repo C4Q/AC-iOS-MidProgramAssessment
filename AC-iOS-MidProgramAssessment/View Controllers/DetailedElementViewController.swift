@@ -66,6 +66,7 @@ class DetailedElementViewController: UIViewController {
         elementImage.image = #imageLiteral(resourceName: "images")
         
         
+        
         let imageUrlStr = "http://images-of-elements.com/\(element.name.lowercased()).jpg"
         
         let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
@@ -74,9 +75,12 @@ class DetailedElementViewController: UIViewController {
             
             self.activityIndicator.stopAnimating()
         }
+        let imageError: (Error) -> Void = {(error: Error) in
+            self.activityIndicator.stopAnimating()
+            print(error)
+        }
         activityIndicator.startAnimating()
-        ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: completion, errorHandler: {print($0)})
-        
+        ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: completion, errorHandler: imageError)
         
         
         
