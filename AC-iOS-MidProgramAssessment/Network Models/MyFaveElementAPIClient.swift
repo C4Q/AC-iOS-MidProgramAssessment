@@ -16,21 +16,21 @@ enum HTTPVerb: String {
 struct MyFavoriteElementAPIClient {
     private init() {}
     static let manager = MyFavoriteElementAPIClient()
-    func getFavs(completionHandler: @escaping ([MyfaveElement]) -> Void,
-                 errorHandler: @escaping (Error) -> Void) {
-        let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/favorites"
-        guard let authenticatedRequest = buildAuthRequest(from: urlStr, httpVerb: .GET) else { errorHandler(AppError.badURL); return }
-        let parseDataIntoOrderArr = {(data: Data) in
-            do {
-                let onlineFavs = try JSONDecoder().decode([MyfaveElement].self, from: data)
-                completionHandler(onlineFavs)
-            }
-            catch let error {
-                errorHandler(AppError.codingError(rawError: error))
-            }
-        }
-        PostNetworkHelper.manager.performDataTask(with: authenticatedRequest, completionHandler: parseDataIntoOrderArr, errorHandler: errorHandler)
-    }
+//    func getFavs(completionHandler: @escaping ([MyfaveElement]) -> Void,
+//                 errorHandler: @escaping (Error) -> Void) {
+//        let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/favorites"
+//        guard let authenticatedRequest = buildAuthRequest(from: urlStr, httpVerb: .GET) else { errorHandler(AppError.badURL); return }
+//        let parseDataIntoOrderArr = {(data: Data) in
+//            do {
+//                let onlineFavs = try JSONDecoder().decode([MyfaveElement].self, from: data)
+//                completionHandler(onlineFavs)
+//            }
+//            catch let error {
+//                errorHandler(AppError.codingError(rawError: error))
+//            }
+//        }
+//        PostNetworkHelper.manager.performDataTask(with: authenticatedRequest, completionHandler: parseDataIntoOrderArr, errorHandler: errorHandler)
+//    }
     
     func post(fav: MyfaveElement, errorHandler: @escaping (Error) -> Void) {
         let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/favorites"

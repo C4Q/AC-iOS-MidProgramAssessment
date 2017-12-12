@@ -8,7 +8,8 @@
 
 import Foundation
 
+//needs to be named exactly !
 struct MyfaveElement: Codable {
-    let myName: String
+    let name: String
     let favorite_element: String
 }

@@ -53,7 +53,7 @@ class ElementDetailViewController: UIViewController {
     
     //MARK: POST REQUEST
     @IBAction func postButtonPressed(_ sender: Any) {
-        let myPost = MyfaveElement(myName: "Kaniz", favorite_element:elementPassed.name!)
+        let myPost = MyfaveElement(name: "Kaniz", favorite_element:elementPassed.name!)
         MyFavoriteElementAPIClient.manager.post(fav: myPost){ print($0) }
     }
 }
