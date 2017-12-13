@@ -13,23 +13,28 @@ import Foundation
 //thumbnail images
 //http://www.theodoregray.com/periodictable/Tiles/ElementNumberWithThreeDigits/s7.JPG
 
-struct PeriodicElement: Codable {
 
+//CONFORM TO CODABLE!
+//List EVERYTHING within coding keys!
+
+struct PeriodicElement: Codable {
+    
     var thumbNailImage: String {
         var threeDigitNumber = String(number)
+        
         while threeDigitNumber.count < 3 {
-             threeDigitNumber = "0" + threeDigitNumber
+            threeDigitNumber = "0" + threeDigitNumber
         }
         let newThumbNail = "http://www.theodoregray.com/periodictable/Tiles/\(threeDigitNumber)/s7.JPG"
         return newThumbNail
     }
     
-    var largeImage: String {
-        let largeImage = "http://images-of-elements.com/\(name.lowercased()).jpg"
-        return largeImage
+    var fullImage: String {
+        let fullImage = "http://images-of-elements.com/\(name.lowercased()).jpg"
+        return fullImage
     }
     
-    let number: Int
+    var number: Int 
     let weight: Double
     let name: String
     let symbol: String
@@ -48,5 +53,3 @@ struct PeriodicElement: Codable {
     }
 }
 
-//CONFORM TO CODABLE!
-//List EVERYTHING within coding keys!

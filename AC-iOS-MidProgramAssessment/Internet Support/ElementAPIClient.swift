@@ -48,33 +48,4 @@ class ElementAPIClient {
                                               completionHandler: parseDataIntoElementArr,
                                               errorHandler: errorHandler)
     }
-
-    //MARK: - Posting element as favorite
-//    func POST(periodicElement: [PeriodicElement],
-//              completionHandler: @escaping (Data) -> Void,
-//              errorHandler: @escaping (Error) -> Void){
-//        //where you are sending element to
-//        let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/favorites"
-//        //1. get auth request from url string
-//        //make a request that uses POST http method
-//        guard var authPostRequest = BasicAuthRequest.generate.buildAuthRequest(from: urlStr, httpMethod: .POST) else {
-//            errorHandler(AppError.badURL)
-//            return
-//        }
-//        //put the content of what you wanna post - using the httpBody instance property
-//        do{
-//            //2. encode foundation objection into json data (so api can use it), and then
-//            
-//            let encodedPeriodicElement = try JSONEncoder().encode(periodicElement)
-//            //3. add that data to the http body of the authorized url request (the body is the message of the content)
-//           
-//            authPostRequest.httpBody = encodedPeriodicElement //should be data
-//            //4. Now perform network request with url request, which has the data that you want to upload and the right authorizations
-//            
-//            NetworkHelper.manager.performDataTask(from: authPostRequest, completionHandler: completionHandler, errorHandler: errorHandler)
-//            
-//        }catch let error{
-//            errorHandler(AppError.other(rawError: error))
-//        }
-//    }
 }

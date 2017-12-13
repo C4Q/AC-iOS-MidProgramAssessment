@@ -8,11 +8,6 @@
 
 import UIKit
 
-
-//full size images
-// http://images-of-elements.com/lowercasedElementName.jpg
-
-
 class PeriodicElementsViewController: UIViewController {
     
     @IBOutlet weak var elementsTableView: UITableView!
@@ -31,10 +26,12 @@ class PeriodicElementsViewController: UIViewController {
         elementsTableView.delegate = self
         activitySpinner1.isHidden = true
         getPeriodicElementData()
+        elementsTableView.rowHeight = UITableViewAutomaticDimension
+        elementsTableView.estimatedRowHeight = 225
     }
     
     func getPeriodicElementData(){
-        //ElementAPIClient
+        //ElementAPIClient here
         // link to access all the data
         let urlStr = "https://api.fieldbook.com/v1/5a29757f9b3fec0300e1a68c/elements"
         //set completion
@@ -86,38 +83,31 @@ extension PeriodicElementsViewController: UITableViewDelegate, UITableViewDataSo
             //make default cell
             let defaultCell = UITableViewCell()
             defaultCell.textLabel?.text = element.name
-            defaultCell.detailTextLabel?.text = element.symbol
             defaultCell.imageView?.image = #imageLiteral(resourceName: "noImg")
             return defaultCell
         }
         
         //set properties
-        
         elementCell.elementNameLabel.text = "\(element.name)" //(Sodium)
-        elementCell.elementSymbolLabel.text = "\(element.symbol,"(\(String(describing: element.number))")" //Na(11)
+        elementCell.elementSymbolLabel.text = "\(element.symbol) (\(element.number))" //Na(11)
+        print(element.symbol, element.number)
         elementCell.elementWeightLabel.text = "\(String(describing: element.weight))" //12.111
-        
-        //set border and border color
-        elementCell.layer.borderWidth = 5
-        elementCell.layer.borderColor = UIColor.black.cgColor
-        
-       // elementCell.elementImage.image = #imageLiteral(resourceName: "noImg") //defaultImage
+        elementCell.elementImage.image = #imageLiteral(resourceName: "noImg") //defaultImage
         
         //settingImage
         //make sure you can convert the url into an image
         let imageUrlStr = element.thumbNailImage
-                activitySpinner1.isHidden = false
-                activitySpinner1.startAnimating()
-                let completion : (UIImage) -> Void = {(onlineImage: UIImage) in
-                    elementCell.imageView?.image = onlineImage
-                    elementCell.setNeedsLayout()//image loads as soon as it's ready
-                    self.activitySpinner1.isHidden = true
-                    self.activitySpinner1.stopAnimating()
-                }
-        
-                ImageAPIClient.manager.getImage(from: imageUrlStr,
-                                                completionHandler: completion,
-                                                errorHandler: {print($0)})
+        activitySpinner1.isHidden = false
+        activitySpinner1.startAnimating()
+        let completion : (UIImage) -> Void = {(onlineImage: UIImage) in
+            elementCell.elementImage.image = onlineImage
+            elementCell.setNeedsLayout()//image loads as soon as it's ready
+            self.activitySpinner1.isHidden = true
+            self.activitySpinner1.stopAnimating()
+        }
+        ImageAPIClient.manager.getImage(from: imageUrlStr,
+                                        completionHandler: completion,
+                                        errorHandler: {print($0)})
         return elementCell
     }
 }

@@ -8,11 +8,13 @@
 
 import Foundation
 
-struct Favorites {
+struct Favorites: Codable {
     let name: String
     let favoriteElement: String
     
     enum CodingKeys: String, CodingKey {
+        case name
         case favoriteElement = "favorite_element"
     }
 }
+
