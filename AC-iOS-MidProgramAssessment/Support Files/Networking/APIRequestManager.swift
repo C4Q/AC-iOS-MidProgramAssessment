@@ -13,9 +13,9 @@ class APIRequestManager {
     
     static let shared = APIRequestManager()
     
-    func getData(from url: URL, callback: @escaping (Data?) -> Void) {
+    func getData(from endpoint: URL, callback: @escaping (Data?) -> Void) {
         let session = URLSession(configuration: URLSessionConfiguration.default)
-        session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
+        session.dataTask(with: endpoint) { (data: Data?, response: URLResponse?, error: Error?) in
             if let errorFound = error {
                 print("Error durring session: \(errorFound.localizedDescription)")
             }
@@ -26,10 +26,8 @@ class APIRequestManager {
             }.resume()
     }
     
-    func postRequest(to endPoint: String, data: [String : Any]) {
-        guard let url = URL(string: endPoint) else { return }
-        
-        var request = URLRequest(url: url)        
+    func postRequest(to endPoint: URL, data: [String : Any]) {
+        var request = URLRequest(url: endPoint)        
         let namePassStr = "\(BasicAuth.username):\(BasicAuth.password)"
         let nameAndPassData = namePassStr.data(using: .utf8)!
         let base64AuthEncoding = nameAndPassData.base64EncodedString()

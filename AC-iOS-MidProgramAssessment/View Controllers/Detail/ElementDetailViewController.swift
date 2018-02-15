@@ -44,16 +44,19 @@ class ElementDetailViewController: UIViewController {
             self.discoveryLabel.text = "Discovered in \(self.chosenElement.yearDiscovered)"
         }
         
-        if let imageUrl = self.chosenElement.fullsizeURL { 
-            APIRequestManager.shared.getData(from: imageUrl) { (data: Data?) in
-                if  let validData = data,
-                    let validImage = UIImage(data: validData) {
-                    DispatchQueue.main.async {
-                        self.fullsizePic.image = validImage
-                        self.view.setNeedsDisplay()
-                    }
-                }
-            }
-        }
+        self.fullsizePic.image = self.chosenElement.fullsizePic
     }
+    
+    @IBAction func favoriteButtonWasTapped(_ sender: UIButton) {
+        let data: [String: Any] = ["name": BasicAuth.username, "favorite_element": "My favorite element is \(String(describing: chosenElement.name))"]
+        dump(data)
+        
+        guard let url = URL(string: NetworkPath.favoritePostAddress) else {
+            return
+        }
+        
+        APIRequestManager.shared.postRequest(to: url, data: data)
+
+    }
+    
 }
