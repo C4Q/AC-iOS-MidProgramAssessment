@@ -16,7 +16,7 @@ class Element {
     let meltingPoint: Int?
     let boilingPoint: Int?
     // this could be a number or text, so let's make it easier on ourselves by storing any numbers we get as Strings 
-    let yearDiscovered: String 
+    var yearDiscovered: String? 
     let thumbnailURL: URL?
     let fullsizeURL: URL?
     var thumbnailPic: UIImage?
@@ -47,7 +47,6 @@ class Element {
               let numberFromDict = elementDict["number"] as? Int,
               let symbolFromDict = elementDict["symbol"] as? String,
               let weightFromDict = elementDict["weight"] as? Double,
-              let discoveredFromDict = elementDict["discovery_year"] as? String,
               let meltingPointFromDict = elementDict["melting_c"] as? Int,
               let boilingPointFromDict = elementDict["boiling_c"] as? Int?
         else { return nil }
@@ -56,7 +55,17 @@ class Element {
         self.number = numberFromDict
         self.symbol = symbolFromDict
         self.weight = weightFromDict
-        self.yearDiscovered = discoveredFromDict
+        
+        // This one is either a string or an int
+        
+        if let discoveredFromDict = elementDict["discovery_year"] as? String {
+            self.yearDiscovered = discoveredFromDict
+        } else {
+            if let discoveredFromDict = elementDict["discovery_year"] as? Int {
+                self.yearDiscovered = String(describing: discoveredFromDict)
+            }
+        }
+        
         self.meltingPoint = meltingPointFromDict
         self.boilingPoint = boilingPointFromDict
         

@@ -39,9 +39,9 @@ class ElementDetailViewController: UIViewController {
         }
         
         if self.chosenElement.yearDiscovered == "ancient" {
-            self.discoveryLabel.text = "Discovered in \(self.chosenElement.yearDiscovered) times"
+            self.discoveryLabel.text = "Discovered in \(String(describing: self.chosenElement.yearDiscovered!)) times"
         } else {
-            self.discoveryLabel.text = "Discovered in \(self.chosenElement.yearDiscovered)"
+            self.discoveryLabel.text = "Discovered in \(String(describing: self.chosenElement.yearDiscovered!))"
         }
         
         self.fullsizePic.image = self.chosenElement.fullsizePic
