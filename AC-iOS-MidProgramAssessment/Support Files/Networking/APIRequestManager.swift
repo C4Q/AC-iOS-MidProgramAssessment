@@ -39,8 +39,8 @@ class APIRequestManager {
         
         request.httpMethod = "POST"
         request.addValue(authStr, forHTTPHeaderField: "Authorization")
-       // request.addValue("application/json", forHTTPHeaderField: "Accept")
-       // request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        // request.addValue("application/json", forHTTPHeaderField: "Accept")
+        // request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         do {
             let body = try JSONSerialization.data(withJSONObject: data, options: [])
@@ -75,5 +75,27 @@ class APIRequestManager {
                 print("Error converting json: \(error)")
             }
             }.resume()
+    }
+    
+    func grabElements(from data: Data?) -> [Element]? {
+        var elementsArr = [Element]()
+        
+        do {
+            let jsonData: Any = try JSONSerialization.jsonObject(with: data!, options: [])
+            
+            guard let response: [[String : AnyObject]] = jsonData as? [[String : AnyObject]] else {
+                throw ParseError.results(json: jsonData)
+            }
+            
+            for elementDict in response {
+                if let element = Element(from: elementDict) { elementsArr.append(element) }
+            }
+        }
+            
+        catch let ParseError.results(json: json)  { print("Error encountered parsing key for object: \(json)") }
+            
+        catch { print("Unknown parsing error") }
+        
+        return elementsArr
     }
 }

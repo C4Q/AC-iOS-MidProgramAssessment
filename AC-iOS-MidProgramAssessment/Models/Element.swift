@@ -28,12 +28,41 @@ class Element {
         self.meltingPoint = meltingPoint
         self.boilingPoint = boilingPoint
         self.yearDiscovered = yearDiscovered
+                
+        let urls = Element.buildPicURLs(fromNumber: number, andName: name)
         
-        let digitsForURL = Element.addLeadingZeros(to: number)
-        
-        self.thumbnailURL = URL(string: "\(NetworkPath.thumbnailAddressBase)\(digitsForURL)\(NetworkPath.thumbnailAddressExtension)")
-        self.fullsizeURL = URL(string: "\(NetworkPath.fullsizeAddressBase)\(name.lowercased())\(NetworkPath.fullsizeAddressExtension)")
+        self.thumbnailURL = urls.thumbnail
+        self.fullsizeURL = urls.fullsize
     }
+    
+    // MARK: - Networking Niceties
+    
+    init?(from elementDict: [String:AnyObject]) {
+        guard let nameFromDict = elementDict["name"] as? String,
+              let numberFromDict = elementDict["number"] as? Int,
+              let symbolFromDict = elementDict["symbol"] as? String,
+              let weightFromDict = elementDict["weight"] as? Double,
+              let discoveredFromDict = elementDict["discovery_year"] as? String,
+              let meltingPointFromDict = elementDict["melting_c"] as? Int,
+              let boilingPointFromDict = elementDict["boiling_c"] as? Int?
+        else { return nil }
+        
+        self.name = nameFromDict
+        self.number = numberFromDict
+        self.symbol = symbolFromDict
+        self.weight = weightFromDict
+        self.yearDiscovered = discoveredFromDict
+        self.meltingPoint = meltingPointFromDict
+        self.boilingPoint = boilingPointFromDict
+        
+        let urls = Element.buildPicURLs(fromNumber: number, andName: name)
+        
+        self.thumbnailURL = urls.thumbnail
+        self.fullsizeURL = urls.fullsize
+        
+    }
+    
+    // MARK: - Image URL helpers
     
     private static func addLeadingZeros(to number: Int) -> String {
         var digits: String = ""
@@ -49,5 +78,14 @@ class Element {
         }
         
         return digits
-    } 
+    }
+    
+    private static func buildPicURLs(fromNumber number: Int, andName name: String) -> (thumbnail: URL?, fullsize: URL?) {
+        let digitsForURL = Element.addLeadingZeros(to: number)
+        
+        let thumbnailURL = URL(string: "\(NetworkPath.thumbnailAddressBase)\(digitsForURL)\(NetworkPath.thumbnailAddressExtension)")
+        let fullsizeURL = URL(string: "\(NetworkPath.fullsizeAddressBase)\(name.lowercased())\(NetworkPath.fullsizeAddressExtension)")
+        
+        return (thumbnailURL, fullsizeURL)
+    }
 }

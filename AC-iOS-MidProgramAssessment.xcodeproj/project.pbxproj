@@ -15,6 +15,7 @@
 		056D92892035589C0066B21E /* NetworkPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D92882035589C0066B21E /* NetworkPath.swift */; };
 		056D928B203558E10066B21E /* APIRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D928A203558E10066B21E /* APIRequestManager.swift */; };
 		056D928D203566680066B21E /* BasicAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D928C203566680066B21E /* BasicAuth.swift */; };
+		056D928F20356DD90066B21E /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D928E20356DD90066B21E /* ParseError.swift */; };
 		54B2A8BE1FDA411D0056D007 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B2A8BD1FDA411D0056D007 /* AppDelegate.swift */; };
 		54B2A8C31FDA411D0056D007 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54B2A8C11FDA411D0056D007 /* Main.storyboard */; };
 		54B2A8C51FDA411D0056D007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54B2A8C41FDA411D0056D007 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		056D92882035589C0066B21E /* NetworkPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPath.swift; sourceTree = "<group>"; };
 		056D928A203558E10066B21E /* APIRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestManager.swift; sourceTree = "<group>"; };
 		056D928C203566680066B21E /* BasicAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuth.swift; sourceTree = "<group>"; };
+		056D928E20356DD90066B21E /* ParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
 		54B2A8BA1FDA411D0056D007 /* AC-iOS-MidProgramAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AC-iOS-MidProgramAssessment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B2A8BD1FDA411D0056D007 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54B2A8C21FDA411D0056D007 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				056D928A203558E10066B21E /* APIRequestManager.swift */,
+				056D928E20356DD90066B21E /* ParseError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				056D927F203557D20066B21E /* ElementTableViewCell.swift in Sources */,
 				056D92852035582F0066B21E /* ElementDetailViewController.swift in Sources */,
 				056D92872035586E0066B21E /* Element.swift in Sources */,
+				056D928F20356DD90066B21E /* ParseError.swift in Sources */,
 				056D928D203566680066B21E /* BasicAuth.swift in Sources */,
 				056D927D203557880066B21E /* Identifier.swift in Sources */,
 				056D9281203557EF0066B21E /* PeriodicTableViewController.swift in Sources */,
