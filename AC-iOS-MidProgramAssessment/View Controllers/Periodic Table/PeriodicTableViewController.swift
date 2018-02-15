@@ -9,7 +9,13 @@
 import UIKit
 
 class PeriodicTableViewController: UITableViewController {
-    var elements: [Element]?
+    var elements: [Element]? {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,25 +25,45 @@ class PeriodicTableViewController: UITableViewController {
         APIRequestManager.shared.getData(from: jsonUrl) { (data: Data?) in
             if let validData = data,
                 let array = APIRequestManager.shared.grabElements(from: validData) {
-                self.elements = array
                 
-                DispatchQueue.main.async {
-                    self.tableView!.reloadData()
+                for element in array {
+                    guard let thumbnailUrl = element.thumbnailURL else { return }
+                    guard let fullsizeUrl = element.fullsizeURL else { return }
+                    
+                    APIRequestManager.shared.getData(from: fullsizeUrl) { (data: Data?) in
+                        if  let validData = data,
+                            let validImage = UIImage(data: validData) {
+                            DispatchQueue.main.async {
+                                element.fullsizePic = validImage
+                            }
+                        }
+                    }
+                    
+                    APIRequestManager.shared.getData(from: thumbnailUrl) { (data: Data?) in
+                        if  let validData = data,
+                            let validImage = UIImage(data: validData) {
+                            DispatchQueue.main.async {
+                                element.thumbnailPic = validImage
+                            }
+                        }
+                    }
                 }
+                
+                self.elements = array
             }
         }
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.elements?.count ?? 0
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.elementCell, for: indexPath) as! ElementTableViewCell
         let element = self.elements?[indexPath.row]
@@ -49,30 +75,15 @@ class PeriodicTableViewController: UITableViewController {
             return cell
         }
         
+        cell.pic.image = element?.thumbnailPic
         cell.name.text = name
         cell.additionalDetails.text = "\(String(describing: symbol))(\(String(describing: number))) \(String(describing: weight))"
         
-        // get pics
-        
-        guard let imageUrl = element?.thumbnailURL else { return cell }
-        
-        APIRequestManager.shared.getData(from: imageUrl) { (data: Data?) in
-            if  let validData = data,
-                let validImage = UIImage(data: validData) {
-                DispatchQueue.main.async {
-                    if tableView.cellForRow(at: indexPath) != nil {
-                        cell.pic.image = validImage
-                        cell.setNeedsLayout()
-                    }
-                }
-            }
-        }
-        
         return cell
     }
-
+    
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == Identifier.segueToDetail else { return }
         
@@ -86,5 +97,5 @@ class PeriodicTableViewController: UITableViewController {
         nextVC.chosenElement = chosenElement
         nextVC.title = chosenElement.name
     }
-
+    
 }

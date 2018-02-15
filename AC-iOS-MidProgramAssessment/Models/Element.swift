@@ -6,7 +6,7 @@
 //  Copyright © 2018 C4Q . All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Element {    
     let name: String
@@ -19,6 +19,8 @@ class Element {
     let yearDiscovered: String 
     let thumbnailURL: URL?
     let fullsizeURL: URL?
+    var thumbnailPic: UIImage?
+    var fullsizePic: UIImage?
     
     init(name: String, symbol: String, number: Int, weight: Double, meltingPoint: Int?, boilingPoint: Int?, yearDiscovered: String) {
         self.name = name
@@ -33,6 +35,9 @@ class Element {
         
         self.thumbnailURL = urls.thumbnail
         self.fullsizeURL = urls.fullsize
+        
+        self.fullsizePic = nil
+        self.thumbnailPic = nil
     }
     
     // MARK: - Networking Niceties
@@ -60,6 +65,8 @@ class Element {
         self.thumbnailURL = urls.thumbnail
         self.fullsizeURL = urls.fullsize
         
+        self.thumbnailPic = nil
+        self.fullsizePic = nil
     }
     
     // MARK: - Image URL helpers

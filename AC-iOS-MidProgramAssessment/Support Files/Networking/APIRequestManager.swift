@@ -6,7 +6,7 @@
 //  Copyright © 2018 C4Q . All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class APIRequestManager {
     private init() {}
