@@ -22,6 +22,8 @@ class ElementDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.colorize()
+        
         self.symbolLabel.text = self.chosenElement.symbol
         self.weightLabel.text = "Standard atomc weight of \(String(describing: self.chosenElement.weight))"
         self.numberLabel.text = String(self.chosenElement.number)
@@ -59,4 +61,23 @@ class ElementDetailViewController: UIViewController {
 
     }
     
+    func colorize() {
+        if self.chosenElement.number % 2 == 0 {
+            self.view.backgroundColor = UIColor.yellow
+            self.symbolLabel.textColor = UIColor.black
+            self.weightLabel.textColor = UIColor.black
+            self.numberLabel.textColor = UIColor.black
+            self.boilingLabel.textColor = UIColor.black
+            self.meltingLabel.textColor = UIColor.black
+            self.discoveryLabel.textColor = UIColor.black
+        } else {
+            self.view.backgroundColor = UIColor.black
+            self.symbolLabel.textColor = UIColor.yellow
+            self.weightLabel.textColor = UIColor.yellow
+            self.numberLabel.textColor = UIColor.yellow
+            self.boilingLabel.textColor = UIColor.yellow
+            self.meltingLabel.textColor = UIColor.yellow
+            self.discoveryLabel.textColor = UIColor.yellow
+        }
+    }
 }

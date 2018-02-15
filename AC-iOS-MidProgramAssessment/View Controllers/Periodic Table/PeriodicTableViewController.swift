@@ -68,6 +68,16 @@ class PeriodicTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.elementCell, for: indexPath) as! ElementTableViewCell
         let element = self.elements?[indexPath.row]
         
+        if indexPath.row % 2 == 0 {
+            cell.contentView.backgroundColor = UIColor.yellow
+            cell.name.textColor = UIColor.black
+            cell.additionalDetails.textColor = UIColor.black
+        } else {
+            cell.contentView.backgroundColor = UIColor.black
+            cell.name.textColor = UIColor.yellow
+            cell.additionalDetails.textColor = UIColor.yellow
+        }
+        
         guard let name = element?.name, let symbol = element?.symbol, let number = element?.number, let weight = element?.weight else {
             cell.name.text = "N/A"
             cell.additionalDetails.text = ""
@@ -88,9 +98,9 @@ class PeriodicTableViewController: UITableViewController {
         guard segue.identifier == Identifier.segueToDetail else { return }
         
         let nextVC = segue.destination as! ElementDetailViewController
-        let cell = sender as? UITableViewCell
+        let cell = sender as! UITableViewCell
         
-        guard let indexPath = tableView.indexPath(for: cell!) else { return }
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
         
         let chosenElement = self.elements![indexPath.row]
         
