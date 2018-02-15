@@ -22,7 +22,7 @@ class PeriodicTableViewController: UITableViewController {
                 self.elements = array
                 
                 DispatchQueue.main.async {
-                    self.tableView?.reloadData()
+                    self.tableView!.reloadData()
                 }
             }
         }
