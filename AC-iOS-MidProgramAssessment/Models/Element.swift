@@ -46,9 +46,7 @@ class Element {
         guard let nameFromDict = elementDict["name"] as? String,
               let numberFromDict = elementDict["number"] as? Int,
               let symbolFromDict = elementDict["symbol"] as? String,
-              let weightFromDict = elementDict["weight"] as? Double,
-              let meltingPointFromDict = elementDict["melting_c"] as? Int,
-              let boilingPointFromDict = elementDict["boiling_c"] as? Int?
+              let weightFromDict = elementDict["weight"] as? Double
         else { return nil }
         
         self.name = nameFromDict
@@ -66,8 +64,17 @@ class Element {
             }
         }
         
-        self.meltingPoint = meltingPointFromDict
-        self.boilingPoint = boilingPointFromDict
+        if let meltingPointFromDict = elementDict["melting_c"] as? Int {
+            self.meltingPoint = meltingPointFromDict
+        } else {
+           self.meltingPoint = nil
+        }
+        
+        if let boilingPointFromDict = elementDict["boiling_c"] as? Int {
+            self.boilingPoint = boilingPointFromDict
+        } else {
+            self.boilingPoint = nil 
+        }
         
         let urls = Element.buildPicURLs(fromNumber: number, andName: name)
         
