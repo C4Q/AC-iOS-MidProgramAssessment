@@ -48,7 +48,7 @@ class ElementDetailViewController: UIViewController {
     }
     
     @IBAction func favoriteButtonWasTapped(_ sender: UIButton) {
-        let data: [String: Any] = ["name": BasicAuth.username, "favorite_element": "My favorite element is \(String(describing: chosenElement.name))"]
+        let data: [String: Any] = ["name": "Marty", "favorite_element": "\(String(describing: chosenElement.symbol))"]
         dump(data)
         
         guard let url = URL(string: NetworkPath.favoritePostAddress) else {

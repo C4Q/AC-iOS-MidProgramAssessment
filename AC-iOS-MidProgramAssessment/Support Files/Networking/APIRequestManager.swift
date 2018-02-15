@@ -35,8 +35,7 @@ class APIRequestManager {
         
         request.httpMethod = "POST"
         request.addValue(authStr, forHTTPHeaderField: "Authorization")
-        // request.addValue("application/json", forHTTPHeaderField: "Accept")
-        // request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         do {
             let body = try JSONSerialization.data(withJSONObject: data, options: [])
