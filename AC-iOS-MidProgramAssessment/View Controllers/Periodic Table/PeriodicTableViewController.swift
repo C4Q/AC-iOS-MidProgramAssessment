@@ -52,6 +52,9 @@ class PeriodicTableViewController: UITableViewController {
                 self.elements = array
             }
         }
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "by Name", style: .plain, target: self, action: #selector(self.sortArrayByName))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "by Number", style: .plain, target: self, action: #selector(self.sortArrayByNumber))
     }
     
     // MARK: - Table view data source
@@ -106,6 +109,16 @@ class PeriodicTableViewController: UITableViewController {
         
         nextVC.chosenElement = chosenElement
         nextVC.title = chosenElement.name
+    }
+    
+    // MARK: - Button Actions
+    
+    @objc func sortArrayByName() {
+        self.elements = elements?.sorted{ $0.name < $1.name }
+    }
+    
+    @objc func sortArrayByNumber() {
+        self.elements = elements?.sorted{ $0.number < $1.number }
     }
     
 }
