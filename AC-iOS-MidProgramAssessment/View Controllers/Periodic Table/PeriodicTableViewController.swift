@@ -57,6 +57,11 @@ class PeriodicTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "by Number", style: .plain, target: self, action: #selector(self.sortArrayByNumber))
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.tintColor = UIColor.yellow
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
