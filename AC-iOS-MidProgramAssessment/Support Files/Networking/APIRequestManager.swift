@@ -13,11 +13,9 @@ class APIRequestManager {
     
     static let shared = APIRequestManager()
     
-    func getData(from endPoint: String, callback: @escaping (Data?) -> Void) {
-        guard let myURL = URL(string: endPoint) else { return }
-        
+    func getData(from url: URL, callback: @escaping (Data?) -> Void) {
         let session = URLSession(configuration: URLSessionConfiguration.default)
-        session.dataTask(with: myURL) { (data: Data?, response: URLResponse?, error: Error?) in
+        session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
             if let errorFound = error {
                 print("Error durring session: \(errorFound.localizedDescription)")
             }
