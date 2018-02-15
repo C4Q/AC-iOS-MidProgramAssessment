@@ -18,9 +18,9 @@ class Element {
     // this could be a number or text, so let's make it easier on ourselves by storing any numbers we get as Strings 
     let yearDiscovered: String 
     let thumbnailURL: URL?
-    let portraitURL: URL?
+    let fullsizeURL: URL?
     
-    init(name: String, symbol: String, number: Int, weight: Double, meltingPoint: Int?, boilingPoint: Int?, yearDiscovered: String, thumbnailURL: URL?, portraitURL: URL?) {
+    init(name: String, symbol: String, number: Int, weight: Double, meltingPoint: Int?, boilingPoint: Int?, yearDiscovered: String) {
         self.name = name
         self.symbol = symbol
         self.number = number
@@ -28,15 +28,26 @@ class Element {
         self.meltingPoint = meltingPoint
         self.boilingPoint = boilingPoint
         self.yearDiscovered = yearDiscovered
-        self.thumbnailURL = thumbnailURL
-        self.portraitURL = portraitURL
+        
+        let digitsForURL = Element.addLeadingZeros(to: number)
+        
+        self.thumbnailURL = URL(string: "\(NetworkPath.thumbnailAddressBase)\(digitsForURL)\(NetworkPath.thumbnailAddressExtension)")
+        self.fullsizeURL = URL(string: "\(NetworkPath.fullsizeAddressBase)\(name.lowercased())\(NetworkPath.fullsizeAddressExtension)")
     }
     
-    convenience init(name: String, symbol: String, number: Int, weight: Double, meltingPoint: Int?, boilingPoint: Int?, yearDiscovered: String, thumbnailAddress: String, portraitAddress: String) {
-       
-        let thumbnailURL = URL(string: thumbnailAddress) ?? nil
-        let portraitURL = URL(string: portraitAddress) ?? nil
+    private static func addLeadingZeros(to number: Int) -> String {
+        var digits: String = ""
         
-        self.init(name: name, symbol: symbol, number: number, weight: weight, meltingPoint: meltingPoint, boilingPoint: boilingPoint, yearDiscovered: yearDiscovered, thumbnailURL: thumbnailURL, portraitURL: portraitURL)
-    }
+        if number/100 >= 1 {
+            digits = String(number) 
+        } else {
+            if number/10 >= 1 {
+                digits = "0" + String(number)
+            } else if number/10 < 1 {
+                digits = "00" + String(number)
+            }
+        }
+        
+        return digits
+    } 
 }
